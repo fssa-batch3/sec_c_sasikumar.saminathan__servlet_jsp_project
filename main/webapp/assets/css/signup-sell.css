@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Barlow:wght@300;400&family=Karla:wght@300;400&family=Michroma&family=Outfit:wght@100;500&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Barlow+Condensed&family=Barlow:wght@300;400&family=Karla:wght@300;400&family=Michroma&family=Outfit:wght@100;500&family=Rubik:wght@300&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family:PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+}
+
+/* variable declarations */
+:root{
+    --primary:#00203FFF;
+    --secondary:#ADEFD1FF;
+}
+body{
+    background-image: url(../../assets/image/circle-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.signup-container{
+    margin: auto;
+    width: 500px;
+    margin-top: 70px;
+    height: 750px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+    border-radius: 20px;
+    background-color: #ffff;
+}
+.signup-container h2{
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #ADEFD1FF;
+    padding: 20px;
+}
+.signup-input input{
+         padding: 20px;
+    width: 380px;
+    border: none;
+    background-color: rgba(211, 211, 211, 0.144);
+    margin: 20px;
+    outline: none;
+    border-left: 4px solid var(--secondary);
+    box-shadow: 0px 0px 7px rgb(0,0,0,0.1);
+    margin-left: 50px;
+}
+img{
+    margin-left: 200px;
+    margin-top: 20px;
+}
+.signup-btn{
+    padding: 17px;
+    width: 200px;
+    font-weight: bold;
+    color: var(--secondary);
+    background-color: var(--primary);
+    position: relative;
+    margin-right: 10px;
+    top: 60px;
+    right: 90px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgb(0,0,0,0.1);
+    transition: 0.5s;
+    cursor: pointer;
+    border:3px solid var(--secondary) ;
+    z-index: 2;
+}
+label{
+    position: relative;
+    left: 120px;
+}
+.signup-btn:hover{
+    box-shadow: inset 3px 3px 3px var(--secondary);
+    box-shadow: inset -3px -3px -3px var(--secondary);
+    background-color: var(--secondary);
+    color: var(--primary);
+    transition: 0.4s;
+}
+label input{
+    margin-right: 8px;
+    margin-top: 2px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:valid
+{
+  border-left: 4px solid var(--secondary);
+}
+input:invalid
+{
+    border-left: 4px solid red;
+}

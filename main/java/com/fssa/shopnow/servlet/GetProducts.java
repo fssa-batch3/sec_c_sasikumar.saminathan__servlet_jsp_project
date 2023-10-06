@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 
@@ -42,16 +43,12 @@ public class GetProducts extends HttpServlet {
 		try {
 			List<Product> productsList = service.getProducts();
 			
-			JSONArray accountsJSonArray = new JSONArray(productsList);
+			JSONArray productJSonArray = new JSONArray(productsList);
 			PrintWriter out = response.getWriter();
-			out.println(accountsJSonArray.toString());
+			out.println(productJSonArray.toString());
 			out.close();
 			out.flush();
-//			PrintWriter out = response.getWriter();
-//
-//			request.setAttribute("getProducts", productsList);
-//			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-			//rd.forward(request, response);
+			
 		} catch (ClassNotFoundException | DAOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

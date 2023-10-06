@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/user_login.css">
+    <script src="../../assets/js/sweetalert.min.js"></script>
+    
+
+</head>
+<body class="login-body">
+<div class="login-container">
+    <img src="../../assets/image/4957412_Mobile-login-Cristina.jpg" alt="" width="450px" height="400px">
+</div>
+<div class="login-text">
+    <h2><b>LOGIN</b></h2>
+
+
+
+<form id="form">
+
+    <input type="email" placeholder="Email" class="input-1" id="email" required>
+
+    <input type="password" placeholder="Password" class="input-2" id="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="UpperCase, LowerCase, Number/SpecialChar and min 8 Chars" required>
+</div> 
+<button class="login-but" id="sk" type="submit">LOGIN</button>
+</form>
+
+
+<p class="signup">Need an account <b><a href="signup.html">Sign up</a></b></p>  
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+const form = document.querySelector("#form")
+form.addEventListener('submit',function(event){
+    event.preventDefault();
+    getData();
+});
+    
+
+     function getData(){
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        
+    	const url = "http://localhost:8080/shopnow-web/CheckAccount?email="+email+"&password="+password;
+    	console.log(url);
+    	axios.post(url, null)
+    	  .then(function (response) {
+    			loginUser(response.data);
+    	  })
+    	  .catch(function (error) {
+    		  swal("Oops!", "Error in email check!", "error");			
+    	  })
+    	
+    	function loginUser(isExist){
+            if(isExist){
+                swal("Yep!", "Logged in successfully!", "success");
+
+                 window.location.href="../../index.html"
+            }
+            else{
+                swal("Oops!", "email or password is not correct!", "error");
+            }
+    	  }
+        }
+
+</script>
+</body>
+</html>

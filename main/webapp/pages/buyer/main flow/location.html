@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../../assets/css/location.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li><a aria-label="seller" href="../../../pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart" aria-label="cart"><i class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <!-- <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i
+                        class="home-icon fa-solid fa-location-dot"></i></a></li> -->
+                        <li><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+
+<main>
+    <div class="contain">
+        <h2>Allow access to find your nearby shop for this product</h2>
+        <div class="but" id="near">
+            <i class="fa-solid fa-location-crosshairs"></i>
+           <button><b><p>Nearby me</p></b></button>
+        </div>
+    </div>
+    <img src="../../../assets/image/3WyW.gif" alt="gif" class="gif">
+</main>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    //if click the btn find your lat and long with ip address and find the nearby shops
+    const btn = document.getElementById("near")
+
+  
+    btn.addEventListener("click",function () {
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            alert("Geolocation is not supported by this browser.")
+          }
+
+
+          function showPosition(position) {
+            console.log(position);
+            let lat1 =  position.coords.latitude
+            let lon1 = position.coords.longitude
+            
+          //get url from search bar
+            const url = window.location.search;
+            const urlParams = new URLSearchParams(url);
+            const productId = urlParams.get("id")
+            
+            window.location.href = "map.html?lat="+lat1+"&lon="+lon1+"&id="+productId;
+           }
+    })
+
+//get elements from my account btn for redirecting
+const login = document.getElementById("login")
+const orders = document.getElementById("order")
+const cart = document.getElementById("cart")
+// const profile = JSON.parse(localStorage.getItem("profile"))
+			const url2 = "http://localhost:8080/shopnow-web/UserExist";
+			axios.get(url2)
+			  .then(function (response) {
+				setProfile(response.data);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			  })
+
+			function setProfile(profile){
+
+				  //this condition for showing login text while there is no profile are logged out
+				  if (profile == false) {
+
+				      login.innerText = "Login"
+				  }
+				  else if (profile == null) {
+
+				      login.innerText = "Login"
+				  }
+
+				  //this logic for decide which page want to go in diffrent situation
+				  login.addEventListener("click", function () {
+				      if (profile == false) {
+				          window.location.href = "../../../pages/sign-in/login.html"
+				          login.innerText = "Login"
+				      }
+				      else if (profile == null) {
+				          window.location.href = "../../../pages/sign-in/login.html"
+				          login.innerText = "Login"
+				      }
+				      else {
+				          window.location.href = "../../../pages/sign-in/real-profile.html"
+				      }
+				  });
+				  
+				    orders.addEventListener("click", function () {
+				        if (profile == false) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else if (profile == null) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else {
+				            window.location.href = "../../../pages/buyer/my_orders.html"
+				        }
+				    })
+				    cart.addEventListener("click", function () {
+				        if (profile == false) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else if (profile == null) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else {
+				            window.location.href = "../../../pages/buyer/cart.html"
+				        }
+				    })
+				 	}
+
+</script>    
+</body>
+</html>

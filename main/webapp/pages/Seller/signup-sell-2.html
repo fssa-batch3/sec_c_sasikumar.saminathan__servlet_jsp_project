@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/signup-sell-2.css">
+</head>
+
+<body>
+    <main>
+        <div class="shop-container">
+
+            <div class="shop-contain-img"><img src="../../assets/image/shop-sign.jpg" alt="shop-sign" width="400px"
+                    height="400px"></div>
+            <div class="shop-text-content">
+                <h2>Add shop details</h2>
+                <div class="shop-input">
+                    <form id="forms">
+                        <input type="text" placeholder="Shop name" id="shop_name" title="use letters only" value=""
+                            required>
+                        <input type="tel" placeholder="shop contact number" id="number" value=""
+                            pattern="^(?:[0-9]|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$" maxlength="10"
+                            title="Please give numbers only" required>
+                </div>
+                <div class="shop-input">
+                    <input type="text" placeholder="Shop address" id="address" required>
+                    <input type="text" placeholder="Shop pincode" id="number_2" inputmode="numeric" maxlength="6"
+                        title="Please give numbers only" required>
+                </div>
+                <div class="shop-input">
+                    <input type="text" placeholder="Shop license-id" id="shop_id" required>
+                </div>
+                <div class="shop-detail">
+                    <div class="shop-img">
+                    <input class="file-upload" placeholder="Shop img URL" type="url" id="file" required>
+                    </div>
+                    <textarea name="" id="area" cols="40" rows="10" placeholder="Type about your shop"
+                        required></textarea>
+                </div>
+                <button type="submit">SIGNUP</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <script>
+
+
+
+
+        //this function for change profile picture
+        // let img_src = "";
+
+        // file.addEventListener('change', function () {
+        //     let choosedFile = this.files[0];
+        //     let reader = new FileReader();
+        //     if (choosedFile) {
+
+        //         reader.addEventListener('load', function () {
+
+        //             img_src = reader.result
+        //             getData(img_src)
+
+   
+        //     });
+        //     }
+        //     reader.readAsDataURL(choosedFile);
+        // })
+        const form = document.getElementById("forms")
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            
+            
+            getData();
+        })
+        
+
+
+
+
+
+
+        function getData() {
+            let shop_name = document.getElementById("shop_name")
+            let number = document.getElementById("number")
+            let address = document.getElementById("address")
+            let pincode = document.getElementById("number_2")
+            let shop_id = document.getElementById("shop_id")
+            let area = document.getElementById("area").value
+            let file = document.getElementById("shop_id")
+            let image = document.getElementById("file")
+
+
+            //creating an array for storing those information about seller shop
+            let shop_arr = new Array();
+
+            //creating array if the array is not exsists
+            shop_arr = JSON.parse(localStorage.getItem("shop")) ? JSON.parse(localStorage.getItem("shop")) : []
+
+            //creating id with math random
+            let user_id = Math.floor(Math.random() * 10000)
+
+            //get url from search bar for get product id
+            const url = window.location.search;
+
+            const urlParams = new URLSearchParams(url);
+
+            const selller_id = urlParams.get("id")
+
+            if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    alert("Geolocation is not supported by this browser.")
+  }
+            function showPosition(position) {
+    let latitude =  position.coords.latitude
+   let longitude = position.coords.longitude
+console.log(latitude,longitude);
+
+let seller_array = JSON.parse(localStorage.getItem("sellers"))
+
+seller_array.find(function (obj) {
+    if (selller_id == obj["seller_id"]+"") {
+        obj["shop_id"] = user_id
+        
+    }
+})
+localStorage.setItem("sellers",JSON.stringify(seller_array))
+
+   shop_arr.push({
+                "id": user_id,
+                "name": shop_name.value,
+                "phone_number": number.value,
+                "img": image.value,
+                "address": address.value,
+                "pincode": pincode.value,
+                "shop_license": shop_id.value,
+                "area": area,
+                "latitude" : latitude,
+                "longitude" : longitude,
+                "seller_id": selller_id,
+
+            })
+
+            localStorage.setItem("shop", JSON.stringify(shop_arr)) 
+            window.location.href = "login-sell.html"  
+        }
+        
+
+        
+
+
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

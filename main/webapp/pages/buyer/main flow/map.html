@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link rel="stylesheet" href="../../../assets/css/map.css">
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+	integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/geolib/dist/geolib.min.js"></script>
+
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<img src="../../../assets/icon/shopping-bag.png" alt="shopping-bag"
+				width="30px" height="30px">
+			<h5 class="logo-name">
+				<b>Shopnow</b>
+			</h5>
+		</div>
+
+		<!-- search bar -->
+
+
+		<!-- header nav links -->
+		<ul class="top-list">
+			<li><button class="login" id="login">
+					<b>My account</b>
+				</button></li>
+			<li><a aria-label="seller"
+				href="../../../pages/Seller/Seller.html">
+					<p class="seller">Seller</p>
+			</a></li>
+			<li><a id="cart" aria-label="cart"><i
+					class="home-icon fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+			<li><a id="order"><i
+					class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+		</ul>
+		<i id="bar" class="fa-solid fa-bars"></i>
+	</header>
+	<div id="my-map"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const url = window.location.search
+    const search = new URLSearchParams(url)
+    const productId = search.get("id");
+    const lat = search.get("lat");
+    const lon = search.get("lon");
+    console.log(lat,lon,productId);
+    
+	const servletUrl = "http://localhost:8080/shopnow-web/GetShopsByProduct?id="+productId;
+	axios.get(servletUrl)
+	  .then(function (response) {
+	    // handle success
+	    console.log(response.data);
+	    const array = response.data;
+	    const shopIdArray = array.join(',');
+	    console.log(shopIdArray);
+	    getShopList(shopIdArray);
+	  })
+	  .catch(function (error) {
+	    // handle error
+	    console.log(error);
+	  })
+	
+	function getShopList(shopIdArray){
+		const servletUrl2 = "http://localhost:8080/shopnow-web/GetShops?shopArray="+shopIdArray;
+		axios.get(servletUrl2)
+			.then(function (response) {
+			    // handle success
+			    console.log(response.data);
+			    createMapAndMarking(response.data);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			}) 	  
+	}
+	 
+    
+    //let profile = JSON.parse(localStorage.getItem("profile"))
+    //let products = JSON.parse(localStorage.getItem("products"))
+    //let shop_array = JSON.parse(localStorage.getItem("shop"))
+  
+    //create a array for store shop's id
+	function createMapAndMarking(shop_arr){
+		// Leaflet has native support for raster maps, So you can create a map with a few commands only!
+		// The Leaflet map Object
+		var map = L.map('my-map').setView([12.978622,80.243273],15);
+		// The API Key provided is restricted to JSFiddle website
+		// Get your own API Key on https://myprojects.geoapify.com
+		var myAPIKey = "002d636de5c4489a883a653e0a4b9268";
+		// Retina displays require different mat tiles quality
+		var isRetina = L.Browser.retina;
+		var baseUrl = "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=002d636de5c4489a883a653e0a4b9268";
+		var retinaUrl = "https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=002d636de5c4489a883a653e0a4b9268";
+		// Add map tiles layer. Set 20 as the maximal zoom and provide map data attribution.
+		L.tileLayer(isRetina ? retinaUrl : baseUrl, {
+		    attribution: 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" rel="nofollow" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" rel="nofollow" target="_blank">© OpenStreetMap</a> contributors',
+		    apiKey: myAPIKey,
+		    maxZoom: 20,
+		    id: 'osm-bright',
+		}).addTo(map);
+		const markerIcon = L.icon({
+		  iconUrl: `https://api.geoapify.com/v1/icon/?type=material&color=%23adefd1&size=large&icon=storefront&scaleFactor=2&apiKey=002d636de5c4489a883a653e0a4b9268`,
+		  iconSize: [31, 46], // size of the icon
+		  iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
+		  popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
+		});
+
+		//setting the current postion of user
+		const homeIcon = L.icon({
+		  iconUrl: `https://api.geoapify.com/v1/icon/?type=material&color=%2300203f&size=x-large&icon=home&scaleFactor=2&apiKey=002d636de5c4489a883a653e0a4b9268`,
+		  iconSize: [31, 46], // size of the icon
+		  iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
+		  popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
+		});
+
+		//Set the home icon for buyer
+		const homeMarker = L.marker([lat,lon], {
+		  icon: homeIcon
+		}).addTo(map);
+
+		for (let i = 0; i < shop_arr.length; i++) {
+		    console.log(shop_arr[i]);
+
+		 let lat1 = lat
+		 let lon1 = lon
+		 let lat2 = shop_arr[i]["lat"]
+		 let lon2 = shop_arr[i]["lon"]
+		//  console.log(lat1,lon1,lat2,lon2);
+
+		const distanceInMeters = geolib.getDistance(
+		  {latitude: lat1, longitude: lon1},
+		  {latitude: lat2, longitude: lon2}
+		);
+
+		const distanceInKilometers = distanceInMeters / 1000;
+		console.log(distanceInKilometers);
+
+		if (distanceInKilometers < 30) {
+		    const zooMarkerPopup = L.popup().setContent(`<a href="product-detail.html?id=${productId}&shopId=${shop_arr[i]["id"]}">${shop_arr[i]["name"]}</a>`);
+		    const zooMarker = L.marker([shop_arr[i]["lat"],shop_arr[i]["lon"]], {
+		  icon: markerIcon
+		}).bindPopup(zooMarkerPopup).addTo(map);
+		}
+		}
+    }
+//get elements from my account btn for redirecting
+	const login = document.getElementById("login")
+    const orders = document.getElementById("order")
+    const cart = document.getElementById("cart")
+    
+    const url2 = "http://localhost:8080/shopnow-web/UserExist";
+			axios.get(url2)
+			  .then(function (response) {
+				setProfile(response.data);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			  })
+
+			function setProfile(profile){
+
+				  //this condition for showing login text while there is no profile are logged out
+				  if (profile == false) {
+
+				      login.innerText = "Login"
+				  }
+				  else if (profile == null) {
+
+				      login.innerText = "Login"
+				  }
+
+				  //this logic for decide which page want to go in diffrent situation
+				  login.addEventListener("click", function () {
+				      if (profile == false) {
+				          window.location.href = "../../../pages/sign-in/login.html"
+				          login.innerText = "Login"
+				      }
+				      else if (profile == null) {
+				          window.location.href = "../../../pages/sign-in/login.html"
+				          login.innerText = "Login"
+				      }
+				      else {
+				          window.location.href = "../../../pages/sign-in/real-profile.html"
+				      }
+				  });
+				  
+				    orders.addEventListener("click", function () {
+				        if (profile == false) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else if (profile == null) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else {
+				            window.location.href = "../../../pages/buyer/my_orders.html"
+				        }
+				    })
+				    cart.addEventListener("click", function () {
+				        if (profile == false) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else if (profile == null) {
+				            window.location.href = "../../../pages/sign-in/login.html"
+				        }
+				        else {
+				            window.location.href = "../../../pages/buyer/cart.html"
+				        }
+				    })
+				 	}
+
+</script>

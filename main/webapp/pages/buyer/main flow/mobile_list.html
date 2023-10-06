@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../../assets/css/mobile_list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li><a aria-label="seller" href="../../../pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart" aria-label="cart"><i class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <!-- <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i
+                        class="home-icon fa-solid fa-location-dot"></i></a></li> -->
+                        <li><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+    <nav>
+        <p id="filter">Filters</p>
+        <div id="range">
+            <p>Price</p>
+            <input type="range" id="price_change">
+            <p id="price">₹7999</p>
+        </div>
+        <div class="ram_filter">
+            <p id="ram">Ram</p>
+            <div><input type="checkbox" class="ram_input"><p>4 GB</p></div>
+            <div><input type="checkbox" class="ram_input"><p>6 GB</p></div>
+            <div><input type="checkbox" class="ram_input"><p>8 GB</p></div>
+            <div><input type="checkbox" class="ram_input"><p>12 GB and above</p></div>
+        </div>
+        <div class="ram_filter rom">
+            <p id="ram">Storage</p>
+            <div><input type="checkbox" class="storage_input"><p>64 GB</p></div>
+            <div><input type="checkbox" class="storage_input"><p>128 GB</p></div>
+            <div><input type="checkbox" class="storage_input"><p>256 GB and above</p></div>
+        </div>
+    </nav>
+    <main>
+        <input type="search" placeholder="search" class="search" id="search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <div id="mobile_list"></div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+	const url = "http://localhost:8080/shopnow-web/GetProducts";
+	axios.get(url)
+	  .then(function (response) {
+	    // handle success
+	    console.log(response.data);
+	    const array = response.data;
+	    setProducts(array);
+	  })
+	  .catch(function (error) {
+	    // handle error
+	    console.log(error);
+	  })
+    
+    function setProducts(productsArray){
+             
+            // Declare a new array
+            let newProductsArray = [];
+              
+            // Declare an empty object
+            let uniqueObject = {};
+              
+            // Loop for the array elements
+            for (let i in productsArray) {
+              
+                // Extract the title
+                objTitle = ((productsArray[i]['name']).toLowerCase()).trim();
+              
+                // Use the title as the index
+                uniqueObject[objTitle] = productsArray[i];
+            }
+              
+            // Loop to push unique object into array
+            for (i in uniqueObject) {
+            	newProductsArray.push(uniqueObject[i]);
+            }
+              
+
+//    console.log(false);
+
+for (let j=0; j< newProductsArray.length; j++) //loop for creating 12 product cards
+{
+
+        //anker tag for going next pages
+        const a = document.createElement("a");
+        a.setAttribute("aria-label", "redmi")
+        a.setAttribute("class", "mob-link")
+        a.setAttribute("href", "./location.html?id="+ newProductsArray[j]["id"])
+        
+
+    //div 1 class name: pack
+    const div_2 = document.createElement("div");
+    div_2.setAttribute("class", "mob")
+    a.append(div_2)
+
+
+    //product img
+    const img = document.createElement("img");
+    img.setAttribute("src", newProductsArray[j]["imageURL"][0])
+    img.setAttribute("alt", "redmi_note_11")
+    img.setAttribute("width", "150px")
+    img.setAttribute("height", "200px")
+    div_2.append(img)
+
+
+    //product name
+    const h4 = document.createElement("h4");
+    h4.setAttribute("class", "detail-1")
+    h4.innerHTML = newProductsArray[j]["name"]
+    div_2.append(h4)
+
+    //div 2 class name: rate for show price
+    const div_3 = document.createElement("div");
+    div_3.setAttribute("class", "rate")
+    div_2.append(div_3)
+
+    //product price
+    const h2 = document.createElement("h2");
+    h2.innerHTML = "₹" + newProductsArray[j]["price"]
+    div_3.append(h2)
+
+    //product price
+    const p = document.createElement("p");
+    p.setAttribute("class", "onward")
+    p.innerHTML = "onwards"
+    div_3.append(p)
+
+    //div 2 class name: rate for show rating
+    const div_4 = document.createElement("div");
+    div_4.setAttribute("class", "rating")
+    div_2.append(div_4)
+
+    //div 2 class name: rate for show rating
+    const div_5 = document.createElement("div");
+    div_5.setAttribute("class", "rating-1")
+    div_4.append(div_5)
+
+    //product rating
+    const h5 = document.createElement("h5");
+    h5.innerHTML = "4.3"
+    div_5.append(h5)
+
+    //product rating star icon
+    const i = document.createElement("i");
+    i.setAttribute("class", "fa fa-star")
+    i.setAttribute("aria-hidden", "true")
+    div_5.append(i)
+
+    //product rating count
+    const p_1 = document.createElement("p");
+    p_1.innerHTML = "233847 Ratings"
+    div_4.append(p_1)
+
+    document.getElementById("mobile_list").append(a)
+
+}
+
+
+    //get element by id from search input
+    const search = document.getElementById("search")
+    
+    search.addEventListener("input",function () {
+      const searchvalue = search.value.trim().toLowerCase()
+      const filter = newProductsArray.filter(function(item){
+        return item.name.toLowerCase().includes(searchvalue)
+
+        
+      })
+      getMobile(filter)
+    })
+
+    /*get the number of characters*/
+    let charlength
+    function charLength() {
+        
+        charlength = document.getElementById('price_change').value;
+        document.getElementById('price').innerHTML = "₹"+charlength * 1000;
+        return charlength;
+
+    }
+    charLength();
+
+    //this event for filtering mobile with range value
+    const range = document.getElementById('price_change').addEventListener('change', function () {
+        charLength();
+        const filter = newProductsArray.filter(function (obj) {
+            
+            let price = obj["price"]
+            
+            if (parseFloat(charlength * 1000) >= price) {
+                console.log("why");
+                return obj
+            }
+        })
+
+        getMobile(filter)
+    })
+
+    
+    const ram_input = document.querySelectorAll(".ram_input")
+    const storage_input = document.querySelectorAll(".storage_input")
+
+    //this event for filter mobile with ram
+    for (let i = 0; i < ram_input.length; i++) {
+        ram_input[i].addEventListener("click",function () {
+           const filter = newProductsArray.filter(function (obj) {
+               
+            let ram = obj["ram"]
+            //filter product ram = 4 gb 
+            if (ram_input[0].checked == true && parseFloat(ram) === 4) {
+
+                return obj
+            }
+            //filter product ram = 6 gb 
+            if (ram_input[1].checked == true && parseFloat(ram) === 6) {
+                return obj
+            }
+            //filter product ram = 8 gb 
+            if (ram_input[2].checked == true && parseFloat(ram) === 8) {
+                return obj
+            }
+            //filter product ram = 12 gb 
+            if (ram_input[3].checked == true && parseFloat(ram) >= 12) {
+                return obj
+            }
+                
+
+
+            
+            //if everything is not checked retun all objects
+            let count = 0;
+            for (let j = 0; j < ram_input.length; j++) {
+                if (ram_input[j].checked !== true) {
+                    count += 1
+                }
+                if (count === 4) {
+                    return obj
+                }
+                
+            }
+           })
+           
+           getMobile(filter)
+        })
+    }
+
+    //this event for filter mobile with storage
+    for (let i = 0; i < storage_input.length; i++) {
+        storage_input[i].addEventListener("click",function () {
+           const filter = newProductsArray.filter(function (obj) {
+
+
+            let storage = obj["storage"]
+            //filter product ram = 4 gb 
+            if (storage_input[0].checked == true && parseFloat(storage) === 64) {
+                return obj
+            }
+            //filter product ram = 6 gb 
+            if (storage_input[1].checked == true && parseFloat(storage) === 128) {
+                return obj
+            }
+            //filter product ram = 8 gb 
+            if (storage_input[2].checked == true && parseFloat(storage) >= 256) {
+                return obj
+            }
+                
+
+            
+            //if everything is not checked retun all objects
+            let count = 0;
+            for (let j = 0; j < storage_input.length; j++) {
+                if (storage_input[j].checked !== true) {
+                    count += 1
+                }
+                if (count === 3) {
+                    return obj
+                }
+                
+            }
+           })
+           
+           getMobile(filter)
+        })
+    }
+
+      function getMobile(filter) {
+        const parent = document.getElementById("mobile_list")
+      parent.innerHTML = "";
+
+    filter.forEach((item) => {
+
+    //anker tag for going next pages
+    const a = document.createElement("a");
+    a.setAttribute("aria-label", "redmi")
+    a.setAttribute("class", "mob-link")
+    a.setAttribute("href", "./location.html?id="+ item["id"])
+        
+
+    //div 1 class name: pack
+    const div_2 = document.createElement("div");
+    div_2.setAttribute("class", "mob")
+    a.append(div_2)
+
+
+    //product img
+    const img = document.createElement("img");
+    img.setAttribute("src", item["imageURL"][0])
+    img.setAttribute("alt", "redmi_note_11")
+    img.setAttribute("width", "150px")
+    img.setAttribute("height", "200px")
+    div_2.append(img)
+
+
+    //product name
+    const h4 = document.createElement("h4");
+    h4.setAttribute("class", "detail-1")
+    h4.innerHTML = item["name"]
+    div_2.append(h4)
+
+    //div 2 class name: rate for show price
+    const div_3 = document.createElement("div");
+    div_3.setAttribute("class", "rate")
+    div_2.append(div_3)
+
+    //product price
+    const h2 = document.createElement("h2");
+    h2.innerHTML = "₹"+item["price"]
+    div_3.append(h2)
+
+    //product price
+    const p = document.createElement("p");
+    p.setAttribute("class", "onward")
+    p.innerHTML = "onwards"
+    div_3.append(p)
+
+    //div 2 class name: rate for show rating
+    const div_4 = document.createElement("div");
+    div_4.setAttribute("class", "rating")
+    div_2.append(div_4)
+
+    //div 2 class name: rate for show rating
+    const div_5 = document.createElement("div");
+    div_5.setAttribute("class", "rating-1")
+    div_4.append(div_5)
+
+    //product rating
+    const h5 = document.createElement("h5");
+    h5.innerHTML = "4.3"
+    div_5.append(h5)
+
+    //product rating star icon
+    const i = document.createElement("i");
+    i.setAttribute("class", "fa fa-star")
+    i.setAttribute("aria-hidden", "true")
+    div_5.append(i)
+
+    //product rating count
+    const p_1 = document.createElement("p");
+    p_1.innerHTML = "233847 Ratings"
+    div_4.append(p_1)
+
+    document.getElementById("mobile_list").append(a)
+      })
+      }
+      }
+
+
+    const home_nav = document.querySelector(".logo")
+    home_nav.addEventListener("click",function () {
+        window.location.href = "../../../index.html"        
+    })
+
+     document.querySelector(".logo").addEventListener("click",function(){
+        window.location.href = "../../../index.html"
+     })
+
+const login = document.getElementById("login")
+const orders = document.getElementById("order")
+const cart = document.getElementById("cart")
+
+const url2 = "http://localhost:8080/shopnow-web/UserExist";
+		axios.get(url2)
+		  .then(function (response) {
+			setProfile(response.data);
+		  })
+		  .catch(function (error) {
+		    // handle error
+		    console.log(error);
+		  })
+
+		function setProfile(profile){
+
+			  //this condition for showing login text while there is no profile are logged out
+			  if (profile == false) {
+
+			      login.innerText = "Login"
+			  }
+			  else if (profile == null) {
+
+			      login.innerText = "Login"
+			  }
+
+			  //this logic for decide which page want to go in diffrent situation
+			  login.addEventListener("click", function () {
+			      if (profile == false) {
+			          window.location.href = "../../../pages/sign-in/login.html"
+			          login.innerText = "Login"
+			      }
+			      else if (profile == null) {
+			          window.location.href = "../../../pages/sign-in/login.html"
+			          login.innerText = "Login"
+			      }
+			      else {
+			          window.location.href = "../../../pages/sign-in/real-profile.html"
+			      }
+			  });
+			  
+			    orders.addEventListener("click", function () {
+			        if (profile == false) {
+			            window.location.href = "../../../pages/sign-in/login.html"
+			        }
+			        else if (profile == null) {
+			            window.location.href = "../../../pages/sign-in/login.html"
+			        }
+			        else {
+			            window.location.href = "../../../pages/buyer/my_orders.html"
+			        }
+			    })
+			    cart.addEventListener("click", function () {
+			        if (profile == false) {
+			            window.location.href = "../../../pages/sign-in/login.html"
+			        }
+			        else if (profile == null) {
+			            window.location.href = "../../../pages/sign-in/login.html"
+			        }
+			        else {
+			            window.location.href = "../../../pages/buyer/cart.html"
+			        }
+			    })
+			 	}
+</script>
+</html>

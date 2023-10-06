@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../../assets/css/product-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/geolib/dist/geolib.min.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li><a aria-label="seller" href="../../../pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart_icon" aria-label="cart"><i class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <!-- <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i
+                        class="home-icon fa-solid fa-location-dot"></i></a></li> -->
+                        <li><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+<main>
+    <!-- <a id="edit_link"><button class="pr_btn">EDIT</button></a> -->
+    <div class="main-contain">
+        <div class="images">
+            <!-- this image appended on javascript -->
+            <!-- <img  id="img_1" alt="images" width="500px" height="500px"> -->
+            <!-- <div class="img-1"> -->
+               <!-- <span> <img src="../../../assets/image/redmi-1.webp" alt="image" width="60px" height="130px" class="img-2"></span> -->
+                <!-- <span><img src="../../../assets/image/redmi-2.webp" alt="image" class="img-3"></span> -->
+               <!-- <span> <img src="../../../assets/image/redmi-3.webp" alt="image" class="img-4"></span> -->
+            <!-- </div> -->
+        </div>
+        <div class="text-box">
+        <!-- <div class="rate">
+        <h2><b>Redmi Note 11 (Horizon Blue, 128 GB)  (6 GB RAM)</b></h2>
+        <p class="price"><b>₹14,690</b></p>
+        <div class="rating">
+            <div class="rating-1">
+                <h5>4.3</h5><i class="fa fa-star" aria-hidden="true"></i>
+            </div>
+            <p>26,443 Ratings</p></div>
+            <div class="free rating-1">
+                <h5>Free delivery</h5>
+            </div>
+        </div> -->
+        <div class="option">
+            <!-- <div class="option-1">
+                <p><b>RAM:</b></p>
+               <div class="ra ram"> <input type="radio" id="gb" name="64-128"><label for="gb"  name="64-128">4</label></div>
+                <div class="ra ram"><input type="radio" id="fb"  name="64-128"><label for="fb"  name="64-128">6</label>
+                </div>
+            </div>
+            <div class="option-2">
+                <p><b>Storage:</b></p>
+               <div class="ram"> <input type="radio" id="gb" name="lie"><label for="gb"  name="lie">64</label></div>
+                <div class="ram"><input type="radio" id="fb"  name="lie"><label for="fb"  name="lie">128</label>
+                </div>
+            </div> -->
+            <div class="checkbox-wrapper-16">
+                <label class="checkbox-wrapper">
+                  <input type="radio" class="checkbox-input" name="type" checked/>
+                  <span class="checkbox-tile">
+                   <p class="ram">4 GB</p>
+                   <p class="rom">128 GB</p>
+                  </span>
+                </label>
+              </div>
+        </div>
+        <div class="high">
+            <p><b>Highlights</b></p>
+            <ul class="ul_highlights">
+                <!-- <li>6 GB RAM | 128 GB ROM</li>
+                <li>16.33 cm (6.43 inch) Display</li>
+                <li>50MP Rear Camera</li>
+                <li>5000 mAh Battery</li> -->
+            </ul>
+        </div>
+        </div>
+    </div>
+    
+    <div class="shops">
+    </div>
+    <!-- <h2 class="head">Available shop nearby you</h2> -->
+
+      <footer>
+        <ul>
+            <li><a aria-label="contact" href="#">contact us</a></li>
+            <li><a aria-label="about" href="#">About us</a></li>
+            <li><a aria-label="cancel" href="#">Cancellation reports</a></li>
+            <li><a aria-label="faq" href="#">FAQ</a></li>
+            <li><a aria-label="payment" href="#">Payments</a></li>
+        </ul>
+        <ul>
+            <li><a aria-label="policy" href="#">Return policy</a></li>
+            <li><a aria-label="Term" href="#">Term of use</a></li>
+            <li><a aria-label="Security" href="#">Security</a></li>
+            <li><a aria-label="Privacy" href="#">Privacy</a></li>
+            <li><a aria-label="Sitemap" href="#">Sitemap</a></li>
+        </ul>
+        <div class="social">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+        </div>
+        <div class="scroll">
+            <a aria-label="Back" href="#"> <button><p><b>Back to top</b></p> <i class="fa-solid fa-angles-up"></i></button></a>
+         </div>
+    </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+//get url from search bar
+const url = window.location.search;
+const urlParams = new URLSearchParams(url);
+const productId = urlParams.get("id");
+const shopId = urlParams.get("shopId");
+
+	
+const servletUrl = "http://localhost:8080/shopnow-web/GetProductById?id="+productId;
+axios.get(servletUrl)
+  .then(function (response) {
+    // handle success
+     createProductElements(response.data[0]);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+
+
+	function createProductElements(productArray){
+	    //create elements those are want to change the content
+
+	//<img src="../../../assets/image/redmi-main.webp" alt="images" width="500px" height="500px">
+
+
+	const div_2 = document.createElement("div")
+	div_2.setAttribute("class","img-1")
+	document.querySelector(".images").append(div_2)
+
+	const main_div_img = document.createElement("div")
+	main_div_img.setAttribute("class","main_div_img")
+	document.querySelector(".images").append(main_div_img)
+
+
+	// main_img.setAttribute("src",search["product_img_1"])
+	// main_img.setAttribute("alt","redmi")
+	// main_img.setAttribute("width","400px")
+	// main_img.setAttribute("height", "500px")
+	// document.querySelector(".main_div_img").append(main_img)
+
+
+	// <span> <img src="../../../assets/image/redmi-1.webp" alt="image" width="60px" height="130px" class="img-2"></span> 
+	//<span><img src="../../../assets/image/redmi-2.webp" alt="image" class="img-3"></span> 
+	//<span> <img src="../../../assets/image/redmi-3.webp" alt="image" class="img-4"></span>
+
+	const span_1 = document.createElement("span")
+	span_1.setAttribute("class","span_1")
+	document.querySelector(".img-1").prepend(span_1)
+
+
+	const span_2 = document.createElement("span")
+	span_2.setAttribute("class","span_2")
+	document.querySelector(".img-1").prepend(span_2)
+
+
+	const span_3 = document.createElement("span")
+	span_3.setAttribute("class","span_3")
+	document.querySelector(".img-1").prepend(span_3)
+
+
+	const img_1 = document.createElement("img")
+	img_1.setAttribute("src",productArray["imageURL"][1])
+	img_1.setAttribute("alt","image")
+	img_1.setAttribute("width","60px")
+	img_1.setAttribute("height","130px")
+	img_1.setAttribute("class","img-2 image")
+	document.querySelector(".span_3").append(img_1)
+
+
+	const img_2 = document.createElement("img")
+	img_2.setAttribute("src",productArray["imageURL"][2])
+	img_2.setAttribute("alt","image")
+	img_2.setAttribute("class","img-3 image")
+	document.querySelector(".span_2").append(img_2)
+
+
+	const img_3 = document.createElement("img")
+	img_3.setAttribute("src",productArray["imageURL"][3])
+	img_3.setAttribute("alt","image")
+	img_3.setAttribute("class","img-4 image")
+	document.querySelector(".span_1").append(img_3)
+
+	// <!-- <div class="rate">
+//	         <h2><b>Redmi Note 11 (Horizon Blue, 128 GB)  (6 GB RAM)</b></h2>
+//	         <p class="price"><b>₹14,690</b></p>
+//	         <div class="rating">
+//	             <div class="rating-1">
+//	                 <h5>4.3</h5><i class="fa fa-star" aria-hidden="true"></i>
+//	             </div>
+//	             <p>26,443 Ratings</p></div>
+//	             <div class="free rating-1">
+//	                 <h5>Free delivery</h5>
+//	             </div>
+//	         </div> -->
+	//product details elements created here
+
+	//main div contain with price and rating
+	const div_3 = document.createElement("div")
+	div_3.setAttribute("class","rate")
+	document.querySelector(".text-box").prepend(div_3)
+
+	//product name
+	const h2 = document.createElement("h2")
+	h2.innerHTML = productArray["name"] 
+	h2.setAttribute("class","higher")
+	document.querySelector(".rate").append(h2)
+
+	//b tag for bold product name
+	const b_1 = document.createElement("b")
+	document.querySelector(".higher").append(b_1)
+
+	//product price
+	const p_1 = document.createElement("p")
+	p_1.setAttribute("class","price")
+	p_1.innerHTML = "₹"+productArray["price"]
+	document.querySelector(".rate").append(p_1)
+
+	//b tag for bold price
+	const b_2 = document.createElement("b")
+	document.querySelector(".price").append(b_2)
+
+	//div 4tg with contained rating
+	const div_4 = document.createElement("div")
+	div_4.setAttribute("class","rating")
+	document.querySelector(".rate").append(div_4)
+
+	//div for show rating
+	const div_5 = document.createElement("div")
+	div_5.setAttribute("class","rating-1")
+	document.querySelector(".rating").append(div_5)
+
+	//rating number
+	const h5 = document.createElement("h5")
+	h5.innerHTML = "4.7"
+	document.querySelector(".rating-1").append(h5)
+
+	//star icon for indicate rating
+	const i = document.createElement("i")
+	i.setAttribute("class","fa fa-star")
+	i.setAttribute("aria-hidden","true")
+	document.querySelector(".rating-1").append(i)
+
+	//how many peoples rated count
+	const p_2 = document.createElement("p")
+	p_2.innerHTML = 2000 + "ratings"
+	document.querySelector(".rating").append(p_2)
+
+	//6th div for show free deliviry
+	const div_6 = document.createElement("div")
+	div_6.setAttribute("class","free rating-1")
+	document.querySelector(".rate").append(div_6)
+
+	//free dilivery content
+	const h5_2 = document.createElement("h5")
+	h5_2.innerHTML = "Free delivery"
+	document.querySelector(".free").append(h5_2)
+	
+	const ramText = document.querySelector(".ram");
+	const romText = document.querySelector(".rom");
+	
+	ramText.innerHTML = productArray["ram"]+" GB";
+	romText.innerHTML = productArray["storage"]+" GB";
+
+	//-------------------------------------------------------------------------------------------------
+	//<li>6 GB RAM | 128 GB ROM</li>
+	//<li>16.33 cm (6.43 inch) Display</li>
+	//<li>50MP Rear Camera</li>
+	//<li>5000 mAh Battery</li>
+
+	//this lists are highlights
+
+	//list 1
+	const list_1 = document.createElement("li")
+	list_1.innerHTML = productArray["description"] 
+	document.querySelector(".ul_highlights").prepend(list_1)
+  
+	
+
+    let main_div_img2 =  document.querySelector(".main_div_img")
+    main_div_img.innerHTML = ""
+    main_div_img.innerHTML = `<img id="img_1" alt="redmi" width="400px" height="500px" src="https://iili.io/HVTwSyl.webp">
+    <div class="buy-btns">
+            <a><button class="btn-buy" id="cart"><p><b id="cart_text">Add cart </b><i class="fa-solid fa-cart-shopping"></i></p></button></a>
+            <a><button class="btn-buy" id="buy"><p><b>Buy now </b> <i class="fa-solid fa-angles-right"></i></p></button></a>
+           </div>`
+
+//this var contain all three images
+const photo = document.querySelectorAll(".image")
+
+const main_img = document.getElementById("img_1")
+//current src for first img
+main_img.setAttribute("src",productArray["imageURL"][0])
+for(let k = 0;k < photo.length;k++){
+
+    //this event for showing img in main img 
+    photo[k].addEventListener("mouseenter",function () {
+         main_img.src = photo[k].currentSrc       
+    })
+
+}
+
+           
+	
+		const servletUrl2 = "http://localhost:8080/shopnow-web/GetShops?shopArray="+shopId;
+		axios.get(servletUrl2)
+			.then(function (response) {
+			    // handle success
+			    console.log(response.data);
+			    createShop(response.data[0]);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			}) 	  
+	
+	
+		function createShop(obj){
+	           let type_index;
+
+	                  let shops = `
+	                   <h2>Sold by</h2>
+	                  <div class="shop-container">
+	                   <div class="visit-content">
+	                     <h3>${obj["name"]}</h3>
+	                     <p>${obj["address"]}</p>
+	                   </div>
+	                     <div class="visit">
+	                       <a><button id="visit_btn">Visit store</button></a>
+	                       <img src="../../../assets/icon/icons8-shop-64.png" alt="assets" class="shop-icon">  
+	                     </div>
+	                 </div>`
+
+	               let each_shops= document.querySelector(".shops")
+	                each_shops.innerHTML = shops
+	                
+	        		let visit_btn = document.getElementById("visit_btn")
+
+	        		visit_btn.addEventListener("click",function(){
+	        		    window.location.href = `shop-detail.html?id=${split_arr[0]},${split_arr[1]}&type=${type_index}`
+	        		})
+
+		}
+		
+		//button elements
+		const order = document.getElementById("buy")
+		const cart = document.getElementById("cart")
+		const cart_text = document.getElementById("cart_text")
+
+		const cart_arr = JSON.parse(localStorage.getItem("cart"))
+
+		let already_in_cart = false
+
+		if (cart_arr !== null) {
+		    cart_arr.find(function (obj) {
+		        if (user_array["user_id"] === obj["user_id"] && split_arr[0] === obj["product_id"]+"") {
+		            already_in_cart = true
+		            cart_text.innerText = "Go to cart"
+		            cart_text.style.marginRight = "5px"
+		        }
+		    })
+		}
+		//this function for add to cart
+			const url2 = "http://localhost:8080/shopnow-web/UserExist";
+			axios.get(url2)
+			  .then(function (response) {
+				checkProfile(response.data);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			  })
+			
+		function checkProfile(profile){
+
+		cart.addEventListener("click",function(){
+		if (!profile) {
+
+		    window.location.href = "../../sign-in/login.html"
+		}
+		else{
+		    let cart_arr = JSON.parse(localStorage.getItem("cart"))?JSON.parse(localStorage.getItem("cart")):[]
+
+		    const quantity = document.getElementById("quantity")
+
+		    
+
+		    //creating unique id
+		    let uid = Math.floor(Math.random() * 1000)
+		    cart_arr.push(
+		        {
+		            "cart_id" : uid,
+		            "user_id" : user_array["user_id"],
+		            "product_id" : search2["user_id"],
+		            "quantity" : "1",
+		            "type" : type_index
+		        }
+		    )
+
+		if (already_in_cart == false) {
+		    localStorage.setItem("cart",JSON.stringify(cart_arr)); 
+		}
+
+		    window.location.href = "../cart.html?user_id="+user_array["user_id"]+","+split_arr[1]
+		}
+		})
+
+		order.addEventListener("click",function(){
+
+		if (!profile) {
+		    window.location.href = "../../sign-in/login.html"
+
+		} else {		
+		window.location.href = "../address.html?id="+productId
+		}
+		})
+
+
+		//get elements from my account btn for redirecting
+		const login = document.getElementById("login")
+		// const profile = JSON.parse(localStorage.getItem("profile"))
+
+		//this condition for showing login text while there is no profile are logged out
+		if (!profile) {
+
+		    login.innerText = "Login"
+		}
+		//this logic for decide which page want to go in diffrent situation
+		login.addEventListener("click", function () {
+		    if (!profile) {
+		    	window.location.href = "../../sign-in/login.html"
+		        login.innerText = "Login"
+		    }
+		    else {
+		        window.location.href = "/pages/sign-in/real-profile.html"
+		    }
+		});
+
+		    //this logic for user going to orders page
+		    const orders = document.getElementById("order")
+		    const cart_icon = document.getElementById("cart_icon")
+		    const user_obj = JSON.parse(localStorage.getItem("profile"))
+		    orders.addEventListener("click", function () {
+		        if (!profile) {
+		        	window.location.href = "../../sign-in/login.html"
+		        }
+		        else {
+		            window.location.href = "../../../pages/buyer/my_orders.html?user_id=" + user_obj["user_id"]
+		        }
+		    })
+		    cart.addEventListener("click", function () {
+		        if (!profile) {
+		        	window.location.href = "../../sign-in/login.html"
+		        }
+		        else {
+		            window.location.href = "../../../pages/buyer/cart.html?user_id=" + user_obj["user_id"]
+		        }
+		    })
+			  }
+  }
+			
+</script>  
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/address.css">
+    <script src="../../assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header> 
+      <!-- this div contain with logo -->
+        <div class="logo">
+        <img src="../../assets/icon/shopping-bag.png" alt="shopping-bag" width="40px" height="40px">
+        <h5 class="logo-name"><b>Shopnow</b></h5>
+          
+        <!-- this is for showing which status in checkout -->
+        <div class="tracking">
+    <img src="../../assets/icon/icons8-1st-48.png" alt="" width="40px"m height="40px">
+    <img src="../../assets/icon/icons8-circled-2-48.png" alt="" width="40px"m height="40px">
+   </div>
+        
+    </div>
+</header>
+<main>
+  <!-- container for select address -->
+<div class="shop-text-content shop-container">  
+  <form id="forms">
+    <div class="address_container">
+    <h2>Select Delivery Address</h2>
+    <div class="btn_container">
+      <button id="add_address" type="button"><i class="fa-solid fa-plus"></i><p>Add address</p></button>
+      <button id="deliver_btn" type="submit"><p>Deliver to this address</p></button>
+    </div>
+    <!-- <div class="address_info">
+      <input type="radio" name="" id="check">
+<div class="info">
+  <div id="person_info"><p>Sasikumar</p><p>6374523686</p></div>
+  <div id="location_info"><p id="location">ST Couriers, IT Corridor, Lakshman Nagar, Perungudi, Chennai, Tamil Nadu -</p><p>600096</p></div>
+  <i class="fa-solid fa-ellipsis-vertical"></i>
+  <div id="specs"><p>Edit</p><p>Delete</p></div>
+</div>
+
+    </div> -->
+    <!-- this container for append address containers -->
+    <div class="added_address"></div>
+            </div>
+          </form>
+
+          </div>
+         
+          <!-- this div for enter your address -->
+        <div class="address_input">
+          <form action="" id="add_form">
+            <div class="container">
+              <!-- X - icon  -->
+              <i class="fa-solid fa-xmark"></i>
+        <div id="contain">
+          <div class="phone">
+            <img src="../../assets/icon/emergency-call.gif" alt="" width="30px" height="30px">
+            <h3>Contact Details</h3>
+        </div>
+        <div class="address-1">
+            <div><input type="text" placeholder="Name" id="add_name"  title="use letters only" pattern="^[A-Za-z]+" required></div>
+            <div><input type="text" placeholder="Phone number" id="add_number" pattern="[0-9]{10}" title="use correct format" required></div>
+        </div>
+        <div class="location">
+            <img src="../../assets/icon/location.gif" alt="" height="40px" width="40px">
+            <h3>Address</h3>
+        </div>
+        <div class="address-2">
+           <div> <input type="text" placeholder="House no./buling name" id="add_house_no" required></div>
+            <div><input type="text" placeholder="Road name/Area/Colany" id="add_area" required></div>
+           <div> <input type="text" placeholder="Pincode"  id="add_pincode" pattern="[0-9]{6}" title="Please enter a valid pincode" required></div>
+            <div><input type="text" placeholder="Nearby location" id="add_spd" required></div>
+        </div>
+        <!-- this button for create new address -->
+        <a><button class="but-1" id="deliver" type="submit"><b>Save</b></button></a>
+        <!-- this button for update address -->
+        <a><button class="but-1" id="edit_save" type="submit"><b>update</b></button></a>
+        </div>
+              </div>
+        </form>
+           
+        </div>
+        <div class="summary_container navigation">
+           <h2>Product detail</h2>
+           <!-- <hr id="hr"> -->
+           <div class="pr_price"><p id="qty">Product Price</p><p class="price">₹34,999</p></div> 
+           <div class="pr_price" ><p>Delivery charges</p><p id="deliver">FREE</p></div>
+           <hr id="hr_2">
+           <div class="pr_price" id="total"><p>Order total</p><p class="price">₹34,999</p></div> 
+        </div>
+ 
+</main>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+<script>
+
+    const form = document.getElementById("forms")
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      redirect();
+
+    })
+    
+    const formValue=document.getElementById("add_form")
+
+
+
+  const profile_info = document.getElementById("profile_info")
+  const address = document.getElementById("address")
+  const profile1 = document.querySelector(".profile")
+  const info_div = document.querySelector(".info_container")
+  const nav = document.querySelector(".navigation")
+  const address_container = document.querySelector(".address_container")
+
+ 
+  //get elments from add address btn
+  const add_address = document.getElementById("add_address")
+  const main = document.getElementById("main")
+  const address_input = document.querySelector(".address_input")
+  const shop = document.querySelector(".shop-container")
+
+  
+  add_address.addEventListener("click",function () {
+	    const save_btn = document.getElementById("deliver")
+	    save_btn.style.display = "block"
+	    save_btn.disabled = false;
+	    const edit_save_btn = document.getElementById("edit_save")
+	    edit_save_btn.style.display = "none"
+	    edit_save_btn.disabled = true;
+    address_input.style.display = "block"
+    shop.style.filter = `blur(${5}px)`;
+    nav.style.filter = `blur(${5}px)`;
+
+    //for clearing the value from this container
+    name.value = ""
+    phoneNumber.value = ""
+    houseNumber.value = ""
+    area.value = ""
+    pincode.value = ""
+    landmark.value = ""
+    
+  })
+
+  //cross mark addeventlistener for closing the page
+  const cross_mark = document.querySelector(".fa-xmark")
+  cross_mark.addEventListener("click",function () {
+    address_input.style.display = "none"
+    shop.style.filter = `blur(${0}px)`;
+    nav.style.filter = `blur(${0}px)`;
+  })
+
+//   script get data from address input field
+//       get valuse from inputs 
+      const name = document.getElementById("add_name")
+      const phoneNumber = document.getElementById("add_number")  
+      const houseNumber = document.getElementById("add_house_no")
+      const area = document.getElementById("add_area")
+      const pincode = document.getElementById("add_pincode")
+      const landmark = document.getElementById("add_spd")
+
+
+
+
+    const deliver = document.getElementById("deliver")
+    //get the profile for put the user id in object
+    const profile2 = JSON.parse(localStorage.getItem("profile"))
+
+	
+		
+    	
+    	deliver.addEventListener("click",function(){
+    		formValue.addEventListener('submit',e=>{
+    			e.preventDefault();
+    			const url = "http://localhost:8080/shopnow-web/GetUser";
+    			axios.get(url)
+    			  .then(function (response) {
+    			   	createAddress(response.data[0]);
+    			  })
+    			  .catch(function (error) {
+    			    // handle error
+    			    console.log(error);
+    			  })
+    	    	
+    			function createAddress(user){
+
+    	    	const params = "?userId="+user["id"]+"&name="+name.value+"&phoneNumber="+phoneNumber.value+"&houseNumber="+houseNumber.value+"&area="+area.value+"&pincode="+pincode.value+"&landmark="+landmark.value;
+    	      
+    			const url = "http://localhost:8080/shopnow-web/AddAddress"+ params;
+    			console.log(url);
+    			axios.post(url, null)
+    			  .then(function (response) {
+    				  if(response.data){
+    					  swal("Oops!",(response.data+""), "error");  
+    				  }
+    				  else{
+    				      //this condition for removing containers for showing updated containers
+    				      document.querySelector(".added_address").innerHTML = " "
+    				      addAddress();
+
+    				      //this code for closing the add_address container when your click the save btn
+    				      address_input.style.display = "none"
+    				      shop.style.filter = `blur(${0}px)`;
+    				      nav.style.filter = `blur(${0}px)`;  
+    				  }
+    			  })
+    			  .catch(function (error) {
+    				  swal("Oops!", "Error in adding address!", "error"); 
+    			  })
+    			  }
+    		});	
+    	})
+
+
+
+
+addAddress();
+function addAddress(params) {
+
+	
+	const url = "http://localhost:8080/shopnow-web/GetUser";
+	axios.get(url)
+	  .then(function (response) {
+	   	getAddress(response.data[0]["id"]);
+	  })
+	  .catch(function (error) {
+	    // handle error
+	    alert("Error in getting user")
+	  })
+	
+	function getAddress(userId){
+			const url = "http://localhost:8080/shopnow-web/AddAddress?userId="+userId;
+			console.log(url);
+			axios.get(url)
+			  .then(function (response) {
+				document.querySelector(".added_address").innerHTML = ""
+			   	createElement(response.data);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    alert("Error in fetch address");
+			  })
+	  }
+
+function createElement(addressArray){
+for(let i = 0; i < addressArray.length;i++){
+  //create elements for adding address
+// <div class="address_info">
+const main_div = document.createElement("div")
+main_div.setAttribute("class","address_info")
+
+// <input type="radio" name="" id="check">
+const input = document.createElement("input")
+input.setAttribute("type","radio")
+input.setAttribute("id","check")
+input.setAttribute("class","addressCheck")
+input.setAttribute("name","checked")
+input.setAttribute("required","")
+
+//set the value as a default
+// if (add_arr[i]["select"] === true) {
+//   input.setAttribute("checked","checked")
+// }
+main_div.append(input)
+
+const div = document.createElement("div")
+div.setAttribute("class","info")
+main_div.append(div)
+
+
+// <div id="person_info">
+const div_1 = document.createElement("div")
+div_1.setAttribute("id","person_info")
+div.append(div_1)
+
+// <p>Sasikumar</p>
+const p_name = document.createElement("p")
+p_name.innerText = addressArray[i]["name"]
+div_1.append(p_name)
+
+// <p>6374523686</p>
+const p_num = document.createElement("p")
+p_num.innerText = addressArray[i]["phoneNumber"]
+div_1.append(p_num)
+
+// <div id="location_info">
+const div_2 = document.createElement("div")
+div_2.setAttribute("id","location_info")
+div.append(div_2)
+
+// <p id="location">ST Couriers, IT Corridor, Lakshman Nagar, Perungudi, Chennai, Tamil Nadu -</p>
+const p_address = document.createElement("p")
+p_address.setAttribute("id","location")
+p_address.innerText = addressArray[i]["houseNumber"]+", "+addressArray[i]["area"]+", "+addressArray[i]["landMark"]+" -"
+div_2.append(p_address)
+
+// <p>600096</p>
+const p_pincode = document.createElement("p")
+p_pincode.innerText = addressArray[i]["pincode"]
+div_2.append(p_pincode)
+
+//   <i class="fa-solid fa-ellipsis-vertical"></i>
+const icon = document.createElement("i")
+icon.setAttribute("class","fa-solid fa-ellipsis-vertical")
+div.append(icon)
+
+// <div id="specs">
+const div_3 = document.createElement("div")
+div_3.setAttribute("id","specs")
+div.append(div_3)
+
+// <p>Edit</p>
+const p_edit = document.createElement("p")
+p_edit.innerText = "Edit"
+p_edit.setAttribute("id","p_edit")
+p_edit.setAttribute("class","editText")
+p_edit.setAttribute("data-keyword",addressArray[i]["id"])
+div_3.append(p_edit)
+
+// <p>Delete</p>
+const p_delete = document.createElement("p")
+p_delete.innerText = "Delete"
+div_3.append(p_delete)
+
+document.querySelector(".added_address").append(main_div)
+
+  //this event for showing the edit and delete option in three dots
+  //if mouseenter it's option showing
+  icon.addEventListener("mouseenter",function () {
+    div_3.style.display = "block"  
+  })
+  //this event for after leave specs div its hide 
+  div_3.addEventListener("mouseleave",function () {
+    div_3.style.display = "none"  
+  })
+
+  //this lines for editing the specific address
+  p_edit.addEventListener("click",function () {
+    
+    //get specific id from address
+    const data = p_edit.dataset.keyword
+    
+	const url = "http://localhost:8080/shopnow-web/UpdateAddress?id="+data;
+	console.log(url);
+	axios.get(url)
+	  .then(function (response) {
+	   	intializeValue(response.data[0]);
+	  })
+	  .catch(function (error) {
+	    // handle error
+	    console.log(error);
+	  })
+    
+	function intializeValue(obj){
+    //showing address container for editing
+    address_input.style.display = "block"
+    shop.style.filter = `blur(${5}px)`;
+    nav.style.filter = `blur(${5}px)`;
+
+    name.value = obj["name"]
+    phoneNumber.value = obj["phoneNumber"]
+    houseNumber.value = obj["houseNumber"]
+    area.value = obj["area"]
+    pincode.value = obj["pincode"]
+    landmark.value = obj["landMark"]
+
+    const save_btn = document.getElementById("deliver")
+    save_btn.style.display = "none"
+    save_btn.disabled = true;
+    const edit_save_btn = document.getElementById("edit_save")
+    edit_save_btn.style.display = "block"
+    edit_save_btn.disabled = false;
+	  
+    
+    edit_save_btn.addEventListener("click",function (obj) {
+    	formValue.addEventListener('submit',e=>{
+    		e.preventDefault();
+        	const params = "?id="+data+"&name="+name.value+"&phoneNumber="+phoneNumber.value+"&houseNumber="+houseNumber.value+"&area="+area.value+"&pincode="+pincode.value+"&landmark="+landmark.value;
+        	const url = "http://localhost:8080/shopnow-web/UpdateAddress"+params;
+        	console.log(url);
+        	axios.post(url)
+        	  .then(function (response) {
+        	   	if(response.data){
+        	   		swal("Oops!",(response.data+""), "error");
+        	   	}
+        	   	else{
+        	   		swal("Yep!","Address updated successfully", "success");
+        	   		document.querySelector(".added_address").innerHTML = ""
+        	        //this condition for removing containers for showing updated containers
+        	        addAddress();
+
+        	      //this code for closing the add_address container when your click the save btn
+        	      address_input.style.display = "none"
+        	      shop.style.filter = `blur(${0}px)`;
+        	      nav.style.filter = `blur(${0}px)`;
+        	   	}
+        	  })
+        	  .catch(function (error) {
+        	    // handle error
+        	    console.log(error);
+        	    alert("cannot update address");
+        	  })
+    	});
+    })
+    
+	  }
+  })
+//this lines for deleting address n from array and elements
+p_delete.addEventListener("click",function () {
+  
+	  main_div.remove();
+      //get specific id from address
+      const data = p_edit.dataset.keyword
+    
+  	const url = "http://localhost:8080/shopnow-web/DeleteAddress?id="+data;
+  	console.log(url);
+  	axios.post(url,null)
+  	  .then(function (response) {
+  	   	console.log(response);
+  	  })
+  	  .catch(function (error) {
+  	    // handle error
+  	    console.log(error);
+  	    alert("cannot Delete address");
+  	  })
+
+
+
+          
+    })
+   
+
+}
+}
+
+}
+
+//get url from search bar
+const url = window.location.search;
+const urlParams = new URLSearchParams(url);
+const product_id = urlParams.get("id")
+const product_type = parseFloat(urlParams.get("type"))
+
+
+const deliver_btn = document.getElementById("deliver_btn")
+
+//this event for redirect to payment page
+function redirect() {
+
+  let main_container = document.querySelectorAll(".address_info")
+
+  if (main_container.length === 0) {
+
+     alert("Please add your address")
+  }
+  else{
+	  
+	  let addressCheck = document.querySelectorAll(".addressCheck")
+	  let editText = document.querySelectorAll(".editText")
+	  
+	  for(let i = 0; i < addressCheck.length; i++){
+		  if(addressCheck[i].checked){
+			  let id = editText[i].dataset.keyword 
+			  window.location.href = "payment.html?id="+product_id+"&addressId="+id;
+		  }
+	  }
+	  
+    
+  }
+}
+
+
+let mobile_qty = document.getElementById("qty")
+let mobile_price = document.querySelectorAll(".price")
+//cart paramms contains two numbers with "," special character so it's for verify 
+
+			const url2 = "http://localhost:8080/shopnow-web/GetProductById?id="+product_id;
+			console.log(url2);
+			axios.get(url2)
+			  .then(function (response) {
+				  let obj = response.data[0]
+				  mobile_qty.innerText = `Price (${obj["quantity"]} items)`
+				  mobile_price[0].innerText = "₹"+obj["quantity"] * obj["price"]
+				  mobile_price[1].innerText = "₹"+obj["quantity"] * obj["price"]
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			  })
+
+   
+
+</script>  
+    
+</body>
+</html>

@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Barlow:wght@300;400&family=Karla:wght@300;400&family=Michroma&family=Outfit:wght@100;500&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Barlow+Condensed&family=Barlow:wght@300;400&family=Karla:wght@300;400&family=Michroma&family=Outfit:wght@100;500&family=Rubik:wght@300&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family:PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+}
+
+/* variable declarations */
+:root{
+    --primary:#00203FFF;
+    --secondary:#ADEFD1FF;
+}
+body{
+    background-color:#ffffff;
+}
+
+
+.our h3{
+    width: 175px;
+}
+
+header{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    background-color:var(--primary);
+    position: sticky;
+    top: 0%; 
+    z-index: 1; 
+    box-shadow: 0px 10px 20px rgb(0,0,0,0.1);
+    
+}
+.menu{
+    display: none;
+}
+#bar{
+    display: none;
+}
+ul{
+    list-style: none;
+}
+
+.top-list{
+    display: flex;
+    width: 400px;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.logo{
+    display: flex;
+    width: 250px;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-left: 50px;
+    color:var(--secondary);   
+    cursor: pointer;
+}
+.logo img{
+    margin-top: 5px;
+}
+/* product card js main div */
+
+.mob-link{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    margin: 1%;
+}
+
+.login{
+    padding: 10px;
+    width: 110px;
+    border: 0px solid var(--secondary);
+    background-color: var(--secondary);
+    border-radius: 10px;
+    color:var(--primary);
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+.logo-name{
+    margin-top: 6px;
+    margin-right: 80px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family:PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+}
+ul a{
+    text-decoration: none;   
+}
+.seller{
+    margin-top: 10px;
+    color:var(--secondary);
+}
+.home-icon{
+    padding: 10px;
+    height: 35px;
+    border: 0px solid var(--secondary);
+    background-color: var(--secondary);
+    border-radius: 5px;
+    color:var(--primary);
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+#head{
+    
+    font-size: 40px;
+    font-weight: 100;
+    text-align: center;
+    position: relative;
+    top: 50px;
+    width: 500px;
+
+}
+#line{
+    width: 550px;
+    height: 3px;
+    margin-top: 80px;
+    background-color: var(--secondary);
+}
+#lines{
+    display: flex;
+}
+.model{
+    display: flex;
+    margin: 5%;
+}
+.model p{
+    margin-top: 10px;
+}
+.model input{
+    margin-left: 10px;
+    width: 300px;
+    height: 50px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    outline: none;
+}
+
+.product_list{
+    width: 90%;
+    height: max-content;
+    background-color: rgba(241, 240, 240, 0.509);
+    margin: auto;
+    border-radius: 10px;
+}
+        .main_container{
+            width: 60%;
+            height: 700px;
+            background-color:lightblue;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 5%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        form{
+            display: block;
+        }
+        .main_container div{
+            margin: 5%;
+        }
+        .inputs{
+            padding: 5%;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        }
+        /* .pr_btn{
+            cursor: pointer;
+            margin: auto;
+            padding: 15px;
+            border: none;
+            background-color:violet;
+            color: white;
+            width: 200px;
+            border-radius: 10px;
+        } */
+        #edit{
+            display: none;
+        }
+        #delete{
+            display: none;
+        }
+        #high{
+            height: 200px;
+            width: 250px;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+        }
+        /* info container css */
+        .main_container{
+            width: 95%;
+            height: max-content;
+            /* background-color:lightblue; */
+            border-radius: 10px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            z-index: 3;
+            background-color: var(--secondary);
+        
+        }
+        form{
+            position: fixed;
+            top: 20%;
+            left: 0%;
+            display: none;
+            
+        }
+        #pr_name{
+            width: 16rem;
+        }
+        #pr_name_div{
+            margin-left: 22px;
+        }
+        .main_container div{
+            margin: 5%;
+        }
+        .inputs{
+            padding: 5%;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            border: 2px solid lightgray;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        }
+        .pr_btn{
+            cursor: pointer;
+            margin: auto;
+            padding: 15px;
+            border: none;
+            background-color:violet;
+            color: white;
+            width: 200px;
+            border-radius: 10px;
+        }
+        #edit{
+            display: none;
+        }
+        #delete{
+            display: none;
+        }
+        #high{
+            height: 200px;
+            width: 250px;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+            border: 2px solid lightgray;
+        }
+        .product-img input{
+            width: 250px;
+        }
+        .main_container p{
+            margin-bottom: 10px;
+        }
+        .fa-xmark{
+            font-size: 23px;
+            margin-left: 1350px;
+            position: relative;
+            top: 20px;
+            cursor: pointer;
+        }
+        .mob{
+            width: 250px;
+            height: 350px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 7px rgb(0,0,0,0.1);
+            cursor: pointer;
+            margin: 4%;
+            background-color: #fff;
+        }
+        .mob img{
+            margin-top: 20px;
+            margin-left: 50px;
+            position: relative;
+            top: 0px;
+        
+        }
+        .mobile{
+           
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 40px;
+        }
+        .head-1{
+              margin-left: 50px;
+            margin-top: 40px;
+        }
+
+        .product_list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            max-height: max-content;
+        }
+        .rate button{
+            margin: 20px;
+        }
+        .detail-1{
+            text-align: center;
+        }
+
+.button-38 {
+  background-color: #FFFFFF;
+  border: 0;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 80px;
+  
+}
+
+.button-38:hover {
+  background-color: rgb(249,250,251);
+}
+
+.button-38:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button-38:focus-visible {
+  box-shadow: none;
+}
+
+/* CSS */
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  width: 13rem;
+  height: 1rem;
+  scale: 0.8;
+    position: relative;
+    left: 30rem;
+    bottom: 9rem;
+
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color:var(--primary);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.type{
+    font-weight: 600;
+    margin-left: 10px;
+
+}
+#add_address{
+    display: flex;
+    text-align: center;
+    width: 140px;
+    height: 2.5rem;
+    border-radius: 10px;
+    border: none;
+    color: var(--primary);
+    background-color:rgb(174, 255, 217);
+    scale: 1.1;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    margin: 50px 70px;
+    cursor: pointer;
+    padding: 10px 10px;
+    padding-right: 0%;
+}
+#add_address i{
+    margin-top: 3px;
+    margin-left: 5px;
+    font-weight: bolder;
+}
+#add_address:hover{
+    background-color:rgb(118, 238, 184);
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+#add_address p{
+    position: relative;
+    left: 10px;
+    bottom: 10px;
+}

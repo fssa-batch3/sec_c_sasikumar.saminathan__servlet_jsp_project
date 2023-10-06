@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+</head>
+<body>
+    <main>
+ <form>
+    <div class="main_container">
+        <div><p>Product Name</p><input type="text" class="inputs" id="pr_name"></div>
+      <div><p>Product price</p><input type="text" class="inputs" id="pr_price"></div>
+      <div><p>Ram</p><input type="number" class="inputs" id="pr_ram"></div>
+      <div><p>Rom</p><input type="number" class="inputs" id="pr_rom"></div>
+    <div class="product-img">
+        <div><p>Upload image urls</p><input type="url" class="inputs" id="pr_img_1"></div>
+        <div><input type="url" class="inputs" id="pr_img_2"></div>
+        <div><input type="url" class="inputs" id="pr_img_3"></div>
+        <div><input type="url" class="inputs" id="pr_img_4"></div>
+    </div>
+      <div><p>Highlights</p><input type="text" id="high"></div>
+      <button type="button" class="pr_btn" id="sub">SUBMIT</button>
+      <button type="button" class="pr_btn" id="edit">EDIT</button>
+      <button type="button" class="pr_btn" id="delete">DISABLE</button>
+    </div>
+      
+ </form>
+    </main>
+    <style>
+        .main_container{
+            width: 60%;
+            height: 700px;
+            background-color:lightblue;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 5%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .main_container div{
+            margin: 5%;
+        }
+        .inputs{
+            padding: 5%;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            --shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        }
+        .pr_btn{
+            cursor: pointer;
+            margin: auto;
+            padding: 15px;
+            border: none;
+            background-color:violet;
+            color: white;
+            width: 200px;
+            border-radius: 10px;
+        }
+        #edit{
+            display: none;
+        }
+        #delete{
+            display: none;
+        }
+        #high{
+            height: 200px;
+            width: 250px;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+
+
+
+
+        //getting values for push
+        const pr_name =document.getElementById("pr_name")
+        const ram =document.getElementById("pr_ram")
+        const rom =document.getElementById("pr_rom")
+        const price = document.getElementById("pr_price")
+        const img_1 = document.getElementById("pr_img_1")
+        const img_2 = document.getElementById("pr_img_2")
+        const img_3 = document.getElementById("pr_img_3")
+        const img_4 = document.getElementById("pr_img_4")
+        const highlights = document.getElementById("high")
+        //get element from submit btn
+        const submit_btn = document.getElementById("sub")
+        const delete_btn = document.getElementById("delete")
+
+        //genreate unique id
+         let uid = Math.floor(Math.random() * 100)
+         
+
+
+        submit_btn.addEventListener("click",function(e){
+    
+            e.preventDefault();
+            
+            let product_array = new Array();
+
+            product_array = JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : []
+
+            product_array.push({
+                "user_id" : uid,
+                "product_name" : pr_name.value,
+                "product_price" : "₹ " + price.value,
+                "product_ram" : ram.value,
+                "product_rom" : rom.value,
+                "product_img_1" : img_1.value,
+                "product_img_2" : img_2.value,
+                "product_img_3" : img_3.value,
+                "product_img_4" : img_4.value,
+                "highlights" : highlights.value,
+                "status" : true
+            })
+
+          
+        
+        
+            localStorage.setItem("products",JSON.stringify(product_array));
+            
+            const pro_array = JSON.parse(localStorage.getItem("products"));
+            let res;
+   pro_array.find(function (e) {
+    if (e["product_name"] == pr_name.value) {
+            return res = 1;
+        }
+        else{
+            return res = 0;    }
+   });
+   if (res == 0) {
+    localStorage.setItem("products",JSON.stringify(product_array));
+   }
+   else{
+    alert("already exist")
+   }
+           
+        })
+
+        const product_array = JSON.parse(localStorage.getItem("products"))
+        //get url from search bar
+        const url = window.location.search;
+        const urlParams = new URLSearchParams(url);
+        const productname = urlParams.get("user_id")
+        //console.log(productname)
+
+    const search = product_array.find(function (userobj){
+    const name = userobj["user_id"]+"";
+    
+    //console.log(name);
+    if (productname === name) {
+        return true
+        
+
+    } else {
+
+        return false
+
+    }
+  
+
+})
+ 
+    //set the value in existing inputs
+   const p_name = pr_name.value = search["product_name"]
+    ram.value = search["product_ram"]
+    rom.value = search["product_rom"]
+    price.value = search["product_price"]
+    img_1.value = search["product_img_1"]
+    img_2.value = search["product_img_2"]
+    img_3.value = search["product_img_3"]
+    img_4.value = search["product_img_4"]
+    highlights.value = search["highlights"]
+
+    const edit_btn = document.getElementById("edit")
+   
+
+
+    
+    //this conditon for hide the submit btn
+    if(p_name){
+        submit_btn.style.display = "none"
+        edit_btn.style.display = "block"
+        delete_btn.style.display = "block"
+        
+        //disable inputs 
+        function set() {
+            pr_name.setAttribute("disabled","")
+        ram.setAttribute("disabled","")
+        rom.setAttribute("disabled","")
+        price.setAttribute("disabled","")
+        img_1.setAttribute("disabled","")
+        img_2.setAttribute("disabled","")
+        img_3.setAttribute("disabled","")
+        img_4.setAttribute("disabled","")
+        highlights.setAttribute("disabled","")
+            
+        }
+        
+    }
+
+    edit_btn.addEventListener("click",function(){
+        if (edit_btn.innerHTML == "SAVE") {
+             edit_btn.innerHTML = "EDIT"
+             set();
+             const pr_array = JSON.parse(localStorage.getItem("products"))
+
+pr_array.find(function (e) {
+    if (search["user_id"] === e['user_id']) {
+e["product_name"] = pr_name.value
+e["product_ram"] = ram.value
+e["product_rom"] = rom.value
+e["product_price"] = price.value
+e["product_img_1"] = img_1.value
+e["product_img_2"] = img_2.value
+e["product_img_3"] = img_3.value
+e["product_img_4"] = img_4.value
+e["highlights"] = highlights.value
+
+localStorage.setItem("products",JSON.stringify(pr_array))
+
+    }
+})
+
+
+
+    } else {
+    //change btn name
+    edit_btn.innerHTML = "SAVE"
+
+    //enable the inputs
+    pr_name.removeAttribute("disabled")
+    ram.removeAttribute("disabled")
+    rom.removeAttribute("disabled")
+    price.removeAttribute("disabled")
+    img_1.removeAttribute("disabled")
+    img_2.removeAttribute("disabled")
+    img_3.removeAttribute("disabled")
+    img_4.removeAttribute("disabled")
+    highlights.removeAttribute("disabled")
+
+
+    //getting products array for update
+    const mob_arr = JSON.parse(localStorage.getItem("products"))
+   
+
+ mob_arr.find(function (e) {
+    if (search["user_id"] === e["user_id"]) {
+        e["product_name"] = pr_name.value
+    e["product_price"] = price.value
+    e["product_ram"] = ram.value
+    e["product_rom"] = rom.value
+    e["product_img_1"] = img_1.value
+    e["product_img_2"] = img_2.value
+    e["product_img_3"] = img_3.value
+    e["product_img_4"] = img_4.value
+    e["highlights"] = highlights.value
+ 
+    localStorage.setItem("products",JSON.stringify(mob_arr))
+    }
+    
+})
+
+
+  }
+    })
+    delete_btn.addEventListener("click",function(){
+        product_array.find(function(obj){
+            if (search["user_id"] === obj["user_id"]) {
+                obj["status"] = false
+
+                localStorage.setItem("products",JSON.stringify(product_array))
+            }
+        })
+    })
+
+         
+    // delete_btn.addEventListener("click",function(){
+    //     const product_array = JSON.parse(localStorage.getItem("products"))
+
+    //     product_array.find(function (erase) {
+    //         if (search["user_id"] === erase["user_id"]){
+
+    //             erase["status"] = false
+    //             localStorage.setItem("products",JSON.stringify(product_array))
+    //         }
+    //     })
+    // })
+  
+  
+    
+    
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/my_orders.css">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li><a aria-label="seller" href="../../../pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart" aria-label="cart"><i class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <!-- <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i
+                        class="home-icon fa-solid fa-location-dot"></i></a></li> -->
+                        <!-- <li><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li> -->
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+    <main>
+        <div class="head"><p>Orders</p><hr></div>
+        <select class="filterby">
+            <option value="In-transit">In-transit</option>
+            <option value="Delivered">Delivered</option>
+          </select>
+        <!-- <input type="search" placeholder="search your orders here" class="search" id="search">
+        <label for="search"><i class="fa fa-search" aria-hidden="true"></i></label> -->
+        <div class="order_container"></div>
+        <img src="../../assets/image/order_something.jpg.jpg" id="order_img" alt="">
+        <div class="cancel">
+            <p>Are you reallly going to cancel the order</p>
+            <div class="sure_btn">
+                <button id="sure">YES</button>
+                <button id="not">NO</button>
+            </div>
+        </div>
+        <!-- <div class="main_container">
+            <img src="../../assets/image/galaxy-s21-fe-5g-lavender-8gb-128gb-storage-sm-g990elviinu-original-imagbnbdaj3tygup.webp" alt="" id="product_img">
+          <div class="product_info">  <p id="product_name">SAMSUNG Galaxy S21 FE 5G (Lavender, 128 GB)</p>
+           <div class="product_price">
+            <p>Qty 1</p>
+            <p>₹39,999</p>
+           </div>
+         </div>
+         <div class="status">
+            <p>Status</p>
+            <p>In - Transit</p>
+         </div>
+         <div class="date">
+            <p>Delivery expected by</p>
+            <p id="date">7 March 2023</p>
+            <div class="btn">
+                <button><i class="fa-solid fa-location-crosshairs"></i><p>Track order</p></button>
+            <button><i class="fa-solid fa-xmark"></i><p>Cancel order</p></button>
+            </div>
+         </div>
+        </div> -->
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+    let order_img = document.getElementById("order_img")
+getData();
+    function getData() {
+    	
+     	const url = "http://localhost:8080/shopnow-web/GetUser";
+    	axios.get(url)
+		  .then(function (response) {
+			  //Getting user id to pass in parameter
+			  let userId = response.data[0]["id"];
+			  
+				const url2 = "http://localhost:8080/shopnow-web/AddOrder?userId="+userId;
+				axios.get(url2)
+				  .then(function (response) {
+					 console.log(response.data)
+					createOrderElements(response.data);
+				  })
+				  .catch(function (error) {
+				    // handle error
+				    console.log(error);
+				  })
+		  })
+		  .catch(function (error) {
+		    // handle error
+		    console.log(error);
+		  })
+
+    function createOrderElements(ordersArray){
+			    for(let j = 0; j < ordersArray.length;j++){ 
+					
+			    	let productId = ordersArray[j]["productId"];
+			    	
+		 			const url3 = "http://localhost:8080/shopnow-web/GetProductById?id="+productId;
+					console.log(url3);
+					axios.get(url3)
+					  .then(function (response) {
+						  let productObj = response.data[0];
+						  intializeData(productObj);
+					  })
+					  .catch(function (error) {
+					    // handle error
+					    console.log(error);
+					  })
+					
+			function intializeData(productObj){
+			        const main_div = document.createElement("div")
+			        main_div.setAttribute("class","main_container")
+
+			        //product image
+			        const img = document.createElement("img")
+			        img.setAttribute("id","product_img")
+			        img.setAttribute("alt","product_img")
+			        img.setAttribute("src",productObj["imageURL"][0])
+			        main_div.append(img)
+			       
+
+			        //div 2 containes product info
+			        const div_2 = document.createElement("div")
+			        div_2.setAttribute("class","product_info")
+			        main_div.append(div_2)
+
+			        //product name
+			        const pr_name = document.createElement("p")
+			        pr_name.setAttribute("id","product_name")
+			        pr_name.innerText = productObj["name"]
+			        div_2.append(pr_name)
+
+			        //div 3 contains product price details
+			        const div_3 = document.createElement("div")
+			        div_3.setAttribute("class","product_price")
+			        div_2.append(div_3)
+
+			        //p tag for quantity
+			        const pr_qty = document.createElement("p")
+			        pr_qty.innerText = "Qty"+" "+ ordersArray[j]["quantity"]
+			        div_3.append(pr_qty)
+
+			        //product price
+			        const pr_price = document.createElement("p")
+			        pr_price.innerText = "₹"+ (productObj["price"] * ordersArray[j]["quantity"])
+			        div_3.append(pr_price)
+
+			        //div 4 contains status about product
+			        const div_4 = document.createElement("div")
+			        div_4.setAttribute("class","status")
+			        main_div.append(div_4)
+
+			        //p tag for status
+			        const pr_status = document.createElement("p")
+			        pr_status.innerText = "status"
+			        div_4.append(pr_status)
+
+			        //status progress
+			        const pr_status_info = document.createElement("p")
+			        pr_status_info.setAttribute("class","pro_status")
+			        pr_status_info.innerText = ordersArray[j]["status"]
+			        div_4.append(pr_status_info)
+
+			        //div 5 expected date to order 
+			        const div_5 = document.createElement("div")
+			        div_5.setAttribute("class","date")
+			        main_div.append(div_5)
+
+			        //indicate date
+			        const expect_date = document.createElement("p")
+			        expect_date.innerText = "Delivery expected by"
+			        div_5.append(expect_date)
+
+			        //expected date to order
+			        const date = document.createElement("p")
+			        date.innerText = ordersArray[j]["date"]
+			        div_5.append(date)
+
+			        //btn_div contain with btn's 
+			        const btn_div = document.createElement("div")
+			        btn_div.setAttribute("class","btn")
+			        div_5.append(btn_div)
+
+			        //track order btn
+			        const track_btn = document.createElement("button")
+			        btn_div.append(track_btn)
+
+			        //track order icon
+			        const track_icon = document.createElement("i")
+			        track_icon.setAttribute("class","fa-solid fa-location-crosshairs")
+			        track_btn.append(track_icon)
+
+			        //track order text
+			        const track_p = document.createElement("p")
+			        track_p.innerText = "Track order"
+			        track_btn.append(track_p)
+
+			        //cancel order btn
+			        let cancel_btn = document.createElement("button")
+			        cancel_btn.setAttribute("data-keyword",ordersArray[j]["id"])
+			        cancel_btn.setAttribute("id","cancel_btn")
+			        btn_div.append(cancel_btn)
+
+			        //cancel order icon
+			        const cancel_icon = document.createElement("i")
+			        cancel_icon.setAttribute("class","fa-solid fa-xmark")
+			        cancel_btn.append(cancel_icon)
+
+			        //cancel order text
+			        const cancel_p = document.createElement("p")
+			        cancel_p.innerText = "Cancel order"
+			        cancel_btn.append(cancel_p)
+
+			        document.querySelector(".order_container").append(main_div)
+			        
+			        	if (productObj) {
+			                order_img.style.display = "none"
+			            }
+
+			        // console.log(order[j]);
+			        if (ordersArray[j]["status"] === "Delivered") {
+			            cancel_btn.style.display = "none"
+			            track_btn.style.display = "none"
+			            pr_status_info.innerText = "Delivered"
+			            expect_date.innerText = "Delivered by"
+			        }
+			        else if(ordersArray[j]["status"] === "In-transit"){
+			        	expect_date.innerText = "Ordered on";
+			        }
+			        
+
+			        cancel_btn.addEventListener("click",function remove(e){
+			            const confirm_pop = document.querySelector(".cancel")
+			            confirm_pop.classList.toggle('cancel_active');
+			            const sure = document.getElementById("sure")
+			            const not_sure = document.getElementById("not")
+
+			                    sure.addEventListener("click",function(){
+
+			            //get id from data keyword
+			            const data = cancel_btn.dataset.keyword
+			        
+
+			        const order_arr = order
+			        
+			        //find object from array for delete that order 
+			        let order_obj = order_arr.filter(function(order){
+			            
+			            if (data === order["order_id"]+"") {
+			                
+			                main_div.remove();
+
+			                confirm_pop.classList.remove('cancel_active');
+			                 order["order"] = false
+			                 return true
+			            }
+			            else{
+			                return true
+			            }
+
+			            
+			             })
+			             localStorage.setItem("orders",JSON.stringify(order_obj))
+
+			             document.querySelector(".order_container").innerHTML = ""
+			             getData();
+			             
+			             let main_container = document.querySelectorAll(".main_container")
+			          
+			           })
+			           
+			           //if click no it will be work
+			           not_sure.addEventListener("click",function () {
+			            confirm_pop.classList.remove('cancel_active')
+			           })
+			         }) 
+			    }
+			       }		  
+	}
+
+
+   let product_div = document.querySelectorAll(".main_container")
+    let product_name = document.querySelectorAll(".pro_status")
+    let select = document.querySelector("select")
+ 
+    function getStatus() {
+        for (let i = 0; i < product_div.length; i++) {
+
+            if (select.value !== product_name[i].innerText) {
+                
+                product_div[i].style.display = "none"
+            }
+            else{
+                product_div[i].style.display = "flex"
+
+            }
+         }
+    }
+
+    getStatus();
+    select.addEventListener("change",function(){
+        getStatus();  
+    })
+
+    }
+
+    let main_container = document.querySelectorAll(".main_container")
+
+    if (main_container.length === 0) {
+            order_img.style.display = "block"
+        }
+
+//get elements from my account btn for redirecting
+const login = document.getElementById("login")
+
+login.addEventListener("click", function () {
+
+        window.location.href = "/pages/sign-in/real-profile.html"
+
+});
+
+    cart.addEventListener("click", function () {
+
+            window.location.href = "cart.html?user_id=" + profile["user_id"]
+
+    })
+
+    document.querySelector(".logo").addEventListener("click",function(){
+        window.location.href = "../../index.html"
+    })
+
+
+    </script>
+       
+</body>
+</html>

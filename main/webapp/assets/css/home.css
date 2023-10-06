@@ -1,0 +1,1020 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Barlow:wght@300;400&family=Karla:wght@300;400&family=Michroma&family=Outfit:wght@100;500&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Barlow+Condensed&family=Barlow:wght@300;400&family=Karla:wght@300;400&family=Michroma&family=Outfit:wght@100;500&family=Rubik:wght@300&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family:PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+}
+
+/* variable declarations */
+:root{
+    --primary:#00203FFF;
+    --secondary:#ADEFD1FF;
+}
+body{
+    background-color:#ffffff;
+}
+
+
+.our h3{
+    width: 175px;
+}
+
+header{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    background-color:var(--primary);
+    position: sticky;
+    top: 0%; 
+    z-index: 1; 
+    box-shadow: 0px 10px 20px rgb(0,0,0,0.1);
+    
+}
+.menu{
+    display: none;
+}
+#bar{
+    display: none;
+}
+ul{
+    list-style: none;
+}
+
+.top-list{
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.logo{
+    display: flex;
+    width: 250px;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-left: 50px;
+    color:var(--secondary);
+    
+}
+/* product card js main div */
+
+.pack{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-height: max-content;
+    
+}
+.mob-link{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    margin: 1%;
+}
+.search{
+
+    width: 40%;
+    height: 50px;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    border: 1px solid rgb(209, 209, 209);
+    margin-right: 0%;
+    margin-left: 25%;
+    margin-top: 31px;
+    border-right: 0px;
+}
+.fa-search{
+    color: var(--primary);
+    background-color:var(--secondary);
+    padding: 15px;
+    height: 49px;
+    margin-top: 30px;
+    margin-right: 200px;
+    margin-left: 0px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    right: 5px;
+    border: 1px solid  rgb(209, 209, 209);
+    border-left: 0px;
+}
+
+.login{
+    padding: 10px;
+    width: 110px;
+    border: 0px solid var(--secondary);
+    background-color: var(--secondary);
+    border-radius: 10px;
+    color:var(--primary);
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+.assure p,img,h3 {
+    position: relative;
+    bottom: 30px;
+    
+}
+.assure p{
+    width: 250px;
+   position: relative;
+   right: 20px;
+}
+.logo-name{
+    margin-top: 6px;
+    margin-right: 80px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family:PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+}
+ul a{
+    text-decoration: none;   
+}
+.seller{
+    margin-top: 10px;
+    color:var(--secondary);
+}
+.home-icon{
+    padding: 10px;
+    height: 35px;
+    border: 0px solid var(--secondary);
+    background-color: var(--secondary);
+    border-radius: 5px;
+    color:var(--primary);
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+.download{
+    display: flex;
+    justify-content: space-between;
+    height: 30rem;
+    width: 90%;
+    margin-left: 90px;
+    margin-top: 60px;
+    border-radius: 20px;
+    background-color:var(--primary);
+    color: white;
+    font-family:'Acme', sans-serif;
+    box-shadow: 5px 7px 20px rgb(145, 145, 145);
+    background-image: url(../../assets/image/wave-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.download h1{
+    font-family: PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;;
+
+}
+/* .pack :nth-child(5) img{
+    margin: 0%;
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 200px;
+}
+.pack :nth-child(6) img{
+    margin: 0%;
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 200px;
+}
+.pack :nth-child(7) img{
+    margin: 0%;
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 200px;
+}
+.pack :nth-child(8) img{
+    margin: 0%;
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 200px;
+} */
+.download-1{
+    width: 400px;
+    height: 400px;
+    margin-left: 180px;
+    margin-top: 50px; 
+    padding: 30px;
+    font-size: 30px;
+}
+.logo img{
+    margin-top: 40px;
+}
+.three p{
+    width: 200px;
+}
+.download-1 button{
+    margin-top: 40px;
+    padding:10px;
+    width: 160px;
+    border: 0px solid var(--secondary);
+    color: var(--primary);
+    background-color: var(--secondary);
+    border-radius: 20px; 
+    cursor: pointer;
+}
+.download-1 button:hover{
+    scale: 1.1;
+    transition: 0.5s;
+}
+.three{
+    height: 500px;
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.assure{
+    height: 400px;
+    border-radius: 20px;
+    width: 250px;
+    padding: 50px;
+    text-align: center;
+    background-color:rgba(245, 245, 245, 0.518);
+    color:var(--primary);
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+    background-image: url(../../assets/image/blob-scene-haikei.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;;
+
+}
+.active{
+    border-left: 4px solid var(--secondary);
+}
+.shop{
+    border-radius: 20px;
+}
+
+.our{
+    display: flex;
+    text-align: center;
+    margin-top: 50px;
+}
+.line-1{
+border: 2px solid var(--secondary);
+ width:669px;
+ height:3px;
+ border-radius: 10px;
+}
+.line-2{
+ border: 2px solid var(--secondary);
+ width:669px;
+ height:3px;
+border-radius: 10px;
+}
+.our h3{
+    position: relative;
+    bottom: 10px;
+    color:var(--primary);
+    scale: 1.3;
+    background-color: white;
+}
+.mob{
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px rgb(0,0,0,0.1);
+    cursor: pointer;
+}
+.mob img{
+    margin-top: 20px;
+    margin-left: 50px;
+    position: relative;
+    top: 0px;
+
+}
+.mobile{
+   
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+.head-1{
+      margin-left: 50px;
+    margin-top: 40px;
+}
+.mob:hover{
+    transition: 0.5s;
+    scale: 1.05;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+.laps .rate{
+    margin-top: 15px;
+}
+.laps .detail-1,.rating{
+    margin-top: 10px;
+}
+.lap{
+    position: relative;
+    right:30px;  
+}
+.detail-1{
+    text-align: center;
+}
+.rate{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.onward{
+    margin-top: 8px;
+    margin-left: 2px;
+    font-weight:bolder;
+    font-size:medium;
+    color: gray;
+}
+.rating{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 170px;
+}
+.rating-1{
+    display: flex;
+    background-color:var(--primary);
+    color: var(--secondary);
+    width: 60px;
+    justify-content: space-evenly;
+    padding: 7px;
+    border-radius:15px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.1);
+}
+.fa-star{
+    font-size:smaller;
+    margin-top: 2px;
+}
+.rating p{
+    margin-top:7px;
+    font-weight: 700;
+    font-size: small;
+    color: gray;
+}
+footer{
+    height: 300px;
+    width: 100%;
+    margin-top: 180px;
+    display: flex;
+    background-image: url(../../assets/image/layered-waves-haikei.png);
+    background-position-y:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    font-family:PlusJakartaSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Helvetica Neue,Ubuntu,sans-serif;
+
+}
+footer ul:nth-child(2){
+   position: relative;
+   right: 100px;
+}
+footer ul{
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+footer ul a{
+
+    color: var(--primary);
+}
+.social{
+    height: 50px;
+    width: 130px;
+    scale: 1.3;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 220px;
+}
+footer .fa{
+    font-size:x-large;
+}
+.social{
+    cursor: pointer;
+}
+.social :nth-last-child(1):hover{
+    color:rgb(60, 175, 247);
+}
+.social :nth-last-child(2):hover{
+    color:red;
+}
+.social :nth-last-child(3):hover{
+    color: rgb(228, 16, 164);
+}
+.social :nth-last-child(4):hover{
+    color:blue;
+}
+
+.social :nth-last-child(1){
+    color:var(--primary)
+}
+.social :nth-last-child(2){
+    color:var(--primary);
+}
+.social :nth-last-child(3){
+    color:var(--primary);
+}
+.social :nth-last-child(4){
+    color:var(--primary);
+}
+/* footer li a::after{
+    content: '';
+    background-color: black;
+    height: 1px;
+    display: block;
+    margin: auto;
+    width: 0%;
+    transition: 0.5s;
+    }
+    
+    li a:hover::after{
+        width:100% ;
+
+    } */
+    li a:hover{
+        text-decoration: underline;
+    }
+    footer ul li{
+        padding-top: 2px;
+    
+    }
+/* end of homepage */
+.pincode{
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.3);
+    width: 1000px;
+    height: 500px;
+    margin-left: 17%;
+    margin-top:7em;
+    border-radius: 30px;
+    display: flex;
+    background-color:rgba(173, 239, 209, 0.379);
+}
+.pin-img{
+    margin-top: 35px;
+    margin-left: 15px;
+    
+}
+.pin-text{
+    font-size: 35px;
+    padding: 60px;
+    margin-top: 30px;
+    color: var(--primary);
+}
+.pin-text input{
+    border: 0px solid;
+    margin-top: 70px;
+    padding: 25px;
+    width: 400px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.1);
+    outline: none;
+}
+.pin-but{
+    width: 200px;
+}
+.pin-input::-webkit-outer-spin-button,
+.pin-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.pin-but button{
+    padding: 15px;
+    width: 100px;
+    border: 2px solid var(--secondary);
+    border-radius: 20px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    margin-top: 40px;
+    margin-left: 140px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+.pin-but button:hover{
+    box-shadow: inset 3px 3px 3px var(--primary);
+    box-shadow: inset -3px -3px -3px var(--primary);
+    background-color: var(--secondary);
+    color: var(--primary);
+    transition: 0.4s;
+    border: 2px solid var(--primary);
+}
+.pin-text h2{
+    width: 500px;
+    position: relative;
+    top:20px;
+    right: 30px;
+}
+
+/* pincode page end */
+.back-img{
+    border: 2px solid white;
+    width: 100%;
+    height: 550px;
+    margin-top: 80px;
+    background-image: url(../image/21869783_pin_7.jpg);
+    background-size:cover;
+    background-position: center;
+    text-align: center;
+}
+.back-img h1{
+    margin-top: 180px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--primary);
+}
+.shop-list{
+    width: 100%;
+    height: 350px;
+    margin-top: 130px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.shop-container{
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+    max-height:350px;
+    width: 400px;
+    background-color:rgba(173, 239, 209, 0.297);
+    border-radius: 20px;
+}
+.visit-content{
+    height: 80%;
+    padding: 50px 40px;
+    font-size: 19px;
+    border-radius: 15px;
+}
+.visit{
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+    background-color: var(--secondary);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.visit-content p{
+    margin-top: 20px;
+}
+.visit button{
+    border-radius: 20px;
+    padding: 13px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 35px;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+}
+.visit button:hover{
+    transition: 0.5s;
+    scale: 1.05;
+}
+.shop-icon{
+    height: 40px;
+    margin-top: 12px;
+    margin-right: 40px;
+}
+.scroll button{
+    position: relative;
+    top:200px;
+    left: 200px;
+    padding: 13px;
+    border: 0px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 20px;
+}
+html{
+    scroll-behavior: smooth;
+}
+.cards_pack{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.shop-container{
+    margin-top: 5%;
+}
+.shop-icon{
+    position: relative;
+    top: 0px;
+}
+
+/* shop page end */
+.login-container{
+    width:450px;
+    height: 750px;
+    margin-top:5%;
+    margin-left: 32%;
+    display: flex;
+    background-color: rgba(173, 239, 209, 0.651);
+    border: 0.5px solid rgba(128, 128, 128, 0.486);
+    z-index: 1;
+    box-shadow: 0px 7px 20px rgb(145, 145, 145);
+}
+.login-text{
+    text-align: center;
+    background-color: var(--secondary);
+    height: 340px;
+    width: 380px;
+    border: 2px solid var(--secondary);
+    border-radius: 10px;
+    position: relative;
+    bottom: 440px;
+    left: 510px;
+    z-index: 2;
+    box-shadow: 1px 1px 20px rgb(145, 145, 145);
+}
+.login-text input{
+    display: flex;
+    padding: 23px;
+    position: relative;
+    left: 20px;
+    top: 50px;
+    border-radius: 20px;
+    width: 340px;
+    border: none;
+    border-width: 0px 0px 2px 0px;
+    box-shadow: 0px 0px 10px rgb(0,0,0,0.2);
+    outline: none;
+}
+.login-text h2{
+    margin-top: 20px;
+}
+.input-2{
+    margin-top: 50px;
+}
+.login-but{
+    padding: 20px;
+    width: 200px;
+    border: 0px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 30px;
+    position: relative;
+    bottom: 470px;
+    left: 600px;
+    z-index: 3;
+    box-shadow: 5px 7px 25px rgb(145, 145, 145);
+    cursor: pointer;
+}
+
+.login-but:hover{
+    scale: 1.04;
+    transition: 0.6s;
+    color: white;
+    background-color: rgba(0, 31, 63, 0.918);
+}
+.login-body{
+    overflow: hidden;
+    background-color: rgba(211, 211, 211, 0.253);
+}
+.signup{
+    position:relative;
+    bottom: 450px;
+    left: 610px;
+}
+.signup a{
+    color: var(--primary);
+}
+
+/* login page end */
+.logo a{
+    text-decoration: none;
+    color: var(--secondary);
+}
+.scroll i{
+    margin-left: 3px;
+    margin-top: 3px;
+}
+.scroll button{
+    display: flex;
+    
+    justify-content: space-evenly;
+    cursor: pointer;
+    text-decoration: none;
+}
+.scroll a{
+    text-decoration: none;
+}
+
+/* media queries for mobile */
+@media only screen and (max-width: 1200px){
+
+    .fa-search{
+       margin: 2%;
+       margin-left: 0%;
+    }
+    
+
+}
+@media only screen and (max-width: 1025px){
+
+    .download-1{
+        margin: 5%;
+    }
+    .download{
+        margin: 40px;
+        width: 94%;
+        height:480px;
+    }
+    .download img{
+        margin-top: 30px;
+    }
+    .scroll{
+        position: absolute;
+        left: 65%;
+    }
+    footer ul{
+        padding: 6%;
+        margin-top: 7%;
+    }
+}
+
+@media only screen and (max-width: 770px){
+   
+    header .top-list li{
+        display: none;
+    }
+    #bar{
+        display: block;
+        color: var(--secondary);
+        margin: 40px;
+        font-size: 25px;
+        transform: rotate(0deg);
+    }
+    .menu{
+        display: block;
+        position: absolute;
+        background-color:var(--secondary);
+        height: 1000px;
+        width: 300px;
+        z-index:2;
+        padding: 50px;
+        transition: 0.5s;
+        transform: translateX(-300px);
+    }
+    .showmenu{
+        transform: translateX(0px);
+    }
+    .menu li{
+       
+        text-align: center;
+        letter-spacing: 2px;
+        border-bottom: 0.5px solid var(--primary);
+        padding: 30px 0px;
+    }
+    .menu li a{
+        color: var(--primary);
+        font-size: 20px;
+        transition: font-weight 0.2s;
+    }
+    .menu li a:hover{
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .menu :last-child{
+        border-bottom: none;
+    }
+    .search{
+       margin-top: 20px;
+       width: 300px;
+       height: 43px;
+       margin-top: 4%;
+       padding: 20px;
+    }
+    .fa-search{
+       
+       height: 42px;
+       padding: 11px; 
+
+    }
+    .three{
+        display: flex;
+        height: 200%;
+        
+
+    }
+    .assure{
+        height: 60%;
+        margin: 10px;
+        width: 30%;
+    
+        
+    }
+    .assure_1{
+     
+        height: 320px;
+        padding: 40px;
+        
+    }
+    .download img{
+        width: 50%;
+        height: 50%;
+        margin-top: 25px;
+    }
+    .download-1{
+        
+        margin: 0px;
+        width: fit-content;
+        height: fit-content;
+        margin: 20px;
+    }
+    .download{
+        margin: 0px;
+        height: 80%;
+        margin: 40px;
+
+    }
+    .download-1 h1{
+        font-size:35px;
+        width: 200px;
+    }
+    .scroll {
+        margin: 0%;
+        position: absolute;
+        top: 476%;
+        left: 49%;
+    }
+    .social{
+        margin: 0%;
+        position: absolute;
+        top: 512%;
+        left: 70%;
+    }
+    footer ul{
+        margin: 0%;
+        padding: 0%;
+        padding: 9%;
+        width: max-content;
+        margin-top: 10%;
+        
+    }
+    footer ul:nth-child(2){
+        margin-right: 6%;
+        
+    }
+
+}
+@media only screen and (max-width: 600px){
+    .scroll {
+        margin: 0%;
+        position: absolute;
+        top: 505%;
+        left: 45%;
+    }
+    .social{
+        margin: 0%;
+        position: absolute;
+        top: 542%;
+        left: 70%;
+    }
+    .three{
+        margin-top: 0%;
+        display: block;
+        height: 20%;
+    }
+    .assure{
+        height: 270px;
+        margin: 10px;
+        width: 50%;
+        margin: auto;
+        margin-top: 20px;    
+    }
+    .three .assure:nth-child(3){  
+        margin-bottom: 40px; 
+
+    }
+    .assure p{    
+        width: 120%;
+        margin-top: 3%;
+    }    
+    .download img{
+        width: 50%;
+        height: 50%;
+        margin-top: 25px;
+    }
+    .download-1{
+        margin: 0px;
+        width: fit-content;
+        height: fit-content;
+    }
+    .download{
+        margin: 0px;
+        height: 80%;
+        margin: 40px;
+
+    }
+    .download-1 h1{
+        font-size:35px;
+        width: 200px;
+    }
+    footer ul{
+        margin: 0%;
+        padding: 0%;
+        padding: 10%;
+        width: fit-content;
+        margin-top: 15%;
+        
+    }
+    footer ul:nth-child(2){
+        margin-right: 13%;
+        
+    }
+}
+@media only screen and (max-width: 426px){
+
+    header{
+        height: fit-content;
+    }
+    .three .assure:nth-child(1){
+        margin-top: 80px;
+    }
+    .assure{
+        width: 300px;
+    }
+    .fa-search{
+
+        height: 44px;
+        padding: 13px; 
+        margin-top: 4%;
+     }
+    .search{
+        margin-left: 32px;
+        width: 300px;
+        border: 1px solid rgb(209, 209, 209);
+        
+    }
+
+    .download img{
+        width: 55%;
+        height: 55%;
+        margin-right: 50px;
+        margin-top: 55px;
+    }
+    .download-1{
+        margin: 0px;
+        width: max-content;
+        height: max-content;
+    }
+    .download{
+        margin: 0px;
+        height: 80%;
+        width: 400px;
+        margin: 10px;
+        padding-right: 50px;
+        
+    }
+    .download-1 h1{
+        font-size:25px;
+        width: 150px;
+    }
+    .download button{
+        width: fit-content;
+        font-size: 10px;
+        margin: 0%;
+        margin-top: 20px;
+        border-radius: 10px
+    }
+    .scroll {
+        margin: 0%;
+        position: absolute;
+        top: 802%;
+        left: 35%;
+        scale: 0.7;
+    }
+    .social{
+        margin: 0%;
+        position: absolute;
+        top: 829%;
+        left:60%;
+        font-size: 14px;
+    }
+    .logo{
+        width: 170px;
+        margin-left: 30px;
+        margin-top: 10px;
+        scale: 0.8;
+
+    }
+    .logo-name{
+        margin-left: 10px;
+    }
+    footer ul{
+        margin: 0%;
+        padding: 0%;
+        width: max-content;
+        margin-top: 35%;
+        font-size: 13px;
+        height: 100px;
+        
+    }
+    footer ul:nth-child(2){
+        margin-left: 120px;
+    }
+    footer ul:nth-child(1){
+        margin-left: 20px;
+    }
+    footer ul:nth-child(2){
+        margin-right: 13%;
+        
+    }
+}

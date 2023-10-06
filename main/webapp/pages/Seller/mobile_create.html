@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/mobile_create.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <header>
+        <!-- div:logo  contain:logo img and name -->
+        <div class="logo">
+            <img src="../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <!-- <a href="pages/buyer/main flow/mobile_list.html"><li><button class="login" id="mobiles"><b>Mobiles</b></button></li></a> -->
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li id="seller"><a aria-label="seller" href="pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart" aria-label="cart"><i id="cart_icon" class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i id="order_icon"
+                        class="home-icon fa-solid fa-location-dot"></i></a></li>
+                        <li id="order_hide"><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+
+<main>
+    <div id="lines"><div id="line"></div><p id="head">Add products to your shop</p><div id="line" class="line2"></div></div>
+<div class="model"><button class="button-25" id="add_address"><i class="fa-solid fa-plus"></i><p>Add product</p></button></div>
+<div class="product_list"></div>
+<!-- <p>Model name :</p><input id="search" type="search"> -->
+
+</main>
+<form id="forms">
+    <div class="main_container">
+        <i class="fa-solid fa-xmark"></i>
+<div>
+    <div id="pr_name_div"><p>Product Name</p><input type="text" class="inputs" id="pr_name" required></div>
+    <div class="product-img">
+        <div><p>Upload image urls</p><input type="url" class="inputs" id="pr_img_1" required></div>
+        <div><input type="url" class="inputs" id="pr_img_2" required></div>
+        <div><input type="url" class="inputs" id="pr_img_3" required></div>
+        <div><input type="url" class="inputs" id="pr_img_4" required></div>
+    </div>
+</div>
+<div class="type_1">
+    <p class="type">Type 1</p>
+    <div><p>Product price</p><input type="text" class="inputs" id="pr_price" required></div>
+    <div><p>Ram</p><input type="number" class="inputs" id="pr_ram"></div>
+    <div><p>Storage</p><input type="number" class="inputs" id="pr_rom" required></div>
+</div>
+<div class="type_2">
+    <p class="type">Type 2</p>
+    <div><p>Product price</p><input type="text" class="inputs" id="pr_price_2"></div>
+    <div><p>Ram</p><input type="number" class="inputs" id="pr_ram_2"></div>
+    <div><p>Storage</p><input type="number" class="inputs" id="pr_rom_2"></div>
+</div>
+      <div><p>Highlights</p><input type="text" id="high" required></div>
+      <button type="submit" class="pr_btn button-28" id="sub">SUBMIT</button>
+      <button type="submit" class="pr_btn button-28" id="edit">Update</button>
+    </div>
+      
+ </form>
+<script>
+
+    //get the search input element
+    const search = document.getElementById("search")
+    const btn = document.querySelector(".button-25")
+    const form = document.getElementById("forms")
+    const pro_array = JSON.parse(localStorage.getItem("products"))
+    let list_div = document.querySelector(".product_list")
+    let inputs = document.querySelectorAll("input")
+    //get element from submit btn
+    const submit_btn = document.getElementById("sub")
+    const edit_btn = document.getElementById("edit")
+
+    let url = window.location.search
+    let params = new URLSearchParams(url)
+    let shop_id = params.get("id")
+    
+
+    //event for search the product
+    btn.addEventListener("click",function(){
+         
+        
+        //after updating product if click this add product btn it will erase updated mobile values
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].value = ""
+        }
+
+        
+        const main_container = document.getElementById("forms")
+        main_container.style.display = "block"
+
+        submit_btn.style.display = "block"
+        edit_btn.style.display = "none"
+
+
+                })
+
+        //getting values for push
+        const pr_name = document.getElementById("pr_name")
+        const ram = document.getElementById("pr_ram")
+        const rom = document.getElementById("pr_rom")
+        const price = document.getElementById("pr_price")
+        const img_1 = document.getElementById("pr_img_1")
+        const img_2 = document.getElementById("pr_img_2")
+        const img_3 = document.getElementById("pr_img_3")
+        const img_4 = document.getElementById("pr_img_4")
+        const highlights = document.getElementById("high")
+        const main_container = document.getElementById("forms")
+        const ram2 =document.getElementById("pr_ram_2")
+        const rom2 =document.getElementById("pr_rom_2")
+        const price2 = document.getElementById("pr_price_2")
+
+
+
+
+    form.addEventListener("submit",function(e){
+                    
+     //genreate unique id
+     let uid = Math.floor(Math.random() * 100)
+     let profile = JSON.parse(localStorage.getItem("profile"))
+    e.preventDefault();
+    
+    let product_array = new Array();
+
+    product_array = JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : []
+
+    product_array.push({
+        "seller_id" : profile["seller_id"],
+        "shop_id" : profile["shop_id"],
+        "user_id" : uid,
+        "product_name" : pr_name.value,
+        "product_price" : "₹ " + price.value,
+        "product_img_1" : img_1.value,
+        "product_img_2" : img_2.value,
+        "product_img_3" : img_3.value,
+        "product_img_4" : img_4.value,
+        "highlights" : highlights.value,
+        "status" : true,
+        "types": [
+            {
+                "ram" : ram.value,
+                "storage" : rom.value,
+                "price" : "₹ " + price.value
+            },
+            {
+            "ram" : ram2.value,
+            "storage" : rom2.value,
+            "price" : "₹ " +price2.value
+        }
+    ]
+    })
+
+  
+
+
+    localStorage.setItem("products",JSON.stringify(product_array));
+
+    //close the container after submit
+    main_container.style.display = "none"
+    
+
+    edit_btn.addEventListener("click",function(){
+            
+
+            //get the id from element
+           let product_id = pr_name.dataset.keyword
+
+            pro_array.find(function (e) {
+                if (product_id === e['user_id']+"") {
+            e["product_name"] = pr_name.value
+            e["types"][0]["ram"] = ram.value
+            e["types"][0]["storage"] = rom.value
+            e["types"][0]["price"] = price.value
+            e["types"][1]["ram"] = ram2.value
+            e["types"][1]["storage"] = rom2.value
+            e["types"][1]["price"] = price2.value
+            e["product_img_1"] = img_1.value
+            e["product_img_2"] = img_2.value
+            e["product_img_3"] = img_3.value
+            e["product_img_4"] = img_4.value
+            e["highlights"] = highlights.value
+            
+
+            localStorage.setItem("products",JSON.stringify(pro_array))
+
+                }
+            })
+            main_container.style.display = "none"
+            //this condition for removing containers for showing updated containers
+            list_div.innerHTML = ""
+            mobData();
+        })
+
+})
+
+const x_mark = document.querySelector(".fa-xmark")
+x_mark.addEventListener("click",function () {
+    main_container.style.display = "none"    
+}) 
+
+mobData();
+function mobData(params) {
+const pr_arr = JSON.parse(localStorage.getItem("products"))
+
+let pr_array = pr_arr.filter(function (obj) {
+    if (obj["shop_id"]+"" ===  shop_id) {
+        return true
+    }
+    else{
+        return false
+    }
+})
+
+
+for (let j=0; j< pr_array.length; j++) //loop for creating 12 product cards
+{
+    //div 1 class name: pack
+    const div_2 = document.createElement("div");
+    div_2.setAttribute("class", "mob")
+
+
+    //product img
+    const img = document.createElement("img");
+    img.setAttribute("src", pr_array[j]["product_img_1"])
+    img.setAttribute("alt", "redmi_note_11")
+    img.setAttribute("width", "150px")
+    img.setAttribute("height", "200px")
+    div_2.append(img)
+
+
+    //product name
+    const h4 = document.createElement("h4");
+    h4.setAttribute("class", "detail-1")
+    h4.innerHTML = pr_array[j]["product_name"]
+    div_2.append(h4)
+
+    
+    const div_3 = document.createElement("div");
+    div_3.setAttribute("class", "rate")
+    div_2.append(div_3)
+
+    const edit = document.createElement("button")
+    edit.setAttribute("class","edit_btn button-38")
+    edit.setAttribute("data-keyword",pr_array[j]["user_id"])
+    edit.innerText = "Edit"
+    div_3.append(edit)
+
+    const delete_btn = document.createElement("button")
+    delete_btn.setAttribute("class","delete_btn button-38")
+    delete_btn.innerText = "Disable"
+    div_3.append(delete_btn)
+
+    if (pr_array[j]["status"] === false) {
+    
+        img.style.opacity = "50%"
+        h4.style.opacity = "50%"
+        edit.style.opacity = "50%"
+        delete_btn.innerText = "Enable"
+        div_3.style.opacity = "100%"
+        
+    }
+
+    list_div.append(div_2)
+
+    edit.addEventListener("click",function(){
+        // let product_id = edit.dataset.keyword
+         
+        // pr_array.find(function(obj){
+        //     if (product_id = obj["user_id"]+"") {
+                main_container.style.display = "block"
+
+            //set the value in existing inputs
+            const p_name = pr_name.value = pr_array[j]["product_name"]
+            ram.value = pr_array[j]["types"][0]["ram"]
+            rom.value = pr_array[j]["types"][0]["storage"]
+            price.value = pr_array[j]["types"][0]["price"]
+            img_1.value = pr_array[j]["product_img_1"]
+            img_2.value = pr_array[j]["product_img_2"]
+            img_3.value = pr_array[j]["product_img_3"]
+            img_4.value = pr_array[j]["product_img_4"]
+            highlights.value = pr_array[j]["highlights"]
+            ram2.value = pr_array[j]["types"][1]["ram"]
+            rom2.value = pr_array[j]["types"][1]["storage"]
+            price2.value = pr_array[j]["types"][1]["price"]
+
+            pr_name.setAttribute("data-keyword",pr_array[j]["user_id"])
+
+
+            // }
+        // })
+        submit_btn.style.display = "none"
+        edit_btn.style.display = "block"
+
+        
+        
+
+       })
+
+       
+       //for update mobile
+
+        //for disable the mobile
+        delete_btn.addEventListener("click",function(){
+            //get the id from element
+           let product_id = edit.dataset.keyword
+
+        if (delete_btn.innerText === "Enable") {
+            pro_array.find(function(obj){
+            if (product_id === obj["user_id"]+"") {
+                obj["status"] = true
+
+                localStorage.setItem("products",JSON.stringify(pro_array))
+            }
+        })
+        }
+        else{
+            pro_array.find(function(obj){
+            if (product_id === obj["user_id"]+"") {
+                obj["status"] = false
+                localStorage.setItem("products",JSON.stringify(pro_array))
+            }
+        })
+        }
+        //this condition for removing containers for showing updated containers
+        list_div.innerHTML = ""
+        mobData();
+
+    })
+
+
+       }
+    }
+
+        const seller_nav = document.getElementById("seller")
+        const cart_nav = document.getElementById("order_hide")
+        const cart_icon = document.getElementById("cart_icon")
+        const location_icon = document.getElementById("order_icon")
+        const home_nav = document.querySelector(".logo")
+    
+        
+        seller_nav.style.display = "none"
+        cart_nav.style.display = "none"
+        // cart_icon.removeAttribute("class")
+        cart_icon.setAttribute("class","home-icon fa-solid fa-calendar-plus")
+        location_icon.setAttribute("class","home-icon fa-solid fa-clipboard-list")
+    
+        cart_icon.addEventListener("click",function () {
+            window.location.href = "/pages/Seller/mobile_create.html?id="+profile["shop_id"]
+        })
+        location_icon.addEventListener("click",function () {
+            window.location.href = "/pages/Seller/order_request.html?id="+profile["shop_id"]
+        })
+
+        home_nav.addEventListener("click",function () {
+            window.location.href = "../../index.html"
+        })
+
+      
+       
+
+
+
+
+</script>
+    
+</body>
+</html>

@@ -22,16 +22,122 @@
   	<description></description>
   	<servlet-class>com.fssa.shopnow.servlet.postProducts</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PostUser</servlet-name>
+  	<display-name>PostUser</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.PostUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CheckEmail</servlet-name>
+  	<display-name>CheckEmail</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.CheckEmail</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CheckAccount</servlet-name>
+  	<display-name>CheckAccount</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.CheckAccount</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserExist</servlet-name>
+  	<display-name>UserExist</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.UserExist</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogoutAccount</servlet-name>
+  	<display-name>LogoutAccount</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.LogoutAccount</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetShopsByProduct</servlet-name>
+  	<display-name>GetShopsByProduct</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.GetShopsByProduct</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetShops</servlet-name>
+  	<display-name>GetShops</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.GetShops</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetProductById</servlet-name>
+  	<display-name>GetProductById</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.GetProductById</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddAddress</servlet-name>
+  	<display-name>AddAddress</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.AddAddress</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetUser</servlet-name>
+  	<display-name>GetUser</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.GetUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateAddress</servlet-name>
+  	<display-name>UpdateAddress</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.UpdateAddress</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteAddress</servlet-name>
+  	<display-name>DeleteAddress</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.DeleteAddress</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddOrder</servlet-name>
+  	<display-name>AddOrder</display-name>
+  	<description></description>
+  	<servlet-class>com.fssa.shopnow.servlet.AddOrder</servlet-class>
+  </servlet>
   <servlet-mapping>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/LoginServlet</url-pattern>
+    <servlet-name>GetProducts</servlet-name>
+    <url-pattern>/GetProducts</url-pattern>
+</servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetShopsByProduct</servlet-name>
+  	<url-pattern>/GetShopsByProduct</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetProducts</servlet-name>
-  	<url-pattern>/GetProducts</url-pattern>
+  	<servlet-name>GetShops</servlet-name>
+  	<url-pattern>/GetShops</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>postProducts</servlet-name>
-  	<url-pattern>/postProducts</url-pattern>
+  	<servlet-name>GetProductById</servlet-name>
+  	<url-pattern>/GetProductById</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddAddress</servlet-name>
+  	<url-pattern>/AddAddress</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetUser</servlet-name>
+  	<url-pattern>/GetUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateAddress</servlet-name>
+  	<url-pattern>/UpdateAddress</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddOrder</servlet-name>
+  	<url-pattern>/AddOrder</url-pattern>
+  </servlet-mapping>
+  <session-config>
+		<session-timeout>120</session-timeout> <!-- Number of minutes -->
+	</session-config>
+	<error-page>
+<!-- 		<exception-type>java.lang.Exception</exception-type> For handling exceptions-->
+		<error-code>404</error-code> <!-- HTTP Error code Page Not found -->
+		<location>/page-not-found.jsp</location>
+	</error-page>
 </web-app>

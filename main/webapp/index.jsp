@@ -149,20 +149,9 @@
     const edit_btn = document.getElementById("edit")
     
     
-    	
-			const url = "http://localhost:8080/shopnow-web/GetProducts";
-			axios.get(url)
-			  .then(function (response) {
-			    // handle success
-			    console.log(response.data);
-			    const array = response.data;
-			    mobData(array);
-			  })
-			  .catch(function (error) {
-			    // handle error
-			    console.log(error);
-			  })
-		
+    	//Adding Load state when it's getting products
+    	list_div.innerHTML = `<h3>Loading..</h3>`
+    		getProducts();
     
 
     //event for search the product
@@ -197,14 +186,16 @@
         const main_container = document.getElementById("forms")
 
 
-	function  postData(type,params){
+	function  postData(type,params,msg){
+	    	list_div.innerHTML = "";
+	    	list_div.innerHTML = `<h3>${msg}</h3>`
     		const url = "http://localhost:8080/shopnow-web/"+ type + params;
     		console.log(url);
     		axios.post(url, null)
     		  .then(function (response) {
     		    // handle success
     		    console.log(response.data);
-    		    alert("success");
+    	    	getProducts();
     		  })
     		  .catch(function (error) {
     		    // handle error
@@ -223,9 +214,9 @@
 	    		  pr_name.value +
 	    		  "&price=" +
 	    		  price.value +
-	    		  "&ram=" +    // Add an equal sign here
+	    		  "&ram=" +    
 	    		  ram.value +
-	    		  "&storage=" +    // Add an equal sign here
+	    		  "&storage=" +
 	    		  rom.value +
 	    		  "&img1=" +
 	    		  img_1.value +
@@ -238,12 +229,11 @@
 	    		  "&desc=" +
 	    		  highlights.value;
 	    	 
-	    	 postData("PostProducts",params);
+	    	 postData("PostProducts",params,"Adding product...");
 			
 	                   
 	    //close the container after submit
 	    main_container.style.display = "none"
-	    
 
 	})
 	})	
@@ -253,7 +243,20 @@ x_mark.addEventListener("click",function () {
     main_container.style.display = "none"    
 }) 
 
-
+	function getProducts(){
+			const url = "http://localhost:8080/shopnow-web/GetProducts";
+			axios.get(url)
+			  .then(function (response) {
+			    // handle success
+			    list_div.innerHTML = "";
+			    console.log(response.data);
+			    const array = response.data;
+			    mobData(array);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			  })
 function mobData(arr) {
 const pr_array = arr;
 
@@ -333,9 +336,9 @@ for (let j=0; j< pr_array.length; j++) //loop for creating 12 product cards
      		  pr_name.value +
      		  "&price=" +
      		  price.value +
-     		  "&ram=" +    // Add an equal sign here
+     		  "&ram=" +   
      		  ram.value +
-     		  "&storage=" +    // Add an equal sign here
+     		  "&storage=" +    
      		  rom.value +
      		  "&img1=" +
      		  img_1.value +
@@ -350,9 +353,7 @@ for (let j=0; j< pr_array.length; j++) //loop for creating 12 product cards
      		  "&id=" + 
      		  product_id;
 
-             	postData("UpdateProducts",editParams);
- 
-
+            postData("UpdateProducts",editParams,"Updating product...");
             main_container.style.display = "none"
             //this condition for removing containers for showing updated containers
             
@@ -386,6 +387,7 @@ for (let j=0; j< pr_array.length; j++) //loop for creating 12 product cards
 
        }
     }
+			}
 
         const seller_nav = document.getElementById("seller")
         const cart_nav = document.getElementById("order_hide")

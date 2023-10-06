@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/signup-sell.css">
+    <script src="../../assets/js/sweetalert.min.js"></script>
+</head>
+<body>
+<main>
+    <div class="signup-container">
+        <h2>Create an account</h2>
+        <img src="../../assets/icon/priority.png" alt="priority" width="70px" height="70px">
+<form id="signup_form">
+    <div class="signup-input">
+        <div><input type="text" placeholder="Name" id="name" pattern="^[A-Za-z]+" required></div>
+        <div><input type="number" placeholder="Phone number" id="number" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required></div>
+        <div><input type="email" placeholder="Email" id="email" required></div>
+        <div><input type="password" placeholder="Create password" id="pass" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"  title="UpperCase, LowerCase, Number/SpecialChar and min 8 Chars" required></div>
+        <div><input type="password" placeholder="Confirm password" id="pass_2" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"  title="UpperCase, LowerCase, Number/SpecialChar and min 8 Chars" required></div>
+    </div>
+   <label> <input type="checkbox" id="check">I agree to the <b>Shopnow terms</b></label>
+   <a><button class="signup-btn" id="btn" type="submit">SIGNUP</button></a>
+</form>
+    </div>
+</main>
+<script>
+    // submit function for this form
+    const form = document.getElementById("signup_form")
+    form.addEventListener("submit",function (e) {
+       e.preventDefault();
+       getData();
+    })
+
+    const name1 = document.getElementById("name")
+    const number = document.getElementById("number")
+    const email = document.getElementById("email")
+    const pass = document.getElementById("pass")
+    const pass_2 = document.getElementById("pass_2")
+    const signup_btn = document.getElementById("btn")
+
+    function getData(){
+    let seller_arr = new Array();
+    //creating array for storing seller data
+     seller_arr = JSON.parse(localStorage.getItem("sellers"))?JSON.parse(localStorage.getItem("sellers")):[]
+
+    //comparing email with existing email  
+    if (seller_arr.some( (v) => { return v["email"] == email.value } )) {
+        swal("Oops!", "email is invaild!", "error");
+    }
+    //two time password check with input values
+    else if (pass.value !== pass_2.value){
+        swal("Oops!", "Your Password is mismatch!", "error");
+    }
+    else{
+    //creating id with math random
+    let seller_id = Math.floor(Math.random() * 10000)
+    //push the specific user data in array
+    seller_arr.push({
+        "seller_id" : seller_id,
+        "name" : name1.value,
+        "phone_number" : number.value,
+        "email" : email.value,
+        "password" : pass.value 
+    })
+    //redirecting to login page
+    window.location.href = "signup-sell-2.html?id="+seller_id
+    }
+    localStorage.setItem("sellers",JSON.stringify(seller_arr))
+    }
+ 
+
+</script>
+</body>
+</html>

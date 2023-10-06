@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../../assets/css/shop-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li><a aria-label="seller" href="../../../pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart" aria-label="cart"><i class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <!-- <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i
+                        class="home-icon fa-solid fa-location-dot"></i></a></li> -->
+                        <li><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+<main>
+    <div class="container">
+        <img src="../../../assets/image/shop.jpg" alt="" width="600px" height="444px" id="shop_img">
+        <div class="contain-text">
+            <h1 id="shop_name">Mobile Showroom in Madipakam</h1>
+            <img src="../../../assets/icon/icons8-location-64.png" alt="" width="16px" height="16px" class="world">
+            <p id="shop_address"> 69/70, Bazaar Road, Meenatchi Sundareswarar Koil, Sadasiva Nagar, Madipakkam, Chennai.</p>
+            <div class="phone">
+                <div class="phone-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                 <p><b id="shop_num"> Phone: 8056788899</b></p>
+            </div>
+            <div class="details">
+                <div class="detail-1">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <p><b id="work_days">7 working days</b></p>
+                </div>
+                <div class="detail-2 detail-1">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <p><b id="work_hour"> 9.30AM - 10.00PM</b></p>
+                </div>
+            </div>
+            <!-- <div class="shop-info"><h2>To see the shop on map</h2>
+              <a href="" id="map_link"><button id="map_btn">Click here</button></a></div> -->
+        </div>
+    </div>
+    <div class="our">
+        <div class="line-1"></div>
+        <div><h3>Our products</h3></div>
+        <div class="line-2"></div>
+    </div>
+    <div class="product-container">
+        <img id="pr_image" src="" alt="" width="200px" height="250px">
+        <div class="rate">
+            <h2 id="pr_name"><b>Redmi Note 11 (Horizon Blue, 128 GB)  (6 GB RAM)</b></h2>
+            <p class="price" id="pr_price"><b>₹14,690</b></p>
+            <div class="rating">
+                <div class="rating-1">
+                    <h5>4.3</h5><i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <p>26,443 Ratings</p></div>
+                <div class="free rating-1">
+                    <h5>Free delivery</h5>
+                </div>
+                <div class="order rating-1">
+                    <h5>order delivered within 1 hour</h5>
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+            </div>
+            <span class="quantity">
+                <button class="minus"><i class="fa-solid fa-minus"></i></button>
+                <input type="number" disabled="" id="quantity" class="qty" value="1">
+                <button class="plus"><i class="fa-solid fa-plus"></i></button>
+            </span>
+           <div class="buy-btns">
+            <a><button class="btn-buy" id="cart"><p><b id="cart_text">Add cart </b><i class="fa-solid fa-cart-shopping"></i></p></button></a>
+            <a><button class="btn-buy" id="buy"><p><b>Buy now </b> <i class="fa-solid fa-angles-right"></i></p></button></a>
+           </div>
+    </div>
+    <!-- similliar products here -->
+    <h2 class="head-1-2">similliar products</h2>
+<div class="mobile-2">
+    <!-- <div class="mob-2">
+        <a href="#"><img src="../../../assets/image/iq-z6-5g.webp" alt="" width="150px" height="200px"></a>
+        <h4 class="detail-1-2">IQOO Z6 5G</h4>
+       <div class="rate-2"> <h2>₹15,799</h2><p class="onward-2">onwards</p></div>
+       <div class="rating-2">
+        <div class="rating-1-2">
+            <h5>4.0</h5><i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        <p>20,717 Ratings</p></div>
+    </div>
+    <div class="mob-2">
+        <img src="../../../assets/image/galaxy-s21-fe-5g-lavender-8gb-128gb-storage-sm-g990elviinu-original-imagbnbdaj3tygup.webp" alt="" width="150px" height="200px">
+        <h4 class="detail-1-2">SAMSUNG Galaxy S21 FE 5G</h4>
+        <div class="rate-2"> <h2>₹39,999</h2><p class="onward-2">onwards</p></div>
+       <div class="rating-2">
+        <div class="rating-1-2">
+            <h5>4.3</h5><i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        <p>26,443 Ratings</p></div>
+    </div>
+    <div class="mob-2">
+        <img src="../../../assets/image/-original-imaghxa5hvapbfds.webp" alt="" width="150px" height="200px">
+        <h4 class="detail-1-2">APPLE iPhone 14</h4>
+        <div class="rate-2"> <h2>₹77,400</h2><p class="onward-2">onwards</p></div>
+       <div class="rating-2">
+        <div class="rating-1-2">
+            <h5>4.6</h5><i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        <p>786 Ratings </p></div>
+    </div>
+    <div class="mob-2">
+        <img src="../../../assets/image/-original-imagg2abzhxjckxu.webp" alt="" width="150px" height="200px">
+        <h4 class="detail-1-2">OnePlus Nord CE 2 Lite 5G</h4>
+        <div class="rate-2"> <h2>₹19,979</h2><p class="onward-2">onwards</p></div>
+       <div class="rating-2">
+        <div class="rating-1-2">
+            <h5>4.4</h5><i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        <p>34,497 Ratings</p></div>
+    </div> -->
+</div>
+
+</main>
+<footer>
+    <ul>
+        <a href="#">contact us</a>
+        <a href="#">About us</a>
+        <a href="#">Cancellation reports</a>
+        <a href="#">FAQ</a>
+        <a href="#">Payments</a>
+    </ul>
+    <ul>
+        <a href="#">Return policy</a>
+        <a href="#">Term of use</a>
+        <a href="#">Security</a>
+        <a href="#">Privacy</a>
+        <a href="#">Sitemap</a>
+    </ul>
+    <div class="social">
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-square-twitter"></i>
+    </div>
+    <div class="scroll">
+        <a aria-label="Back" href="#"> <button><p><b>Back to top</b></p> <i class="fa-solid fa-angles-up"></i></button></a>
+     </div>
+</footer>
+<script src="shop-detail.js">
+
+
+
+
+</script>
+</body>
+</html>

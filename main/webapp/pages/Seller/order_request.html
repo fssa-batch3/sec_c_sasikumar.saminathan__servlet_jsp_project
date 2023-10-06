@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/order_request.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <!-- div:logo  contain:logo img and name -->
+        <div class="logo">
+            <img src="../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <!-- <a href="pages/buyer/main flow/mobile_list.html"><li><button class="login" id="mobiles"><b>Mobiles</b></button></li></a> -->
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li id="seller"><a aria-label="seller" href="pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart" aria-label="cart"><i id="cart_icon" class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i id="order_icon"
+                        class="home-icon fa-solid fa-location-dot"></i></a></li>
+                        <li id="order_hide"><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+    <main>
+        <div class="menu">
+            <div id="side_bar_head"><i class="fa-solid fa-circle-chevron-right"></i><p>Order info</p></div>
+            <div class="info"><p>Customer name : </p><p id="name"> Sasikumar</p></div>
+            <div class="info"><p>Phone number : </p><p id="number"> 6374523686</p></div>
+            <div class="info"><p>House number : </p><p id="house_num"> 5/189B</p></div>
+            <div class="info"><p>Area : </p><p id="area">kamarajar nagar colony,chennai</p></div>
+            <div class="info"><p>Landmark : </p><p id="landmark">sengunthar sports club</p></div>
+            <div class="info"><p>Pincode : </p><p id="pincode"> 614810</p></div>
+            <div class="info"><p>Payment method : </p><p id="payment"> Cash on delivery</p></div>
+            <button class="button-32" id="delivered_btn" role="button">Order deliverd</button>
+
+        </div>
+        <!-- navigation bar for changing order requests and order deliveries -->
+        <div id="order_nav">
+            <div id="request_orders"><p>Requested orders</p></div>
+            <div id="delivered_history"><p>Deliverd orders</p></div>
+        </div>
+        <div class="request_full_container">
+            <h1>Requests</h1>
+            <div class="requests">
+                <ul id="describe">
+                    <li>Mobile</li>
+                    <li>Qty</li>
+                    <li>Price</li>
+                    <li>Requested date</li>
+                </ul>
+        <div class="requested_mobile">
+                    <!-- <div class="request_container">
+                    <div class="mobile_name">
+                        <div class="mobile_img">
+                            <img src="../../assets/image/iphone 14/iphone_main.webp" alt="" id="mobile_img">
+                        </div>
+                        <div class="mob_name">
+                            <p id="mob_name">Iphone 14 pro</p>
+                        </div>
+                    </div>
+                    <div class="qty">
+                        <p id="qty">1</p>
+                    </div>
+                    <div class="price">
+                        <p id="price">₹14,690</p>
+                    </div>
+                    <div class="requested_date">
+                        <p id="requested_time"><span id="requested_date">Nov 6, 2023</span> at 10:56</p>
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div> -->
+        </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="../../assets/js/order_request.js"></script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/login-sell.css">
+    <script src="../../assets/js/sweetalert.min.js"></script>
+</head>
+<body>
+    <main>
+<!-- div class:container contain with login inputs         -->
+<div class="container">
+    <img src="../../assets/image/login-sell-2.jpg" alt="login" width="400px" height="400px">
+    <div class="contain-text">
+        <h2>SELLER LOGIN</h2>
+       
+        <!-- div class:contain-input contain inputs and button         -->
+      <div class="contain-input">
+     <form id="form">
+        <div> <input type="email" placeholder="Email" id="email" required></div>
+        <div> <input type="password" placeholder="Password" id="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="UpperCase, LowerCase, Number/SpecialChar and min 8 Chars" required></div>
+         <a><button type="submit">LOGIN</button></a>
+     </form>
+      </div>
+      <!-- this anchor tag for redirect to signup page -->
+      <p>New seller to Shopnow <a href="signup-sell.html"><b>sign-up</b></a></p>
+    </div>
+</div>
+    </main>
+ 
+
+    <script>
+    const form = document.querySelector("#form")
+    form.addEventListener('submit',function(event){
+    event.preventDefault();
+    getData();
+            });
+          //get values from inputs
+          const email = document.getElementById("email")
+          const password= document.getElementById("password")  
+
+          function getData() {
+            let array = JSON.parse(localStorage.getItem("sellers"));
+            console.log(array);
+            
+            let res;
+            array.find(element =>{
+                console.log(email);
+                if(element["email"] === email.value && element["password"] === password.value){
+                    let constant = element
+                    localStorage.setItem("profile",JSON.stringify (constant))
+
+
+                    return res = 1;
+                    
+                }
+                else{
+                    return res=0;
+                }
+            });
+            if(res==1){
+                swal("Yep!", "you logged in bruh!", "success");
+
+                 window.location.href="../../index.html"
+            }
+            else{
+                swal("Oops!", "email or password is not correct!", "error");
+            }
+           
+          }
+
+
+   
+    
+    </script> 
+ 
+</body>
+</html>

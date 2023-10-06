@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopnow</title>
+  <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+  <link rel="stylesheet" href="../../assets/css/shop_profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <!-- toggle bar -->
+    <ul class="menu">
+      <li><a href="./pages/sign-in/login.html">Login</a></li>
+      <li><a href="./pages/Seller/Seller.html">Seller</a></li>
+      <li><a href="./pages/buyer/cart.html">Cart</a></li>
+      <li><a href="./pages/buyer/side flow/pincode.html">Shops</a></li>
+      <li><a href="./pages/sign-in/real-profile.html">Profile</a></li>
+      <li><a href="#">Orders</a></li>
+    </ul>
+    <!-- div:logo  contain:logo img and name -->
+    <div class="logo">
+      <img src="./../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+      <a href="../../index.html">
+        <h5 class="logo-name"><b>Shopnow</b></h5>
+      </a>
+    </div>
+
+    <!-- search bar -->
+
+
+    <!-- header nav links -->
+    <ul class="top-list">
+
+      <li><a aria-label="seller" href="../../pages/Seller/Seller.html">
+          <p class="seller">Seller</p>
+        </a></li>
+      <li><a aria-label="cart" href="../../pages/buyer/cart.html"><i class="home-icon fa fa-shopping-cart"
+            aria-hidden="true"></i></a></li>
+      <li><a aria-label="pincode" href="../../pages/buyer/side flow/pincode.html"><i
+            class="home-icon fa-solid fa-location-dot"></i></a></li>
+      <li><a href="../../pages/buyer/my_orders.html"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+    </ul>
+    <i id="bar" class="fa-solid fa-bars"></i>
+  </header>
+  <main id="main">
+    <ul class="navigation">
+      <li id="profile_info"><p>Profile information</p></li>
+      <li id="address"><p id="shop_info">Shop information</p></li>
+    </ul>
+    <div class="shop-container">
+<div class="main_img_contain">
+    <div class="shop_img"><img src="../../assets/image/shop.jpg" alt="" id="shop_image">
+      <input  type="file" id="file">
+      <button class="button-34" role="button"><label for="file"><i class="fa-solid fa-circle-plus"></i> Change shop image</label></button></div>
+</div>
+        <div class="shop_info">
+            <div class="shop-input">
+                <!-- <form id="forms"> -->
+                    <input class="shop_input" type="text" placeholder="Shop name" id="shop_name" title="use letters only" value=""
+                        required disabled>
+                    <input class="shop_input" type="tel" placeholder="shop contact number" id="number" value=""
+                        pattern="^(?:[0-9]|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$" maxlength="10"
+                        title="Please give numbers only" required disabled>
+            </div>
+            <div class="shop-input">
+                <input class="shop_input" type="text" placeholder="Shop address" id="shop_address" required disabled>
+                <input class="shop_input" type="text" placeholder="Shop pincode" id="number_2" inputmode="numeric" maxlength="6"
+                    title="Please give numbers only" required disabled>
+            </div>
+            <div class="shop-input">
+                <input class="shop_input" type="text" placeholder="Shop license-id" id="shop_id" required disabled>
+                <textarea class="shop_input" name="" id="area" cols="40" rows="10" placeholder="Type about your shop"
+                required disabled></textarea>
+            </div>
+            <button id="edit-btn" class="button-17" type="submit">EDIT</button>
+            <!-- </form> -->
+
+
+        </div>
+
+        </main>
+    </body>
+    <script>
+
+      // const form = document.getElementById("forms")
+      // form.addEventListener("submit",function(e){
+      //     e.preventDefault
+
+      // })
+        const profile = document.getElementById("profile_info")
+
+        //when click profile it will redirect seller to profile info page
+        profile.addEventListener("click",function () {
+            window.location.href = "../sign-in/real-profile.html"
+        })
+
+        //this lines for show shop details in input page
+        const profile_object = JSON.parse(localStorage.getItem("profile"))
+        const shop_arr = JSON.parse(localStorage.getItem("shop"))
+        let shop_name = document.getElementById("shop_name")
+        let number = document.getElementById("number")
+        let address = document.getElementById("shop_address")
+        let pincode = document.getElementById("number_2")
+        let shop_id = document.getElementById("shop_id")
+        let shop_img = document.getElementById("shop_image")
+        let file = document.getElementById("file")
+        let describe = document.getElementById("area")
+        
+        shop_arr.find(function (obj) {
+          
+            if (obj["seller_id"] === profile_object["seller_id"]+"") {
+
+              //set the shop values in inputs
+                shop_img.src = obj["img"]
+                shop_name.value = obj["name"]
+                number.value = obj["phone_number"]
+                address.value = obj["address"]
+                pincode.value = obj["pincode"]
+                shop_id.value = obj["shop_license"]
+                describe.value = obj["area"]
+            }
+        })
+
+        //get element of edit btn
+        const edit_btn = document.getElementById("edit-btn")
+        let input = document.querySelectorAll(".shop_input")
+
+        edit_btn.addEventListener("click",function () {
+    
+        if (edit_btn.innerHTML == "SAVE") {
+        edit_btn.innerHTML = "EDIT"
+
+        //disable inputs and right to left input access indicate animation
+        for(let j = 0; j < input.length;j++){
+          input[j].setAttribute("disabled", "")
+          input[j].removeAttribute("style")
+
+        }
+
+        shop_arr.find(function (obj) {
+          
+          if (obj["seller_id"] === profile_object["seller_id"]+"") {
+            //set the edited values in shop 
+             obj["name"] = shop_name.value
+             obj["phone_number"] = number.value
+             obj["address"] =   address.value 
+             obj["pincode"] = pincode.value 
+             obj["shop_license"] = shop_id.value
+             //set the value in local storage
+             localStorage.setItem("shop",JSON.stringify(shop_arr))
+          }
+      })
+
+      } else {
+        //change btn name
+        edit_btn.innerHTML = "SAVE"
+
+        //enable inputs and disable animation
+        for(let j = 0; j < input.length;j++){
+          input[j].removeAttribute("disabled")
+          input[j].style.backgroundPosition = "left bottom"
+          input[j].style.backgroundPosition = "right bottom"
+
+
+        }
+
+      }
+          }
+
+        )
+
+      //this lines for change shop image 
+      file.addEventListener('change', function () {
+      const choosedFile = this.files[0];
+
+      if (choosedFile) {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', function () {
+
+          shop_img.setAttribute('src', reader.result);
+
+    shop_arr.find(function (obj) {
+      if (obj["seller_id"] === profile_object["seller_id"]+"") {
+        console.log(obj);
+        obj["img"] = reader.result
+        localStorage.setItem("shop",JSON.stringify(shop_arr))
+      }
+    })
+
+        });
+
+        reader.readAsDataURL(choosedFile);
+      }
+
+    })
+
+        
+
+
+    </script>
+
+    </html>

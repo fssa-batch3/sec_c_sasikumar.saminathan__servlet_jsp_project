@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li><a aria-label="seller" href="../../../pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <!-- <li><a id="cart" aria-label="cart"><i class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li> -->
+            <!-- <li><a aria-label="pincode" href="./pages/buyer/side flow/pincode.html"><i
+                        class="home-icon fa-solid fa-location-dot"></i></a></li> -->
+                        <li><a id="order"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+<main>
+    <div id="empty">
+        <img src="../../assets/icon/shopping-basket-add.png"/>
+        <p>Cart feel lonely so add some products</p>
+    </div>
+<div class="main-product">
+        <!-- <div class="product-container">
+        <img src="../../assets/image/note-11-2201117ti-redmi-original-imagbh8dmpjfzrjw.webp" alt="" width="200px" height="250px">
+        <div class="rate">
+            <h2><b>Redmi Note 11 (Horizon Blue, 128 GB)  (6 GB RAM)</b></h2>
+            <p class="price"><b>₹14,690</b></p>
+            <div class="rating">
+                <div class="rating-1">
+                    <h5>4.3</h5><i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <p>26,443 Ratings</p></div>
+                <div class="free rating-1">
+                    <h5>Free delivery</h5>
+                </div>
+                <div class="order rating-1">
+                    <h5>order delivered within 1 hour</h5>
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+            </div>
+            <span class="quantity">
+                <p><b>Qty</b></p>
+                <input type="number">
+            </span>
+            <a href="#"><button class="btn-buy"><p><b>Remove</b><i class="fa-solid fa-trash"></i></p></button></a>
+    </div>
+    
+    <div class="product-container">
+        <img src="../../assets/image/samsung-galaxy/samsung-main.webp" alt="" width="200px" height="250px">
+        <div class="rate">
+            <h2><b>SAMSUNG Galaxy S21 FE 5G (Lavender, 128 GB)</b></h2>
+            <p class="price"><b>₹39,999</b></p>
+            <div class="rating">
+                <div class="rating-1">
+                    <h5>4.3</h5><i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <p>26,946 Ratings</p></div>
+                <div class="free rating-1">
+                    <h5>Free delivery</h5>
+                </div>
+                <div class="order rating-1">
+                    <h5>order delivered within 1 hour</h5>
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+            </div>
+            <span class="quantity">
+                <p><b>Qty</b></p>
+                <input type="number">
+            </span>
+            <a href="#"><button class="btn-buy"><p><b>Remove</b><i class="fa-solid fa-trash"></i></p></button></a>
+    </div> -->
+</div>
+    <!-- <div class="total">
+     <h2>PRICE DETAILS</h2>
+     <div class="list">
+        <ul id="ul_1"> -->
+            <!-- <li>Redmi Note 11</li>
+            <li>Samsung galaxy S21 FE</li>
+            <li>Delivery charges</li> -->
+        <!-- </ul>
+        <ul id="ul_2"> -->
+            <!-- <li>₹14,690</li>
+            <li>₹39,999</li>
+            <li>FREE</li> -->
+        <!-- </ul>
+     </div>
+     <hr id="hrtag">
+     <div class="amount">
+        <p><b>Total payment</b></p>
+        <p id="total_amount"><b></b></p>
+    </div>
+    </div> -->
+<div class="summary">
+    <div class="summary_container navigation total">
+        <h2>Product detail</h2>
+        <!-- <hr id="hr"> -->
+        <div class="pr_price"><p id="item_count">Price (5 items)</p><p class="deiver" id="item_price">₹34,999</p></div> 
+        <div class="pr_price" ><p>Delivery charges</p><p id="deliver">FREE</p></div>
+        <hr id="hr_2">
+        <div class="pr_price" id="total"><p>Order total</p><p class="deiver" id="total_amount">₹34,999</p></div> 
+     </div>
+<button class="button-9" id="place_order" role="button">Place order</button>
+</div>
+
+</main>
+   <script>
+    //first step : get the id from url and filter the objects
+    const url = window.location.search
+    const urlParams = new URLSearchParams(url)  
+    const params = urlParams.get("user_id")
+    let splited_arr = params.split(",")
+    const username = parseFloat(splited_arr[0])
+
+
+    const cart_arr = JSON.parse(localStorage.getItem("cart"))
+
+    const cart_obj = cart_arr.filter(function (obj) {
+        if (username === obj["user_id"] && obj["cart"] !== false) {
+            return true
+        }
+        else{
+            return false
+        }
+    })
+    //console.log(cart_obj);
+    //geting products array for match with cart objects
+    const product_arr = JSON.parse(localStorage.getItem("products"))
+    //pushing finded arraysin this array
+    const pr_array = []
+    for(j = 0; j < cart_obj.length;j++ ){
+
+    for(i = 0; i < product_arr.length;i++){
+    if(cart_obj[j]["product_id"] ===  product_arr[i]["user_id"]){
+        pr_array.push(product_arr[i])
+    
+    }
+}
+}
+//console.log(pr_array);
+
+// let product_total = 0;
+// let items = 0;
+
+for(k = 0;k < pr_array.length;k++){
+
+    let type = cart_obj[k]["type"]
+        //creating elements for read cart containers
+    
+    //main container with contain every elements
+    // <div class="product-container">
+        const main_div = document.createElement("div")
+    main_div.setAttribute("class","product-container")
+
+    // <img src="../../assets/image/note-11-2201117ti-redmi-original-imagbh8dmpjfzrjw.webp" alt="" width="200px" height="250px">
+    const img = document.createElement("img")
+    img.setAttribute("src",pr_array[k]["product_img_1"])
+    img.setAttribute("alt","mobile_img")
+    main_div.append(img)
+
+    // <div class="rate">
+    const div_2 = document.createElement("div")
+    div_2.setAttribute("class","rate")
+    main_div.append(div_2)
+
+    // <h2><b>Redmi Note 11 (Horizon Blue, 128 GB)  (6 GB RAM)</b></h2>
+    const pr_name = document.createElement("h2")
+    pr_name.innerText = pr_array[k]["product_name"]
+    div_2.append(pr_name)
+
+    // <p class="price"><b>₹14,690</b></p>
+    const pr_price = document.createElement("p")
+    pr_price.setAttribute("class","price")
+    pr_price.innerText = pr_array[k]["types"][type]["price"]
+    pr_price.setAttribute("data-keyword",pr_array[k]["types"][type]["price"])
+    div_2.append(pr_price)
+
+    // <div class="rating">
+    const div_3 = document.createElement("div")
+    div_3.setAttribute("class","rating")
+    div_2.append(div_3)
+
+    // <div class="rating-1">
+    const div_4 = document.createElement("div")
+    div_4.setAttribute("class","rating-1")
+    div_3.append(div_4)
+
+    // <h5>4.3</h5>
+    const rating = document.createElement("h5")
+    rating.innerText ="4.3"
+    div_4.append(rating)
+
+    // <i class="fa fa-star" aria-hidden="true"></i> 
+    const star = document.createElement("i")
+    star.setAttribute("class","fa fa-star")
+    // star.setAttribute("aria-hidden","true")
+    div_4.append(star)
+
+    // <p>26,443 Ratings</p>
+    const ratings = document.createElement("p")
+    ratings.innerText = "26,443 Ratings"
+    div_3.append(ratings)
+
+    // <div class="free rating-1">
+    const div_5 = document.createElement("div")
+    div_5.setAttribute("class","free rating-1")
+    div_2.append(div_5)
+
+    // <h5>Free delivery</h5>
+    const delivery = document.createElement("h5")
+    delivery.innerText = "Free delivery"
+    div_5.append(delivery)
+
+    // <div class="order rating-1">
+    const div_6 = document.createElement("div")
+    div_6.setAttribute("class","order rating-1")
+    div_2.append(div_6)
+
+    // <h5>order delivered within 1 hour</h5>
+    const duration = document.createElement("h5")
+    duration.innerText = "order delivered within 1 hour"
+    div_6.append(duration)
+
+    // <i class="fa-solid fa-truck-fast"></i>
+    const truck = document.createElement("i")
+    truck.setAttribute("class","fa-solid fa-truck-fast")
+    div_6.append(truck)
+
+
+    //<span class="quantity">
+    const span = document.createElement("span")
+    span.setAttribute("class","quantity")
+    main_div.append(span)
+
+    // <p><b>Qty</b></p>
+    const minbtn = document.createElement("button")
+    minbtn.setAttribute("class","minus")
+    span.append(minbtn)
+
+    // <i class="fa-solid fa-plus"></i>
+    const minus = document.createElement("i")
+    minus.setAttribute("class","fa-solid fa-minus")
+    minbtn.append(minus)
+
+    // <input type="number">
+    const input = document.createElement("input")
+    input.setAttribute("type","number")
+    input.setAttribute("disabled", "")
+    input.setAttribute("id","quantity")
+    input.setAttribute("class","qty")
+    input.setAttribute("value",cart_obj[k]["quantity"])
+    span.append(input)
+
+    const maxbtn = document.createElement("button")
+    maxbtn.setAttribute("class","plus")
+    span.append(maxbtn)
+
+    // <i class="fa-solid fa-plus"></i>
+    const plus = document.createElement("i")
+    plus.setAttribute("class","fa-solid fa-plus")
+    maxbtn.append(plus)
+
+
+    // <a href="#">
+    const anker = document.createElement("a")
+    anker.setAttribute("href","#")
+    main_div.append(anker)
+
+    // <button class="btn-buy">
+    const btn = document.createElement("button")
+    btn.setAttribute("data-keyword",cart_obj[k]["cart_id"])
+    btn.setAttribute("class","btn-buy")
+    anker.append(btn)
+
+    // <p><b>Remove</b><i class="fa-solid fa-trash"></i></p>
+    const remove = document.createElement("p")
+    remove.innerText = "Remove"
+    btn.append(remove)
+
+    const trash = document.createElement("i")
+    trash.setAttribute("class","fa-solid fa-trash")
+    remove.append(trash)
+
+    document.querySelector(".main-product").append(main_div)
+
+    btn.addEventListener("click",function (obj) {
+
+        const data = btn.dataset.keyword
+        const detail = document.querySelector(".total")
+       const cart_array = cart_obj
+
+       
+       const cart_main_arr = cart_array.filter(function (obj) {
+        if (obj["cart_id"]+"" === data) {
+                main_div.remove();
+                
+                delete cart_array[obj]                           
+            }
+            else{
+                return true
+            }
+       })
+       localStorage.setItem("cart",JSON.stringify(cart_main_arr))
+
+
+        
+        
+    })
+    
+
+
+  
+  let index = k
+    
+
+    //this event for increase quantity value
+    maxbtn.addEventListener("click",function () {
+        let qty = parseFloat(input.value);
+        qty = qty + 1
+        input.value = qty
+        let id = parseFloat(btn.dataset.keyword)
+        cart_arr.find(function (obj) {
+            if (id === obj["cart_id"]) {
+                console.log(obj);
+                obj["quantity"] = input.value
+                localStorage.setItem("cart",JSON.stringify(cart_arr))
+            }            
+        })
+    })
+
+     //this event for decrease quantity value
+        minbtn.addEventListener("click",function () {
+            if (input.value !== "1") {
+         let qty = parseFloat(input.value);
+         qty = qty - 1
+         input.value = qty        
+         let id = parseFloat(btn.dataset.keyword)
+
+         cart_arr.find(function (obj) {
+            if (id === obj["cart_id"]) {
+                obj["quantity"] = input.value
+                localStorage.setItem("cart",JSON.stringify(cart_arr))
+            }            
+        })
+            }
+
+        })
+
+        
+
+
+
+}
+
+//increase rate by quantity
+const maxbtn = document.querySelectorAll(".plus")
+const minbtn = document.querySelectorAll(".minus")
+const qty_input = document.querySelectorAll(".qty")
+const price = document.querySelectorAll(".price")
+const count = document.getElementById("item_count")
+const item_price = document.getElementById("item_price")
+const total_price = document.getElementById("total_amount")
+const remove_btn = document.querySelectorAll(".btn-buy")
+const main_div = document.querySelectorAll(".product-container")
+const detail = document.querySelector(".total")
+const empty = document.getElementById("empty")
+const place_order_btn = document.getElementById("place_order")
+// console.log(remove_btn);
+
+
+for(let i = 0; i < maxbtn.length;i++){
+    //function for changing items count in summary container and mobile price
+    function getAddress(params) {
+        
+        //for changing product price
+        let default_price =  price[i].dataset.keyword.slice(1)
+        price[i].innerHTML = "₹ "+qty_input[i].value * parseFloat(default_price);
+        
+        //for changing quantity total in summary container
+
+        let product_count = 0;
+        let product_price = 0;
+
+        //this loop will add every value of quantity 
+        for(let j = 0;j < qty_input.length;j++){
+        product_count = parseFloat(qty_input[j].value) + product_count
+        
+            let pr_price = parseFloat(price[j].innerText.slice(1));
+            product_price = product_price + pr_price;
+        }
+       // console.log(product_price);
+
+        //show the updated total quantity and total price in summary container
+        count.innerText = `Price (${product_count} items)`
+        item_price.innerText = "₹ "+product_price
+        total_price.innerText = "₹ "+product_price
+
+        }
+
+
+        getAddress();
+
+    // whenever i click increase and decrease the btn getAddress function will work
+    maxbtn[i].addEventListener("click",function () { //for increase
+        getAddress();
+    })
+    minbtn[i].addEventListener("click",function () { //for decrease
+        getAddress();
+    })
+    
+    remove_btn[i].addEventListener("click",function () {//when i remove element rate and qty will change
+
+        //when remove decrease the summary item count
+        let item_count = document.getElementById("item_count")
+        let pro_count = item_count.innerText.split(" ")
+        let counter = pro_count[1].replace("(","")
+        // console.log(counter);
+        let decreased_item= parseFloat(counter) - parseFloat(qty_input[i].value)
+        count.innerText = `Price (${decreased_item} items)`
+
+        //when remove the mobile decrease the total price
+        let minus_price =  parseFloat(price[i].innerText.slice(1))
+        // console.log(minus_price);
+        let decreased_value = parseFloat(item_price.innerText.slice(1)) - minus_price
+        // console.log(decreased_value);
+        item_price.innerText =  "₹ "+ decreased_value
+        total_price.innerText = "₹ "+ decreased_value
+
+
+
+        const main_div = document.querySelectorAll(".product-container")
+        if (main_div.length === 0) {
+        detail.remove()
+        detail.style.display = "none"
+        empty.style.display = "block"
+        place_order_btn.style.display = "none"
+
+        }
+                
+    })
+
+
+    //this lines for what want to happen when click place order
+    
+    place_order_btn.addEventListener("click",function(){
+
+        //for pass the item count in url
+        let item_count = document.getElementById("item_count")
+        let pro_count = item_count.innerText.split(" ")
+        let counter = pro_count[1].replace("(","")
+
+        let item_price = document.getElementById("item_price")
+        item_price = parseFloat(item_price.innerText.slice(1))
+
+
+        window.location.href = "address.html?id="+counter+","+item_price+","+splited_arr[1]
+    })
+
+
+
+}
+
+
+
+if (main_div.length === 0 || cart_obj === null) {
+        detail.remove()
+        detail.style.display = "none"
+        empty.style.display = "block"
+        place_order_btn.style.display = "none"
+
+        }
+
+                    //get elements from my account btn for redirecting
+const login = document.getElementById("login")
+const profile = JSON.parse(localStorage.getItem("profile"))
+
+//this logic for decide which page want to go in diffrent situation
+login.addEventListener("click", function () {
+
+        window.location.href = "/pages/sign-in/real-profile.html"
+
+});
+    //this logic for user going to orders page
+    const orders = document.getElementById("order")
+    orders.addEventListener("click", function () {
+
+            window.location.href = "../../../pages/buyer/my_orders.html?user_id=" + profile["user_id"]
+
+    })
+
+    document.querySelector(".logo").addEventListener("click",function(){
+        window.location.href = "../../../index.html"
+    })
+
+   </script> 
+</body>
+</html>

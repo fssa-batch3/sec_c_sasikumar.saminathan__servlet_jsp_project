@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <!-- toggle bar -->
+        <ul class="menu">
+            <li><a href="./pages/sign-in/login.html">Login</a></li>
+            <li><a href="./pages/Seller/Seller.html">Seller</a></li>
+            <li><a href="./pages/buyer/cart.html">Cart</a></li>
+            <li><a href="./pages/buyer/side flow/pincode.html">Shops</a></li>
+            <li><a href="./pages/sign-in/real-profile.html">Profile</a></li>
+            <li><a href="#">Orders</a></li>
+        </ul>
+        <!-- div:logo  contain:logo img and name -->
+        <div class="logo">
+            <img src="./assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+            <h5 class="logo-name"><b>Shopnow</b></h5>
+        </div>
+
+        <!-- search bar -->
+   
+
+        <!-- header nav links -->
+        <ul class="top-list">
+            <a href="pages/buyer/main flow/mobile_list.html"><li><button class="login" id="mobiles"><b>Mobiles</b></button></li></a>
+            <li><button class="login" id="login"><b>My account</b></button>
+            </li>
+            <li id="seller"><a aria-label="seller" href="pages/Seller/Seller.html">
+                    <p class="seller">Seller</p>
+                </a></li>
+            <li><a id="cart" aria-label="cart"><i id="cart_icon" class="home-icon fa fa-shopping-cart"
+                        aria-hidden="true"></i></a></li>
+            <!-- <li id="order_hide"><a aria-label="pincode"><i 
+                        class="home-icon fa-solid fa-location-dot"></i></a></li> -->
+                        <li><a id="order"><i id="order_icon" class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+        </ul>
+        <i id="bar" class="fa-solid fa-bars"></i>
+    </header>
+    <main>
+        <!-- <input type="search" placeholder="search" class="search" id="search"> -->
+        <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+        <div class="download">
+
+            <!-- downloading option for app -->
+            <div class="download-1">
+                <h1>Free and Fast Delivery</h1>
+                <!-- <button id="pr_btn_create"><b>Download now</b></button> -->
+            </div>
+            <img src="./assets/image/shop_laptop_w-removebg.png" alt="shop_laptop" class="shop">
+        </div>
+        <!-- assure containers start -->
+        <div class="three">
+            <!-- container 1 about warranty -->
+            <div class="assure assure_1">
+                <img src="./assets/icon/guarantee.png" alt="icons8-warranty-64" class="assure-img" width="100px"
+                    height="100px">
+                <h3>Warranty <br> guaranted</h3>
+                <p>If you buying tech products or acceserios you get minimum 1 year of Warranty</p>
+            </div>
+
+            <!-- container 2 about fast delivery -->
+            <div class="assure">
+                <img src="./assets/icon/fast-delivery.png" alt="Delivery" class="assure-img" width="100px"
+                    height="100px">
+                <h3>Quick <br> delivery</h3>
+                <p>Shops or nearby to your place so delivering products give in quickly</p>
+            </div>
+
+            <div class="assure">
+
+                <!-- container 3 about verfied sellers -->
+                <img src="./assets/icon/shopkeeper.png" alt="verifed" class="assure-img" width="100px" height="100px">
+                <h3>Verified <br>sellers</h3>
+                <p>In our website we are selecting only verified sellers nearby you</p>
+            </div>
+        </div>
+        <!-- assure container end -->
+        <div class="our">
+            <div class="line-1"></div>
+            <div>
+                <h3>Trending products</h3>
+            </div>
+            <div class="line-2"></div>
+        </div>
+    </main>
+    <div class="pack">
+    </div>
+
+    <footer>
+        <!-- footer options -->
+        <ul>
+            <li><a aria-label="about" href="./pages/footer/about.html"><b>About us</b></a></li>
+            <li><a aria-label="contact" href="#">Contact us</a></li>
+            <li><a aria-label="cancel" href="#">Cancellation reports</a></li>
+            <li><a aria-label="faq" href="#">FAQ</a></li>
+            <li><a aria-label="payment" href="#">Payments</a></li>
+        </ul>
+
+        <!-- policy list -->
+        <ul>
+            <li><a aria-label="policy" href="#">Return policy</a></li>
+            <li><a aria-label="Term" href="#">Term of use</a></li>
+            <li><a aria-label="Security" href="#">Security</a></li>
+            <li><a aria-label="Privacy" href="#">Privacy</a></li>
+            <li><a aria-label="Sitemap" href="#">Sitemap</a></li>
+        </ul>
+
+        <!-- div:socilal for redirect to social media platforms -->
+        <div class="social">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+        </div>
+
+        <!-- scroll button for go to top -->
+        <div class="scroll">
+            <a aria-label="Back" href="#"> <button>
+                    <p><b>Back to top</b></p> <i class="fa-solid fa-angles-up"></i>
+                </button></a>
+        </div>
+    </footer>
+
+   
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ <script>
+	
+ 
+ const shop_arr = [
+         {
+           "id": 829,
+           "name": "SRI SAI MOBILES",
+           "phone_number": "6398849994",
+           "img": "https://lh5.googleusercontent.com/p/AF1QipOi7r9XakmIbf7cHIVtMu-Km-K0-xeRhud9RQaS=w390-h262-n-k-no",
+           "address": "No#4, MGR Salai, Tharamani, Chennai, Tamil Nadu",
+           "pincode": "600113",
+           "shop_license": "2384uojflkls",
+           "area": "kk",
+           "latitude": 12.978732,
+           "longitude": 80.243383,
+           "seller_id": "7935"
+         },
+         {
+           "id": 9474,
+           "name": "SRI SAPTA DEVATHA MOBILES",
+           "phone_number": "0987654321",
+           "img": "https://lh5.googleusercontent.com/p/AF1QipOi7r9XakmIbf7cHIVtMu-Km-K0-xeRhud9RQaS=w390-h262-n-k-no",
+           "address": "No 23 Sri ram Nagar Taramani road Metro water tank, near by Chennai, Tamil Nadu",
+           "pincode": "234567",
+           "shop_license": "sdfghjk",
+           "area": "ertyui",
+           "latitude": 12.978822,
+           "longitude": 80.243473,
+           "seller_id": "9399"
+         },
+         {
+           "id": 3209,
+           "name": "Sarkar Mobile",
+           "phone_number": "6398849994",
+           "img": "https://lh5.googleusercontent.com/p/AF1QipOi7r9XakmIbf7cHIVtMu-Km-K0-xeRhud9RQaS=w390-h262-n-k-no",
+           "address": "157, Pollachi Main Road, Sundarapuram, Kurichi, Coimbatore",
+           "pincode": "600113",
+           "shop_license": "2384uojflkls",
+           "area": "\"All type of mobile accessories back cases, and cover, charger,data cable, bluetooth, airpods,temper glass, headphones,mobile phone,and mobile instant service...\"",
+           "latitude": 12.978622,
+           "longitude": 80.243273,
+           "seller_id": "7226"
+         }
+       ]
+
+ const seller_arr = [
+     {
+       "seller_id": 2319,
+       "name": "joel",
+       "phone_number": "6374523686",
+       "email": "joel@gmail.com",
+       "password": "12092004#Sk",
+     },
+     {
+       "seller_id": 9552,
+       "name": "srikannan",
+       "phone_number": "1234567890",
+       "email": "srikannan@gmail.com",
+       "password": "12092004#Sk",
+     },
+     {
+       "seller_id": 7169,
+       "name": "sasikumar",
+       "phone_number": "6374523686",
+       "email": "sasikumar.saminathan@fssa.freshworks.com",
+       "password": "12092004#Sk"
+     },
+     {
+       "seller_id": 3144,
+       "name": "stark",
+       "phone_number": "6374523686",
+       "email": "sasikumar.saminathan7@fssa.freshworks.com",
+       "password": "12092004#Sk"
+     },
+     {
+       "seller_id": 6419,
+       "name": "hariharan",
+       "phone_number": "6374523686",
+       "email": "sasikumar.saminathan8@fssa.freshworks.com",
+       "password": "12092004#Sk"
+     },
+     {
+       "seller_id": 7935,
+       "name": "sandeep",
+       "phone_number": "6374523686",
+       "email": "pranaw@gmail.com",
+       "password": "12092004#Sk",
+       "shop_id": 829
+     },
+     {
+       "seller_id": 9399,
+       "name": "prathiusha",
+       "phone_number": "9876",
+       "email": "prathiusha@gmail.com",
+       "password": "Good@123",
+       "shop_id": 9474,
+     },
+     {
+       "seller_id": 7226,
+       "name": "pranaw",
+       "phone_number": "1234567890",
+       "email": "scryptify.corporation@gmail.com",
+       "password": "12092004#Sk",
+       "shop_id": 3209
+     }
+   ]
+
+ const shop_array = localStorage.getItem("shop")
+ const seller_array = localStorage.getItem("sellers") 
+ if (shop_array == null) {
+     localStorage.setItem("shop", JSON.stringify(shop_arr))
+ }
+ if (seller_array == null) {
+     localStorage.setItem("sellers",JSON.stringify(seller_arr))
+ }
+
+
+ //product_list array created with contain 12 objects
+ const product_list = [
+
+     {
+         image: "assets/image/note-11-2201117ti-redmi-original-imagbh8dmpjfzrjw.webp",
+         name: "Redmi note 11",
+         price: "₹12,993",
+         star: "4.5",
+         rating: "27,000 Ratings",
+         id: "1"
+
+     },
+
+
+     {
+         image: "./assets/image/galaxy-s21-fe-5g-lavender-8gb-128gb-storage-sm-g990elviinu-original-imagbnbdaj3tygup.webp",
+         name: "SAMSUNG Galaxy S21 FE 5G",
+         price: "₹39,999",
+         star: "4.3",
+         rating: "26,443 Ratings",
+         url: "./pages/buyer/main flow/location.html",
+         id: "2"
+
+
+     },
+
+     {
+         image: "./assets/image/-original-imaghxa5hvapbfds.webp",
+         name: "APPLE iPhone 14",
+         price: "₹77,400",
+         star: "4.6",
+         rating: "786 Ratings",
+         url: "./pages/buyer/main flow/location.html",
+         id: "3"
+     },
+
+     {
+         image: "./assets/image/-original-imagg2abzhxjckxu.webp",
+         name: "OnePlus Nord CE 2 Lite 5G",
+         price: "₹19,979",
+         star: "4.4",
+         rating: "34,497 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+
+     {
+         image: "./assets/image/image/lenova.webp",
+         name: "Lenovo IdeaPad 3",
+         price: "₹43,700",
+         star: "4.3",
+         rating: "1,260 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+
+     {
+         image: "./assets/image/image/acer.webp",
+         name: "acer Aspire",
+         price: "₹35,990",
+         star: "4.4",
+         rating: "258 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+     {
+         image: "./assets/image/image/infinix.webp",
+         name: "Infinix INBook X1 Neo Series",
+         price: "₹24,999",
+         star: "4.2",
+         rating: "2,819 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+     {
+         image: "./assets/image/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.webp",
+         name: "ASUS Core i3 11th Gen",
+         price: "₹36,990",
+         star: "4.3",
+         rating: "1,034 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+     {
+         image: "./assets/image/rockerz-450-pro-boat-original-imagf9gyd4u6w85z.webp",
+         name: "boAt Rockerz 450 Pro",
+         price: "₹1,999",
+         star: "4.2",
+         rating: "39,601 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+     {
+         image: "./assets/image/mtey2hn-a-apple-original-imaf9ec8nvqu6ymc.webp",
+         name: "APPLE Watch Series 3",
+         price: "₹20,900",
+         star: "4.6",
+         rating: "55,175 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+     {
+         image: "./assets/image/-original-imaga4m8sz5ymcf7.webp",
+         name: "Boult Audio Y1 TWS Earbuds",
+         price: "₹1,499",
+         star: "4.0",
+         rating: "60,686 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+     },
+     {
+         image: "./assets/image/-original-imaggz3n8pymzwbr.webp",
+         name: "Apple 20W Charging Adapter",
+         price: "₹1,599",
+         star: "4.6",
+         rating: "1,14,282 Ratings",
+         url: "./pages/buyer/main flow/location.html"
+
+
+     }
+
+
+ ]
+
+ const product_detail = [
+     {
+         Images:
+         {
+             main_image: "../../../assets/image/redmi-main.webp",
+             image_1: "../../../assets/image/redmi-1.webp",
+             image_2: "../../../assets/image/redmi-2.webp",
+             image_3: "../../../assets/image/redmi-3.webp"
+         },
+
+         product_name: "Redmi Note 11 (Horizon Blue, 128 GB) (6 GB RAM)",
+         product_price: "₹14,690",
+         star: "4.3",
+         ratings: "26,443 Ratings",
+
+         highlights: {
+             lists_1: "5000 mAh Battery",
+             lists_2: "50MP Rear Camera",
+             lists_3: "16.33 cm (6.43 inch) Display",
+             lists_4: "6 GB RAM | 128 GB ROM",
+         },
+         shop_name: "Chennai - Madipakam",
+         shop_address: "69/70, Bazaar Road, Meenatchi Sundareswarar Koil, Sadasiva Nagar, Madipakkam, Chennai. Tamil Nadu 600091 Ph: 805678889"
+
+     },
+     {
+         Images: {
+             main_image: "../../../../assets/image/samsung-galaxy/samsung-main.webp",
+             image_1: "../../../../assets/image/samsung-galaxy/samsung-2.webp",
+             image_2: "../../../../assets/image/samsung-galaxy/samsung-3.webp",
+             image_3: "../../../../assets/image/samsung-galaxy/samsung-4.webp"
+         },
+
+         product_name: "SAMSUNG Galaxy S21 FE 5G (Lavender, 128 GB)",
+         product_price: "₹39,999",
+         star: "4.3",
+         ratings: "26,946 Ratings",
+
+         highlights: {
+             lists_1: "8 GB RAM | 128 GB ROM",
+             lists_2: "16.26 cm (6.4 inch) Full HD+ Display",
+             lists_3: "12MP + 12MP + 8MP (OIS) | 32MP Front Camera",
+             lists_4: "4500 mAh Lithium-ion Battery",
+         },
+         shop_name: "Chennai - Koyambedu",
+         shop_address: "No: 1, Kaliamman Koil Street, opp KFC Koyambedu, Chennai.Tamil Nadu 600107 Ph: 8428100000"
+     },
+
+
+ ]
+
+
+ //...................................................................................................
+ //product_detail array with contain page details
+
+
+
+
+ //toggle option scripts are there
+ let icon = document.querySelector(".fa-bars")
+ let menu = document.querySelector(".menu")
+
+ icon.addEventListener('click', function () {
+     menu.classList.toggle('showmenu');
+ });
+
+ //get elements from my account btn for redirecting
+ const login = document.getElementById("login")
+ 
+			const url2 = "http://localhost:8080/shopnow-web/UserExist";
+			axios.get(url2)
+			  .then(function (response) {
+				setProfile(response.data);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			  })
+
+function setProfile(profile){
+ //this condition for showing login text while there is no profile are logged out
+ if (!profile) {
+
+     login.innerText = "Login"
+ }
+
+ //this logic for decide which page want to go in diffrent situation
+ login.addEventListener("click", function () {
+     if (!profile) {
+         window.location.href = "./pages/sign-in/login.html"
+         login.innerText = "Login"
+     }
+     else {
+         window.location.href = "./pages/sign-in/real-profile.html"
+     }
+ });
+ 
+ //this logic for user going to orders page
+ const orders = document.getElementById("order")
+ const cart = document.getElementById("cart")
+
+ orders.addEventListener("click", function () {
+     if (!profile) {
+         window.location.href = "./pages/sign-in/login.html"
+     }
+     else {
+         window.location.href = "./pages/buyer/my_orders.html"
+     }
+ })
+ cart.addEventListener("click", function () {
+     if (!profile) {
+         window.location.href = "./pages/sign-in/login.html"
+     }
+     else {
+         window.location.href = "./pages/buyer/cart.html"
+     }
+ })
+	}
+
+
+
+
+ //produucts display from object
+ const product_array = JSON.parse(localStorage.getItem("products"))
+ //console.log(product_array);
+
+ 
+ 			const url = "http://localhost:8080/shopnow-web/GetProducts";
+			axios.get(url)
+			  .then(function (response) {
+			    // handle success
+			    console.log(response);
+			    const array = response.data;
+			    listData(array);
+			  })
+			  .catch(function (error) {
+			    // handle error
+			    console.log(error);
+			  })
+
+function listData(productsArray){
+		            // Declare a new array
+		            let pr_array = [];
+		              
+		            // Declare an empty object
+		            let uniqueObject = {};
+		              
+		            // Loop for the array elements
+		            for (let i in productsArray) {
+		              
+		                // Extract the title
+		                objTitle = ((productsArray[i]['name']).toLowerCase()).trim();
+		              
+		                // Use the title as the index
+		                uniqueObject[objTitle] = productsArray[i];
+		            }
+		              
+		            // Loop to push unique object into array
+		            for (i in uniqueObject) {
+		            	pr_array.push(uniqueObject[i]);
+		            }
+ for (let j = 0; j < pr_array.length; j++) //loop for creating 12 product cards
+ {
+
+     //anker tag for going next pages
+     const a = document.createElement("a");
+     a.setAttribute("aria-label", "redmi")
+     a.setAttribute("class", "mob-link")
+     a.setAttribute("href", "./pages/buyer/main flow/location.html?id=" + pr_array[j]["id"])
+
+
+     //div 1 class name: pack
+     const div_2 = document.createElement("div");
+     div_2.setAttribute("class", "mob")
+     a.append(div_2)
+
+     //product img
+     const img = document.createElement("img");
+     img.setAttribute("src", pr_array[j]["imageURL"][0])
+     img.setAttribute("alt", "redmi_note_11")
+     img.setAttribute("width", "150px")
+     img.setAttribute("height", "200px")
+     div_2.append(img)
+
+
+     //product name
+     const h4 = document.createElement("h4");
+     h4.setAttribute("class", "detail-1")
+     h4.innerHTML = pr_array[j]["name"]
+     div_2.append(h4)
+
+     //div 2 class name: rate for show price
+     const div_3 = document.createElement("div");
+     div_3.setAttribute("class", "rate")
+     div_2.append(div_3)
+
+     //product price
+     const h2 = document.createElement("h2");
+     h2.innerHTML = "₹"+pr_array[j]["price"]
+     div_3.append(h2)
+
+     //product price
+     const p = document.createElement("p");
+     p.setAttribute("class", "onward")
+     p.innerHTML = "onwards"
+     div_3.append(p)
+
+     //div 2 class name: rate for show rating
+     const div_4 = document.createElement("div");
+     div_4.setAttribute("class", "rating")
+     div_2.append(div_4)
+
+     //div 2 class name: rate for show rating
+     const div_5 = document.createElement("div");
+     div_5.setAttribute("class", "rating-1")
+     div_4.append(div_5)
+
+     //product rating
+     const h5 = document.createElement("h5");
+     h5.innerHTML = product_list[j].star
+     div_5.append(h5)
+
+     //product rating star icon
+     const i = document.createElement("i");
+     i.setAttribute("class", "fa fa-star")
+     i.setAttribute("aria-hidden", "true")
+     div_5.append(i)
+
+     //product rating count
+     const p_1 = document.createElement("p");
+     p_1.innerHTML = product_list[j].rating
+     div_4.append(p_1)
+
+     document.querySelector(".pack").append(a)
+
+ }
+	}
+
+
+
+    </script>
+</html>

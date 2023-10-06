@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnow</title>
+    <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+    <link rel="stylesheet" href="../../assets/css/uesr_signup.css">
+    <script src="../../assets/js/sweetalert.min.js"></script>
+
+</head>
+
+<body class="login-body">
+<div class="login-container">
+
+    <div class="sign_container">
+        <h1> Hello,there </h1>
+    </div>
+
+</div>
+<div class = "login-text">
+
+    <!-- form for contain inputs and button -->
+ <form id="forms">
+    <input type="text" placeholder="Name" class="input-1" id="name" pattern="^[A-Za-z]+" title="use letters only" required>
+    <input type="email" placeholder="Email" class="input-1" id="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" required >
+    <input type="text" placeholder="Phone number" pattern="(\+91|91)?[6789]\d{9}" class="input-1" id="phone_no"  title="numbers only" required>
+    <input type="password" placeholder="Create Password" class="input-2" id="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"  title="UpperCase, LowerCase, Number/SpecialChar and min 8 Chars" required>
+    <input type="password" placeholder="Confirm Password" class="input-2" id="pass_2" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"  title="UpperCase, LowerCase, Number/SpecialChar and min 8 Chars" required>
+     
+</div>
+<!-- btn for submiting the form  -->
+   <button class="login-but"  type="submit"> <b>SIGN UP</b> </button>
+
+   <p class="signup">Already i have an account<b><a href="login.html">Login</a></b></p>
+   
+</form>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    // submit function for this form
+    const formValue=document.getElementById("forms")
+    formValue.addEventListener('submit',e=>{
+        e.preventDefault();
+        getData();
+
+    });
+
+    //this function for get data from input and store in localstorage
+   function getData() {
+
+    //get values from input
+    const name = document.getElementById("name").value.trim()
+    const num = document.getElementById("phone_no").value.trim()
+    const email = document.getElementById("email").value.trim()
+    const create_password = document.getElementById("password").value.trim()
+    const confirm_password = document.getElementById("pass_2").value.trim()
+
+	function  postData(type,params){
+		const url = "http://localhost:8080/shopnow-web/"+ type + params;
+		console.log(url);
+		axios.post(url, null)
+		  .then(function (response) {
+			  console.log(response,true);
+				return true;
+		  })
+		  .catch(function (error) {
+			  swal("Oops!", "Error in email check!", "error"); 
+		  })
+    }
+    
+	
+    //this statement for check the email is exist or not and password matching
+	const url = "http://localhost:8080/shopnow-web/CheckEmail?email="+email;
+	console.log(url);
+	axios.post(url, null)
+	  .then(function (response) {
+			addUser(response.data);
+	  })
+	  .catch(function (error) {
+		  swal("Oops!", "Error in email check!", "error");			
+	  })
+	
+		function addUser(isChecked){
+		    if(isChecked){
+		        swal("Oops!", "email is invaild!", "error");
+		    }
+		    else if(confirm_password !== create_password){
+		        swal("Oops!", "Your Password is mismatch!", "error");
+		    }
+
+		    else{
+		   	 const params =
+				  "?name=" +
+				   name +
+				  "&phoneNumber=" +
+				  num +
+				  "&email=" +
+				  email +
+				  "&password=" + 
+				  create_password;
+		   	 
+				const url = "http://localhost:8080/shopnow-web/"+ "PostUser" + params;
+				console.log(url);
+				axios.post(url, null)
+				  .then(function (response) {
+				   	 	 if(response.data){
+				   	 		swal("Oops!",(response.data+""), "error");
+					   	 	 }
+					   	 	 else{
+					   	 		 
+					   	 		swal("Yep!", "Account created!", "success");
+					   	 	 	window.location.href = "login.html"
+					   	 }
+				  })
+				  .catch(function (error) {
+					  swal("Oops!", "Error creating account", "error"); 
+				  })
+		    };
+	  }
+
+    }
+      
+   
+</script>
+
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopnow</title>
+  <link rel="icon" type = "image/x-icon" href="../../assets/icon/shopping-bag.png">
+  <link rel="stylesheet" href="../../assets/css/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <!-- toggle bar -->
+    <ul class="menu">
+      <li><a href="./pages/sign-in/login.html">Login</a></li>
+      <li><a href="./pages/Seller/Seller.html">Seller</a></li>
+      <li><a href="./pages/buyer/cart.html">Cart</a></li>
+      <li><a href="./pages/buyer/side flow/pincode.html">Shops</a></li>
+      <li><a href="./pages/sign-in/real-profile.html">Profile</a></li>
+      <li><a href="#">Orders</a></li>
+    </ul>
+    <!-- div:logo  contain:logo img and name -->
+    <div class="logo">
+      <img src="./../../assets/icon/shopping-bag.png" alt="shopping-bag" width="30px" height="30px">
+      <a href="../../index.html">
+        <h5 class="logo-name"><b>Shopnow</b></h5>
+      </a>
+    </div>
+
+    <!-- search bar -->
+
+
+    <!-- header nav links -->
+    <ul class="top-list">
+
+      <li><a aria-label="seller" href="../../pages/Seller/Seller.html">
+          <p class="seller">Seller</p>
+        </a></li>
+      <li><a aria-label="cart" href="../../pages/buyer/cart.html"><i class="home-icon fa fa-shopping-cart"
+            aria-hidden="true"></i></a></li>
+      <li><a aria-label="pincode" href="../../pages/buyer/side flow/pincode.html"><i
+            class="home-icon fa-solid fa-location-dot"></i></a></li>
+      <li><a href="../../pages/buyer/my_orders.html"><i class="home-icon fa-solid fa-bag-shopping"></i></a></li>
+
+    </ul>
+    <i id="bar" class="fa-solid fa-bars"></i>
+  </header>
+  <main id="main">
+    <ul class="navigation">
+      <li id="profile_info"><p>Profile information</p></li>
+      <li id="address"><p id="shop_info">Manage address</p></li>
+    </ul>
+    <div class="shop-container">
+
+      <div class="shop-text-content">
+        <div class="profile">
+          <img src="../../assets/image/Park Hye Min Ulzzang - Pony makeup - Pony Beauty Diary.jpg" alt="" 
+             id="profile_picture">
+          <input type="file" id="file">
+          <label for="file" id="profile_btn"><img src="../../assets/icon/icons8-add-48.png" alt="" srcset=""></label>
+          <p id="profile_name">Stella</p>
+          <div class="profile_info" id="info">
+            <img src="../../assets/icon/icons8-shopping-bag-64.png" alt="shopping_bag" id="data_img_1"> 
+            <p id="data_name_1">Orders</p>
+            <p id="order_count">0</p>
+          </div>
+          <div class="profile_info" id="info">
+            <img src="../../assets/icon/icons8-shopping-cart-64.png" alt="cart_picture" id="data_img_2">
+            <p id="data_name_2">Cart list</p>
+            <p id="cart_count">0</p>
+          </div>
+          <div class="profile_info" id="info">
+            <img src="../../assets/icon/icons8-favorite-64.png" alt="favourite_heart" id="data_img_3">
+            <p id="data_name_3">Favorites</p>
+            <p id="fav_count">0</p>
+          </div>
+        </div>
+        <div class="shop-text-content_1">
+<!-- <form id="forms"> -->
+  <div class="info_container">
+    <h2>Profile</h2>
+  <div class="shop-input">
+    <input type="text" placeholder="Name" id="shop_name" disabled pattern="^[A-Za-z]+" required>
+    <input type="number" placeholder="Contact number" id="number" pattern="[0-9]{10}" disabled required>
+  </div>
+  <div class="shop-input">
+    <input type="email" placeholder="Email" id="email" disabled>
+  </div>
+
+  <div class="shop-detail">
+    <div class="shop-img">
+
+    </div>
+    <!-- <textarea name="" id="area" cols="40" rows="10" placeholder="Type about something you" ></textarea> -->
+  </div>
+  <a><button id="update" class="profile_btn" type="submit">EDIT</button></a>
+  <a><button id="logout" class="profile_btn">LOGOUT</button></a>
+  </div>
+<!-- </form> -->
+        </div>
+        <div class="address_container">
+<h2>Manage Address</h2>
+<button id="add_address"><i class="fa-solid fa-plus"></i><p>Add address</p></button>
+<!-- <div class="address_info">
+  <div id="person_info"><p>Sasikumar</p><p>6374523686</p></div>
+  <div id="location_info"><p id="location">ST Couriers, IT Corridor, Lakshman Nagar, Perungudi, Chennai, Tamil Nadu -</p><p>600096</p></div>
+  <i class="fa-solid fa-ellipsis-vertical"></i>
+  <div id="specs"><p>Edit</p><p>Delete</p></div>
+</div> -->
+<div class="added_address"></div>
+        </div>
+      </div>
+    
+    </div>
+<div class="address_input">
+  <form action="payment.html" id="add_form">
+    <div class="container">
+      <i class="fa-solid fa-xmark"></i>
+<div id="contain">
+  <div class="phone">
+    <img src="../../assets/icon/emergency-call.gif" alt="" width="30px" height="30px">
+    <h3>Contact Details</h3>
+</div>
+<div class="address-1">
+    <div><input type="text" placeholder="Name" id="add_name"  title="use letters only" pattern="^[A-Za-z]+" required></div>
+    <div><input type="text" placeholder="Phone number" id="add_number" pattern="[0-9]{10}" title="use correct format" required></div>
+</div>
+<div class="location">
+    <img src="../../assets/icon/location.gif" alt="" height="40px" width="40px">
+    <h3>Address</h3>
+</div>
+<div class="address-2">
+   <div> <input type="text" placeholder="House no./buling name" id="add_house_no" required></div>
+    <div><input type="text" placeholder="Road name/Area/Colany" id="add_area" required></div>
+   <div> <input type="text" pattern="[0-9]{6}" placeholder="Pincode"  id="add_pincode"  title="Please enter a valid pincode" required></div>
+    <div><input type="text" placeholder="Nearby location" id="add_spd" required></div>
+</div>
+<a><button class="but-1" id="deliver" type="submit"><b>Save</b></button></a>
+<a><button class="but-1" id="edit_save" type="button"><b>Save</b></button></a>
+</div>
+      </div>
+</form>
+   
+</div>
+    
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+        // submit function for this form
+        const formValue=document.getElementById("add_form")
+    formValue.addEventListener('submit',e=>{
+        e.preventDefault();
+        getData();
+    });
+
+    //Getting elements by id
+    const file = document.querySelector('#file')
+    const img = document.querySelector('#profile_picture')
+    const add = document.querySelector('#profile_btn')
+
+
+
+
+
+    //this function for change profile picture
+    file.addEventListener('change', function () {
+      const choosedFile = this.files[0];
+
+      if (choosedFile) {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', function () {
+
+          img.setAttribute('src', reader.result);
+          
+          //TODO: have to set the picture on DB 
+
+
+    if (profile["seller_id"] !== undefined) {
+
+      seller_array.find(function(obj){
+          if (profile["email"] === obj["email"]) {
+            
+            obj["profile_picture"] = reader.result
+            localStorage.setItem("sellers",JSON.stringify(seller_array))
+          }
+      })
+      
+    }
+    else{
+      console.log("why2");
+      user_array.find(function (obj) {
+      if (profile["email"] == obj["email"]) {
+        obj["profile_picture"] = reader.result
+        localStorage.setItem("users",JSON.stringify(user_array))
+      }
+    })
+    }
+
+        });
+
+        reader.readAsDataURL(choosedFile);
+      }
+
+    })
+    //set src to img
+    const pro = JSON.parse(localStorage.getItem("profile"))
+    //img.setAttribute("src",pro["profile_picture"])
+
+
+
+
+
+    add.addEventListener('mouseenter', function () {
+
+      add.style.scale = "0.9";
+    })
+    add.addEventListener('mouseleave', function () {
+
+      add.style.scale = "1";
+
+    })
+
+    
+
+    //for display name
+    const user_name = document.querySelector("#shop_name")
+    const number = document.querySelector("#number")
+    const email = document.getElementById("email")
+
+    //get profile user info from localstorage
+
+    // function update() {
+    //   user_name.removeAttribute("disabled")
+    //   email.removeAttribute("disabled")
+    //   up.innerHTML = "save"
+    // }
+
+    //disable inputs//
+    user_name.setAttribute("disabled", "")
+    number.setAttribute("disabled", "")
+    const up = document.querySelector("#update")
+    //event listener for update
+    up.addEventListener("click", function () {
+
+      if (up.innerHTML == "SAVE") {
+        up.innerHTML = "EDIT"
+
+        //disable inputs
+        user_name.setAttribute("disabled", "")
+        number.setAttribute("disabled", "")
+
+
+      } else {
+        //change btn name
+        up.innerHTML = "SAVE"
+
+        //enable inputs 
+        user_name.removeAttribute("disabled")
+        number.removeAttribute("disabled")
+
+
+      }
+
+      //get value from inputs
+      const user_value = document.querySelector("#shop_name").value.trim()
+      const number_value = document.querySelector("#number").value.trim()
+      const email_value = email.value.trim()
+
+
+      //get user array from localstorage
+      let user_array = JSON.parse(localStorage.getItem("users"))
+      let seller_array =JSON.parse(localStorage.getItem("sellers"))
+
+      //console.log(user_array)
+
+
+// function update() {
+if (profile["seller_id"] !== undefined) {
+             //this function for edit the value in input then update in localstorage
+             seller_array.find(obj => {
+        if (email_value === obj["email"]) {
+
+          //obj["user_name"] = user_value => change the specific obect value from input
+          obj["name"] = user_value
+
+          obj["phone_number"] = number_value;
+          //console.log(obj);
+          // user_array.push(obj)
+          localStorage.setItem("sellers", JSON.stringify(seller_array))
+          localStorage.setItem("profile", JSON.stringify(obj))
+
+         
+        }
+
+      })
+}
+else{
+          //this function for edit the value in input then update in localstorage
+          user_array.find(obj => {
+        if (email_value === obj["email"]) {
+
+          //obj["user_name"] = user_value => change the specific obect value from input
+          obj["name"] = user_value
+
+          obj["phone_number"] = number_value;
+          //console.log(obj);
+          // user_array.push(obj)
+          localStorage.setItem("users", JSON.stringify(user_array))
+          localStorage.setItem("profile", JSON.stringify(obj))
+
+         
+        }
+
+      })
+}
+// }
+    })
+
+
+    let logout = document.getElementById("logout")
+    let profile = JSON.parse(localStorage.getItem("profile"))
+
+    //this logic for logout user
+    logout.addEventListener("click", function () {
+		const url = "http://localhost:8080/shopnow-web/LogoutAccount";
+		axios.get(url)
+		  .then(function (response) {
+			  window.location.href="../../index.html"
+		  })
+		  .catch(function (error) {
+		    // handle error
+		    console.log(error);
+		    alert("error in logging out!");
+		  })
+    })
+
+
+   
+
+
+
+    const cart = JSON.parse(localStorage.getItem("cart"))
+    const order = JSON.parse(localStorage.getItem("orders"))
+    const order_count = document.getElementById("order_count")
+    const profile_obj = JSON.parse(localStorage.getItem("profile"))
+
+if (cart !== null && profile_obj["seller_id"] === undefined) {
+  console.log(cart);
+      //this filter function for showing cart count in profile 
+      const cart_arr = cart.filter(function (obj) {
+
+if (obj["user_id"] === profile_obj["user_id"]) {
+  return true
+}
+else{
+  return false
+}
+})
+
+const cart_count = document.getElementById("cart_count")
+
+cart_count.innerText = cart_arr.length
+}
+
+if (order !== null && profile_obj["seller_id"] === undefined) {
+
+    const order_arr = order.filter(function (obj) {
+
+    if (obj["user_id"] === profile_obj["user_id"] && obj["order"] !== false) {
+        return true
+              }
+        else{
+        return false
+            }
+})
+
+  order_count.innerText = order_arr.length
+}
+
+const profile_verify = JSON.parse(localStorage.getItem("profile"))
+
+if (profile_verify["seller_id"] !== undefined) {
+    document.getElementById("shop_info").innerText = "Shop information"
+    const shop_info = document.getElementById("address")
+
+    shop_info.addEventListener("click",function () {
+      window.location.href = "../seller/shop_profile.html"
+    })
+}
+
+  const profile_info = document.getElementById("profile_info")
+  const address = document.getElementById("address")
+  const profile1 = document.querySelector(".profile")
+  const info_div = document.querySelector(".info_container")
+  const nav = document.querySelector(".navigation")
+  const address_container = document.querySelector(".address_container")
+  const shop_container = document.querySelector(".shop-text-content")
+
+  if (profile_verify["seller_id"] === undefined) {
+  address.addEventListener("click",function() {
+
+    profile1.style.display = "none"
+    info_div.style.display = "none"
+    address_container.style.display = "block"
+    nav.style.margin = "20px"
+    shop_container.style.paddingBottom = "40px"
+
+
+  })
+  profile_info.addEventListener("click",function () {
+    profile1.style.display = "block"
+    info_div.style.display = "block"
+    address_container.style.display = "none"
+    shop_container.style.paddingBottom = "0px"
+  })}
+
+ 
+  //get elments from add address btn
+  const add_address = document.getElementById("add_address")
+  const main = document.getElementById("main")
+  const address_input = document.querySelector(".address_input")
+  const shop = document.querySelector(".shop-container")
+  add_address.addEventListener("click",function () {
+    address_input.style.display = "block"
+    shop.style.filter = `blur(${5}px)`;
+    nav.style.filter = `blur(${5}px)`;
+
+    //for clearing the value from this container
+    name1.value = ""
+    number2.value = ""
+    house_no.value = ""
+    area.value = ""
+    pincode.value = ""
+    spd.value = ""
+    
+  })
+
+  //cross mark addeventlistener for closing the page
+  const cross_mark = document.querySelector(".fa-xmark")
+  cross_mark.addEventListener("click",function () {
+    address_input.style.display = "none"
+    shop.style.filter = `blur(${0}px)`;
+    nav.style.filter = `blur(${0}px)`;
+  })
+
+  //script get data from address input field
+      //get valuse from inputs 
+      const name1 = document.getElementById("add_name")
+      const number2 = document.getElementById("add_number")  
+      const house_no = document.getElementById("add_house_no")
+      const area = document.getElementById("add_area")
+      const pincode = document.getElementById("add_pincode")
+      const spd = document.getElementById("add_spd")
+
+
+
+
+    const deliver = document.getElementById("deliver")
+    //get the profile for put the user id in object
+    const profile2 = JSON.parse(localStorage.getItem("profile"))
+
+
+    function getData(){
+      
+        //creating new array for add address
+        let arr = new Array
+        arr = JSON.parse(localStorage.getItem("address")) ? JSON.parse(localStorage.getItem("address")) : []
+        let uid = Math.floor(Math.random() * 1000)
+
+        //push the values in that object
+        arr.push({
+            "id" : uid,
+            "user_id" : profile2["user_id"],
+            "name" : name1.value.trim(),
+            "phone_number" : number2.value.trim(),
+            "house_number" : house_no.value.trim(),
+            "area" : area.value.trim(),
+            "pincode" : pincode.value.trim(),
+            "landmark" : spd.value.trim()
+        })
+
+        localStorage.setItem("address",JSON.stringify(arr))
+        
+        //this condition for removing containers for showing updated containers
+        document.querySelector(".added_address").innerHTML = " "
+        addAddress();
+
+            //this code for closing the add_address container when your click the save btn
+      address_input.style.display = "none"
+      shop.style.filter = `blur(${0}px)`;
+      nav.style.filter = `blur(${0}px)`;
+      }
+
+
+
+// if (profile["seller_id"] === undefined) {
+  addAddress();
+function addAddress(params) {
+   //get array from localstorage for creating elements
+   const add_array = JSON.parse(localStorage.getItem("address"))
+
+   //filtering specfic users address from address array
+   const add_arr = add_array.filter(function (obj) {
+      if (obj["user_id"] == profile2["user_id"]) {
+        return true
+      }  
+      else{
+        return false
+      }
+ })
+
+for(let i = 0; i < add_arr.length;i++){
+  //create elements for adding address
+// <div class="address_info">
+const main_div = document.createElement("div")
+main_div.setAttribute("class","address_info")
+
+// <div id="person_info">
+const div_1 = document.createElement("div")
+div_1.setAttribute("id","person_info")
+main_div.append(div_1)
+
+// <p>Sasikumar</p>
+const p_name = document.createElement("p")
+p_name.innerText = add_arr[i]["name"]
+div_1.append(p_name)
+
+// <p>6374523686</p>
+const p_num = document.createElement("p")
+p_num.innerText = add_arr[i]["phone_number"]
+div_1.append(p_num)
+
+// <div id="location_info">
+const div_2 = document.createElement("div")
+div_2.setAttribute("id","location_info")
+main_div.append(div_2)
+
+// <p id="location">ST Couriers, IT Corridor, Lakshman Nagar, Perungudi, Chennai, Tamil Nadu -</p>
+const p_address = document.createElement("p")
+p_address.setAttribute("id","location")
+p_address.innerText = add_arr[i]["house_number"]+", "+add_arr[i]["area"]+", "+add_arr[i]["landmark"]+" -"
+div_2.append(p_address)
+
+// <p>600096</p>
+const p_pincode = document.createElement("p")
+p_pincode.innerText = add_arr[i]["pincode"]
+div_2.append(p_pincode)
+
+//   <i class="fa-solid fa-ellipsis-vertical"></i>
+const icon = document.createElement("i")
+icon.setAttribute("class","fa-solid fa-ellipsis-vertical")
+main_div.append(icon)
+
+// <div id="specs">
+const div_3 = document.createElement("div")
+div_3.setAttribute("id","specs")
+main_div.append(div_3)
+
+// <p>Edit</p>
+const p_edit = document.createElement("p")
+p_edit.innerText = "Edit"
+p_edit.setAttribute("data-keyword",add_arr[i]["id"])
+div_3.append(p_edit)
+
+// <p>Delete</p>
+const p_delete = document.createElement("p")
+p_delete.innerText = "Delete"
+div_3.append(p_delete)
+
+document.querySelector(".added_address").append(main_div)
+
+  //this event for showing the edit and delete option in three dots
+  //if mouseenter it's option showing
+  icon.addEventListener("mouseenter",function () {
+    div_3.style.display = "block"  
+  })
+  //this event for after leave specs div its hide 
+  div_3.addEventListener("mouseleave",function () {
+    div_3.style.display = "none"  
+  })
+
+  //this lines for editing the specific address
+  p_edit.addEventListener("click",function () {
+    
+    //get specific id from address
+    const data = p_edit.dataset.keyword
+    //get address_array from localstorage
+    const add_arr = JSON.parse(localStorage.getItem("address"))
+    //filtering the address_array 
+    const arr_obj = add_arr.find(function (obj) {
+      
+      if (data === obj["id"]+"") {
+        return true
+      }
+      else{
+        return false
+      }
+    })
+    
+    //showing address container for editing
+    address_input.style.display = "block"
+    shop.style.filter = `blur(${5}px)`;
+    nav.style.filter = `blur(${5}px)`;
+
+    name1.value = arr_obj["name"]
+    number2.value = arr_obj["phone_number"]
+    house_no.value = arr_obj["house_number"]
+    area.value = arr_obj["area"]
+    pincode.value = arr_obj["pincode"]
+    spd.value = arr_obj["landmark"]
+
+    const save_btn = document.getElementById("deliver")
+    save_btn.style.display = "none"
+    const edit_save_btn = document.getElementById("edit_save")
+    edit_save_btn.style.display = "block"
+    
+    edit_save_btn.addEventListener("click",function (obj) {
+      
+      const add_arr = JSON.parse(localStorage.getItem("address"))
+      //set container values in array
+  
+
+      add_arr.find(function (obj) {
+        if (arr_obj["id"] === obj["id"]) {
+      obj["name"] = name1.value.trim()
+      obj["phone_number"] = number2.value.trim()
+      obj["house_number"] = house_no.value.trim()
+      obj["area"] = area.value.trim()
+      obj["pincode"] = pincode.value.trim()
+      obj["landmark"] = spd.value.trim()
+
+      localStorage.setItem("address",JSON.stringify(add_arr))
+        }
+        else{
+          return false
+        }
+
+        //this condition for removing containers for showing updated containers
+        document.querySelector(".added_address").innerHTML = " "
+        addAddress();
+
+      //this code for closing the add_address container when your click the save btn
+      address_input.style.display = "none"
+      shop.style.filter = `blur(${0}px)`;
+      nav.style.filter = `blur(${0}px)`;
+        
+      })
+    })
+    
+    
+  })
+//this lines for deleting address n from array and elements
+p_delete.addEventListener("click",function () {
+  main_div.remove();
+      //get specific id from address
+      const data = p_edit.dataset.keyword
+    //get address_array from localstorage
+    const add_arr = JSON.parse(localStorage.getItem("address"))
+    //filtering the address_array 
+    const arr_obj = add_arr.filter(function (obj) {
+      
+      if (data === obj["id"]+"") {
+        return false
+      }
+      else{
+        return true
+      }
+    })
+    localStorage.setItem("address",JSON.stringify(arr_obj))
+
+  
+})
+
+}
+}
+// }
+
+if (profile_verify["seller_id"] !== undefined) {
+  // const data_img_1 = document.getElementById("data_img_1")
+  // const data_img_2 = document.getElementById("data_img_2")
+  // const data_img_3 = document.getElementById("data_img_3")
+  // const data_name_1 = document.getElementById("data_name_1")
+  // const data_name_2 = document.getElementById("data_name_2")
+  // const data_name_3 = document.getElementById("data_name_3")
+  // const order_count = document.getElementById("order_count")
+  // const cart_count = document.getElementById("cart_count")
+  // const fav_count = document.getElementById("fav_count")
+
+  //changing calculated data bar into user to seller
+  const data_bar = document.querySelectorAll(".profile_info")
+  const profile_container = document.querySelector(".profile")
+  
+ 
+  let data_bar_arr = [
+  {
+    "name" : "Products",
+    "img" : "../../assets/icon/icons8-mobile-order-64.png",
+  },
+  {
+    "name" : "Requests",
+    "img" : "../../assets/icon/icons8-package-48.png"
+  },
+  {
+    "name" : "Deliveries",
+    "img" : "../../assets/icon/icons8-delivered-48.png"
+  }
+]
+
+  let data_bar_containers = `<img src="../../assets/image/Park Hye Min Ulzzang - Pony makeup - Pony Beauty Diary.jpg" alt="" id="profile_picture">
+          <input type="file" id="file">
+          <label for="file" id="profile_btn"><img src="../../assets/icon/icons8-add-48.png" alt="" srcset=""></label>
+          <p id="profile_name">Stella</p>`
+  for(let i = 0; i < data_bar_arr.length;i++){
+    //remove user calculate bar
+      data_bar[i].remove();
+
+    data_bar_containers += ` <div class="profile_info" id="info">
+            <img src="${data_bar_arr[i]["img"]}" alt="shopping_bag" id="data_img_1"> 
+            <p id="data_name_1">${data_bar_arr[i]["name"]}</p>
+            <p class="count">0</p>
+          </div>` 
+  }
+  
+  profile_container.innerHTML = data_bar_containers
+
+  //show product count in page
+  let product_arr = JSON.parse(localStorage.getItem("products"))
+  //get count elements from class
+  let count = document.querySelectorAll(".count")
+  
+  let products_count = 0;
+  let request_count = 0;
+  let delivery_count = 0;
+  //filter products with seller id 
+  product_arr.filter(function (obj) {
+    
+    if (profile_verify["seller_id"] === obj["seller_id"]) {
+      
+       products_count = products_count + 1
+    }
+  })
+
+  //set the total products count in product_count
+  count[0].innerText = products_count
+
+
+  //show request and order count in page
+  let order_arr = JSON.parse(localStorage.getItem("orders"))
+
+  order_arr.filter(function (obj) {
+    console.log(profile_verify["shop_id"],obj["shop_id"]);
+    if (profile_verify["shop_id"]+"" === obj["shop_id"] && obj["order_staus"] !== "delivered") {
+      request_count = request_count + 1
+    }
+    if (profile_verify["shop_id"]+"" === obj["shop_id"] && obj["order_staus"] === "delivered"){
+      delivery_count = delivery_count + 1
+    }
+  })
+
+  count[1].innerText = request_count
+  count[2].innerText = delivery_count
+
+}
+    //for changing the name innerhtml
+    const pro_name = document.getElementById("profile_name")
+    pro_name.innerHTML = profile["name"]
+
+  </script>
+</body>
+
+</html>
+
